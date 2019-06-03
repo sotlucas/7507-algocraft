@@ -4,4 +4,5 @@
 
 Trabajo Práctico de Algoritmos y Programación III (FIUBA)
 
-Informe: https://docs.google.com/document/d/1GzRk3O-K1UawqNsxTN4XRJ8jLU3J2yi1QrUueyXIjcg/edit?usp=sharing
+Consigna: https://docs.google.com/document/d/1uT1NYcKcZytVY5hD31TXFGuXLqgSXLUc488Tv7DOxIw/edit
+Informe: https://docs.google.com/document/d/1GzRk3O-K1UawqNsxTN4XRJ8jLU3J2yi1QrUueyXIjcg/edit
