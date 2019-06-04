@@ -11,7 +11,7 @@ public class PicoFinoTest {
         Piedra piedra = new Piedra();
         PicoFino picoFinoDePiedra = new PicoFino(piedra);
 
-        assertEquals(1000, picoFinoDePiedra.getDurabilidad());
+        assertEquals(1000, picoFinoDePiedra.getDurabilidad(), 0);
 
     }
 
@@ -30,7 +30,7 @@ public class PicoFinoTest {
 
         PicoFino picoFinoDeMetal = new PicoFino(metal);
 
-        assertEquals(1000, picoFinoDeMetal.getDurabilidad());
+        assertEquals(1000, picoFinoDeMetal.getDurabilidad(), 0);
 
     }
 

@@ -2,11 +2,20 @@ package fiuba.algo3.modelo;
 
 public abstract class Herramienta {
 
-    public int durabilidad;
-    public int fuerza;
-    public MaterialHerramienta material;
+    protected double durabilidad;
+    protected int fuerza;
+    protected MaterialHerramienta material;
 
-    public abstract int getFuerza();
-    public abstract int getDurabilidad();
-    public abstract MaterialHerramienta getMaterial();
+    //public abstract void usarEn(Bloque bloqueMaterial);
+
+    public int getFuerza(){
+        return fuerza;
+    }
+
+    public double getDurabilidad(){
+        return durabilidad;
+    }
+    public MaterialHerramienta getMaterial(){
+        return material;
+    }
 }

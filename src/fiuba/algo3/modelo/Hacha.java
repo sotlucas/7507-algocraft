@@ -24,16 +24,6 @@ public class Hacha extends Herramienta{
         //bloqueMaterial.recibirImpacto(this);
         //material.desgastarse(this);
         this.durabilidad -= this.fuerza;
-
     }
 
-    public int getDurabilidad() {
-        return this.durabilidad;
-    }
-
-    public int getFuerza() {
-        return this.fuerza;
-    }
-
-    public MaterialHerramienta getMaterial() { return this.material; }
 }

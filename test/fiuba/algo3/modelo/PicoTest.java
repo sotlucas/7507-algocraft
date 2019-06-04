@@ -10,7 +10,7 @@ public class PicoTest {
         Madera madera = new Madera();
         Pico picoDeMadera = new Pico(madera);
 
-        assertEquals(100, picoDeMadera.getDurabilidad());
+        assertEquals(100, picoDeMadera.getDurabilidad(), 0);
     }
 
     @Test
@@ -26,7 +26,7 @@ public class PicoTest {
         Piedra piedra = new Piedra();
         Pico picoDePiedra = new Pico(piedra);
 
-        assertEquals(200, picoDePiedra.getDurabilidad());
+        assertEquals(200, picoDePiedra.getDurabilidad(), 0);
     }
 
     @Test
@@ -42,7 +42,7 @@ public class PicoTest {
         Metal metal = new Metal();
         Pico picoDeMetal = new Pico(metal);
 
-        assertEquals(400, picoDeMetal.getDurabilidad());
+        assertEquals(400, picoDeMetal.getDurabilidad(), 0);
     }
 
     @Test

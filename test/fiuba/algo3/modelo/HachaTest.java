@@ -26,7 +26,7 @@ import org.junit.Test;
             Madera madera = new Madera();
             Hacha hachaDeMadera = new Hacha(madera);
 
-            Assert.assertEquals(100, hachaDeMadera.getDurabilidad());
+            Assert.assertEquals(100.0, hachaDeMadera.getDurabilidad(), 0);
         }
 
         @Test
@@ -34,7 +34,7 @@ import org.junit.Test;
             Madera madera = new Madera();
             Hacha hachaDeMadera = new Hacha(madera);
 
-            Assert.assertEquals(100, hachaDeMadera.getDurabilidad());
+            Assert.assertEquals(2, hachaDeMadera.getFuerza(), 0);
         }
 
         @Test
@@ -42,7 +42,7 @@ import org.junit.Test;
             Piedra piedra = new Piedra();
             Hacha hachaDePiedra = new Hacha(piedra);
 
-            Assert.assertEquals(200, hachaDePiedra.getDurabilidad());
+            Assert.assertEquals(200.0, hachaDePiedra.getDurabilidad(), 0);
         }
 
         @Test
@@ -60,7 +60,7 @@ import org.junit.Test;
             Metal metal = new Metal();
             Hacha hachaDeMetal = new Hacha(metal);
 
-            Assert.assertEquals(400, hachaDeMetal.getDurabilidad());
+            Assert.assertEquals(400.0, hachaDeMetal.getDurabilidad(), 0);
         }
 
         @Test
@@ -83,13 +83,13 @@ import org.junit.Test;
             BloqueMetal bloqueMetal = new BloqueMetal();
 
             hachaDeMadera.usarEn(bloqueMadera);
-            Assert.assertEquals(98, hachaDeMadera.getDurabilidad());
+            Assert.assertEquals(98.0, hachaDeMadera.getDurabilidad(), 0);
 
             hachaDeMadera.usarEn(bloquePiedra);
-            Assert.assertEquals(96, hachaDeMadera.getDurabilidad());
+            Assert.assertEquals(96.0, hachaDeMadera.getDurabilidad(), 0);
 
             hachaDeMadera.usarEn(bloqueMetal);
-            Assert.assertEquals(94, hachaDeMadera.getDurabilidad());
+            Assert.assertEquals(94.0, hachaDeMadera.getDurabilidad(), 0);
         }
 
 /*

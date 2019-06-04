@@ -20,13 +20,4 @@ public class Pico extends Herramienta {
         this.material = metal;
     }
 
-    public int getDurabilidad() {
-        return this.durabilidad;
-    }
-
-    public int getFuerza() {
-        return this.fuerza;
-    }
-
-    public MaterialHerramienta getMaterial() { return this.material; }
 }

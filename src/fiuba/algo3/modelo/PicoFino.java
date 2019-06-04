@@ -14,7 +14,7 @@ public class PicoFino extends Herramienta {
         this.material = metal;
     }
 
-    public int getDurabilidad() {
+    public double getDurabilidad() {
         return this.durabilidad;
     }
 
