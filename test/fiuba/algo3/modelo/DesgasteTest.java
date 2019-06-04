@@ -19,7 +19,7 @@ public class DesgasteTest {
         int fuerzaHerramienta = 2;
         Desgaste tipoDeDesgaste = new Desgaste(durabilidadInicialHerramienta, fuerzaHerramienta);
 
-        Assert.assertEquals(98, tipoDeDesgaste.desgastar());
+        Assert.assertEquals(98, tipoDeDesgaste.desgastar(), 0);
     }
 
     @Test
@@ -30,6 +30,6 @@ public class DesgasteTest {
         int factor = 2;
         Desgaste tipoDeDesgaste = new Desgaste(durabilidadInicialHerramienta, fuerzaHerramienta, factor);
 
-        Assert.assertEquals(99, tipoDeDesgaste.desgastar());
+        Assert.assertEquals(99, tipoDeDesgaste.desgastar(), 0);
     }
 }

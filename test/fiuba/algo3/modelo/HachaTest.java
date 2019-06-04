@@ -92,6 +92,45 @@ import org.junit.Test;
             Assert.assertEquals(94.0, hachaDeMadera.getDurabilidad(), 0);
         }
 
+        @Test
+        public void test09HachaDePiedraSeUsaContraCadaUnoDeLosBloquesYSeReduceSuDurabilidadEn2() {
+
+            Piedra piedra = new Piedra();
+            Hacha hachaDePiedra = new Hacha(piedra);
+
+            BloqueMadera bloqueMadera = new BloqueMadera();
+            BloquePiedra bloquePiedra = new BloquePiedra();
+            BloqueMetal bloqueMetal = new BloqueMetal();
+
+            hachaDePiedra.usarEn(bloqueMadera);
+            Assert.assertEquals(195.0, hachaDePiedra.getDurabilidad(), 0);
+
+            hachaDePiedra.usarEn(bloquePiedra);
+            Assert.assertEquals(190.0, hachaDePiedra.getDurabilidad(), 0);
+
+            hachaDePiedra.usarEn(bloqueMetal);
+            Assert.assertEquals(185.0, hachaDePiedra.getDurabilidad(), 0);
+        }
+
+        @Test
+        public void test10HachaDeMetalSeUsaContraCadaUnoDeLosBloquesYSeReduceSuDurabilidad() {
+
+            Metal metal = new Metal();
+            Hacha hachaDeMetal = new Hacha(metal);
+
+            BloqueMadera bloqueMadera = new BloqueMadera();
+            BloquePiedra bloquePiedra = new BloquePiedra();
+            BloqueMetal bloqueMetal = new BloqueMetal();
+
+            hachaDeMetal.usarEn(bloqueMadera);
+            Assert.assertEquals(395.0, hachaDeMetal.getDurabilidad(), 0);
+
+            hachaDeMetal.usarEn(bloquePiedra);
+            Assert.assertEquals(390.0, hachaDeMetal.getDurabilidad(), 0);
+
+            hachaDeMetal.usarEn(bloqueMetal);
+            Assert.assertEquals(385.0, hachaDeMetal.getDurabilidad(), 0);
+        }
 /*
         @Test
         public void SeCreaHachaDePiedraConSuDurabilidadYFuerzaCorrespondiente(){
