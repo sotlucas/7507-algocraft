@@ -79,22 +79,19 @@ import org.junit.Test;
             Hacha hachaDeMadera = new Hacha(madera);
 
             BloqueMadera bloqueMadera = new BloqueMadera();
+            BloquePiedra bloquePiedra = new BloquePiedra();
+            BloqueMetal bloqueMetal = new BloqueMetal();
 
             hachaDeMadera.usarEn(bloqueMadera);
             Assert.assertEquals(98, hachaDeMadera.getDurabilidad());
 
-            hachaDeMadera.usarEn(bloqueMadera);
+            hachaDeMadera.usarEn(bloquePiedra);
             Assert.assertEquals(96, hachaDeMadera.getDurabilidad());
 
-            hachaDeMadera.usarEn(bloqueMadera);
+            hachaDeMadera.usarEn(bloqueMetal);
             Assert.assertEquals(94, hachaDeMadera.getDurabilidad());
         }
 
-        @Test
-        public void test09HachaDeMaderaSeUsaContraBloqueDeMaderaYSeReduceSuDurabilidadEn(){
-
-
-         }
 /*
         @Test
         public void SeCreaHachaDePiedraConSuDurabilidadYFuerzaCorrespondiente(){

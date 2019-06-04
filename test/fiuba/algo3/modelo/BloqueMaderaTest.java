@@ -6,7 +6,6 @@ import org.junit.Test;
 
 public class BloqueMaderaTest {
 
-
     @Test //obligatoria
     public void bloqueDeMaderaEsGolpeadoConHachaDeMaderaYSeVerificaQueSeReduceSuDurabilidad(){
         Madera madera = new Madera();
