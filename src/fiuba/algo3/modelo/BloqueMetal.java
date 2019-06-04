@@ -1,6 +1,6 @@
 package fiuba.algo3.modelo;
 
-public class BloqueMetal extends MaterialBloque {
+public class BloqueMetal extends Bloque {
 
     public BloqueMetal() {
         this.durabilidad = 50;
