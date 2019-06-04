@@ -1,6 +1,6 @@
 package fiuba.algo3.ejemplo1;
 
-public class Madera {
+public class Madera extends MaterialHerramienta {
     public void Madera() {
 
     }

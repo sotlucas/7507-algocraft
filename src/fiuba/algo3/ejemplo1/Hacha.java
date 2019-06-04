@@ -1,8 +1,6 @@
 package fiuba.algo3.ejemplo1;
 
-public class Hacha {
-    private int durabilidad;
-    private int fuerza;
+public class Hacha extends Herramienta{
 
     public Hacha (Madera madera) {
         this.durabilidad = 100;
@@ -16,4 +14,6 @@ public class Hacha {
     public int getFuerza() {
         return this.fuerza;
     }
+
+    public MaterialHerramienta getMaterial() { return this.material; }
 }
