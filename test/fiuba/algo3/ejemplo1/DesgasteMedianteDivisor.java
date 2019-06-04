@@ -5,8 +5,10 @@ import org.junit.Test;
 
 public class DesgasteMedianteDivisor {
 
+    /*
     @Test
     public void constructorEsInstanciadoCorrectamente(){
 
     }
+    */
 }

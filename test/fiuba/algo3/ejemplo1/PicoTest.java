@@ -66,7 +66,7 @@ public class PicoTest {
         Assert.assertEquals(98, hachaMadera.getDurabilidad(), 0);
 
     }
-/*
+
     @Test
     public void hachaDePiedraSeUsaContraBloqueDeMaderaYSeReduceSuDurabilidadCorrespondienteAlMaterialDelHacha(){
 

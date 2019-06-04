@@ -5,6 +5,7 @@ import org.junit.Test;
 
 public class PicoFinoTest {
 
+    /*
     @Test //obligatoria
     public void seCreaPicoFinoConSuDurabilidadYFuerzaCorrespondiente(){
 
@@ -19,4 +20,5 @@ public class PicoFinoTest {
     public void picoFinoSeUsaContraLosBloquesDeOtrosMaterialesYNoSeReducenSusDurabilidades(){
 
     }
+     */
 }

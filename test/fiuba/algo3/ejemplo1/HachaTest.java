@@ -8,9 +8,13 @@ import org.junit.Test;
 
         @Test  //obligatoria
         public void SeCreaHachaDeMaderaConSuDurabilidadYFuerzaCorrespondiente(){
+            Madera madera = new Madera();
+            Hacha hachaDeMadera = new Hacha(madera);
 
+            Assert.assertEquals(100, hachaDeMadera.getDurabilidad());
         }
 
+        /*
         @Test
         public void SeCreaHachaDePiedraConSuDurabilidadYFuerzaCorrespondiente(){
 
@@ -33,7 +37,7 @@ import org.junit.Test;
 
 
         }
-/*
+
     @Test
     public void hachaDePiedraSeUsaContraBloqueDeMaderaYSeReduceSuDurabilidadCorrespondienteAlMaterialDelHacha(){
 
