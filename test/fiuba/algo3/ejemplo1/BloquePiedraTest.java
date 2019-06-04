@@ -10,4 +10,10 @@ public class BloquePiedraTest {
     public void bloqueDePiedraEsGolpeadoConHachasDeDistintosMaterialesYSeVerificaQueNoSeReduceSuDurabilidad(){
 
     }
+
+    @Test
+    public void bloqueDePiedraSeInicializaConDurabilidad30(){
+        Piedra bloque = new Piedra();
+        Assert.assertEquals(30, bloque.getDurabilidad());
+    }
 }
