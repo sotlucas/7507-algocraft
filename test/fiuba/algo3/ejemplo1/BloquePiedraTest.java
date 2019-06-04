@@ -6,10 +6,12 @@ import org.junit.Test;
 
 public class BloquePiedraTest {
 
+    /*
     @Test //obligatoria
     public void bloqueDePiedraEsGolpeadoConHachasDeDistintosMaterialesYSeVerificaQueNoSeReduceSuDurabilidad(){
 
     }
+     */
 
     @Test
     public void bloqueDePiedraSeInicializaConDurabilidad30(){

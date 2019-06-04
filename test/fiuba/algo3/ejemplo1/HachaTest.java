@@ -14,6 +14,7 @@ import org.junit.Test;
             Assert.assertEquals(100, hachaDeMadera.getDurabilidad());
         }
 
+        /*
         @Test
         public void SeCreaHachaDePiedraConSuDurabilidadYFuerzaCorrespondiente(){
 
@@ -36,7 +37,7 @@ import org.junit.Test;
 
 
         }
-/*
+
     @Test
     public void hachaDePiedraSeUsaContraBloqueDeMaderaYSeReduceSuDurabilidadCorrespondienteAlMaterialDelHacha(){
 
