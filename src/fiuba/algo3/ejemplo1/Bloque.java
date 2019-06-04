@@ -1,16 +1,8 @@
 package fiuba.algo3.ejemplo1;
 
-public class Bloque {
-    int durabilidad;
-}
+public abstract class Bloque {
+    public int durabilidad;
 
-class Piedra extends Bloque {
-
-    public Piedra() {
-        this.durabilidad = 30;
-    }
-
-    public int getDurabilidad() {
-        return this.durabilidad;
-    }
+    public abstract Bloque recibirDanio(Herramienta herramienta);
+    public Bloque recibirDanio(Herramienta herramienta);
 }

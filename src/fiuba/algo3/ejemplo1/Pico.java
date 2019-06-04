@@ -1,8 +1,6 @@
 package fiuba.algo3.ejemplo1;
 
-public class Pico {
-    private int durabilidad;
-    private int fuerza;
+public class Pico extends Herramienta {
 
     public Pico (Madera madera) {
         this.durabilidad = 100;
