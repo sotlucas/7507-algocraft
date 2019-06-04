@@ -1,6 +1,6 @@
 package fiuba.algo3.modelo;
 
-public class Piedra {
+public class Piedra extends MaterialHerramienta{
     public Piedra() {
 
     }

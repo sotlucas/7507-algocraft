@@ -1,4 +1,4 @@
-package fiuba.algo3.ejemplo1;
+package fiuba.algo3.modelo;
 
 public class BloqueMadera extends MaterialBloque {
     public BloqueMadera() {
