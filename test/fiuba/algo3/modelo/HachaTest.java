@@ -6,7 +6,7 @@ import org.junit.Test;
     public class HachaTest {
 
         @Test
-        public void test01losConstructoresDelHachaDevuelvenAlgoDistintoDeNull(){
+        public void test01losConstructoresDelHachaDevuelvenAlgoDistintoDeNull() {
 
             Madera madera = new Madera();
             Piedra piedra = new Piedra();
@@ -22,7 +22,7 @@ import org.junit.Test;
         }
 
         @Test
-        public void test02HachaDeMaderaRecienCreadaTieneDurabilidad100(){
+        public void test02HachaDeMaderaRecienCreadaTieneDurabilidad100() {
             Madera madera = new Madera();
             Hacha hachaDeMadera = new Hacha(madera);
 
@@ -30,7 +30,7 @@ import org.junit.Test;
         }
 
         @Test
-        public void test03HachaDeMaderaRecienCreadaTieneFuerza2(){
+        public void test03HachaDeMaderaRecienCreadaTieneFuerza2() {
             Madera madera = new Madera();
             Hacha hachaDeMadera = new Hacha(madera);
 
@@ -38,7 +38,7 @@ import org.junit.Test;
         }
 
         @Test
-        public void test02HachaDePiedrRecienCreadaTieneDurabilidad100(){
+        public void test04HachaDePiedraRecienCreadaTieneDurabilidad100() {
             Piedra piedra = new Piedra();
             Hacha hachaDePiedra = new Hacha(piedra);
 
@@ -46,13 +46,55 @@ import org.junit.Test;
         }
 
         @Test
-        public void test03HachaDePiedraRecienCreadaTieneFuerza2(){
+        public void test05HachaDePiedraRecienCreadaTieneFuerza2() {
 
             Piedra piedra = new Piedra();
             Hacha hachaDePiedra = new Hacha(piedra);
 
             Assert.assertEquals(5, hachaDePiedra.getFuerza());
         }
+
+        @Test
+        public void test06HachaDeMetalRecienCreadaTieneDurabilidad400() {
+
+            Metal metal = new Metal();
+            Hacha hachaDeMetal = new Hacha(metal);
+
+            Assert.assertEquals(400, hachaDeMetal.getDurabilidad());
+        }
+
+        @Test
+        public void test07HachaDeMetalRecienCreadaTieneFuerza10() {
+
+            Metal metal = new Metal();
+            Hacha hachaDeMetal = new Hacha(metal);
+
+            Assert.assertEquals(10, hachaDeMetal.getFuerza());
+        }
+
+        @Test
+        public void test08HachaDeMaderaSeUsaContraCadaUnoDeLosBloquesYSeReduceSuDurabilidadEn2() {
+
+            Madera madera = new Madera();
+            Hacha hachaDeMadera = new Hacha(madera);
+
+            BloqueMadera bloqueMadera = new BloqueMadera();
+
+            hachaDeMadera.usarEn(bloqueMadera);
+            Assert.assertEquals(98, hachaDeMadera.getDurabilidad());
+
+            hachaDeMadera.usarEn(bloqueMadera);
+            Assert.assertEquals(96, hachaDeMadera.getDurabilidad());
+
+            hachaDeMadera.usarEn(bloqueMadera);
+            Assert.assertEquals(94, hachaDeMadera.getDurabilidad());
+        }
+
+        @Test
+        public void test09HachaDeMaderaSeUsaContraBloqueDeMaderaYSeReduceSuDurabilidadEn(){
+
+
+         }
 /*
         @Test
         public void SeCreaHachaDePiedraConSuDurabilidadYFuerzaCorrespondiente(){

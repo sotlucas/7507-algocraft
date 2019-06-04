@@ -15,6 +15,16 @@ public class Hacha extends Herramienta{
 
     public Hacha(Metal metal){
 
+        this.durabilidad = 400;
+        this.fuerza = 10;
+    }
+
+    public void usarEn(Bloque bloqueMaterial){
+
+        //bloqueMaterial.recibirImpacto(this);
+        //material.desgastarse(this);
+        this.durabilidad -= this.fuerza;
+
     }
 
     public int getDurabilidad() {
