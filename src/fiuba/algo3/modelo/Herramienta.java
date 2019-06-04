@@ -1,8 +1,8 @@
 package fiuba.algo3.modelo;
 
 public abstract class Herramienta {
-    public int durabilidad;
-    public int fuerza;
+    protected int durabilidad;
+    protected int fuerza;
 
     public abstract int getFuerza();
     public abstract int getDurabilidad();

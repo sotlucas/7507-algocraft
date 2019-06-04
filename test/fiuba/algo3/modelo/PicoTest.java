@@ -1,6 +1,6 @@
 package fiuba.algo3.modelo;
 
-import org.junit.Assert;
+import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 public class PicoTest {
@@ -11,7 +11,47 @@ public class PicoTest {
         Madera madera = new Madera();
         Pico picoDeMadera = new Pico(madera);
 
-        Assert.assertEquals(100, picoDeMadera.getDurabilidad());
+        assertEquals(100, picoDeMadera.getDurabilidad());
+    }
+
+    @Test
+    public void test02PicoDeMaderaRecienCreadoTieneFuerza2 () {
+        Madera madera = new Madera();
+        Pico picoDeMadera = new Pico(madera);
+
+        assertEquals(2, picoDeMadera.getFuerza());
+    }
+
+    @Test
+    public void test03PicoDePiedraRecienCreadoTieneDurabilidad200 () {
+        Piedra piedra = new Piedra();
+        Pico picoDePiedra = new Pico(piedra);
+
+        assertEquals(200, picoDePiedra.getDurabilidad());
+    }
+
+    @Test
+    public void test04PicoDePiedraRecienCreadoTieneFuerza4 () {
+        Piedra piedra = new Piedra();
+        Pico picoDePiedra = new Pico(piedra);
+
+        assertEquals(4, picoDePiedra.getFuerza());
+    }
+
+    @Test
+    public void test05PicoDeMetalRecienCreadoTieneDurabilidad400 () {
+        Metal metal = new Metal();
+        Pico picoDeMetal = new Pico(metal);
+
+        assertEquals(400, picoDeMetal.getDurabilidad());
+    }
+
+    @Test
+    public void test06PicoDeMetalRecienCreadoTieneFuerza12 () {
+        Metal metal = new Metal();
+        Pico picoDeMetal = new Pico(metal);
+
+        assertEquals(12, picoDeMetal.getFuerza());
     }
 
     /*
