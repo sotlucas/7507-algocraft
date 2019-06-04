@@ -1,10 +1,8 @@
-package fiuba.algo3.ejemplo1;
+package fiuba.algo3.modelo;
 
-public class Hacha {
-    private int durabilidad;
-    private int fuerza;
+public class Pico extends Herramienta {
 
-    public Hacha (Madera madera) {
+    public Pico (Madera madera) {
         this.durabilidad = 100;
         this.fuerza = 2;
     }
