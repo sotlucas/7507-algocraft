@@ -6,14 +6,20 @@ import org.junit.Test;
 public class PicoTest {
 
 
-    @Test //obligatoria
-    public void SeCreaPicoDeMaderaConSuDurabilidadYFuerzaCorrespondiente(){
+    @Test
+    public void test01PicoDeMaderaRecienCreadoTieneDurabilidad100() {
+        Madera madera = new Madera();
+        Pico picoDeMadera = new Pico(madera);
 
+        Assert.assertEquals(100, picoDeMadera.getDurabilidad());
     }
 
-    @Test //obligatoria
-    public void SeCreaPicoDeMetalConSuDurabilidadYFuerzaCorrespondiente(){
+    /*
+    @Test
+    public void test02PicoDeMaderaRecienCreadoTieneFuerza2 () {
+        Pico hacha = new PicoDeMadera();
 
+        assertEquals(2, pico.fuerza());
     }
 
     @Test
@@ -21,7 +27,7 @@ public class PicoTest {
 
     }
 
-/*
+
     @Test
     public void SeCreaHachaDeMetalConSuDurabilidadYFuerzaCorrespondiente(){
 
