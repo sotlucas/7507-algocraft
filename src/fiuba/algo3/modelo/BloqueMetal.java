@@ -12,7 +12,7 @@ public class BloqueMetal extends Bloque {
 
     public void recibirDanio(Pico pico) {
         this.durabilidad -= 0;
-    }
+    } //deberia reducirse si es un pico de piedra
 
     public void recibirDanio(Hacha hacha) {
         this.durabilidad -= 0;
