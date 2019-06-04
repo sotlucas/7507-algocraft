@@ -13,8 +13,6 @@ public class BloquePiedraTest {
 
         BloquePiedra bloque = new BloquePiedra();
 
-        Assert.assertEquals(30, bloque.getDurabilidad());
-
         bloque.recibirDanio(picoDeMadera);
 
         Assert.assertEquals(28, bloque.getDurabilidad());
@@ -27,8 +25,6 @@ public class BloquePiedraTest {
 
         BloquePiedra bloque = new BloquePiedra();
 
-        Assert.assertEquals(30, bloque.getDurabilidad());
-
         bloque.recibirDanio(hachaDeMadera);
 
         Assert.assertEquals(30, bloque.getDurabilidad());
@@ -37,6 +33,7 @@ public class BloquePiedraTest {
     @Test
     public void bloqueDePiedraSeInicializaConDurabilidad30(){
         BloquePiedra bloque = new BloquePiedra();
+
         Assert.assertEquals(30, bloque.getDurabilidad());
     }
 }

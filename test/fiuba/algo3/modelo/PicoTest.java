@@ -5,7 +5,6 @@ import org.junit.Test;
 
 public class PicoTest {
 
-
     @Test
     public void test01PicoDeMaderaRecienCreadoTieneDurabilidad100() {
         Madera madera = new Madera();
@@ -54,14 +53,7 @@ public class PicoTest {
         assertEquals(12, picoDeMetal.getFuerza());
     }
 
-    /*
-    @Test
-    public void test02PicoDeMaderaRecienCreadoTieneFuerza2 () {
-        Pico hacha = new PicoDeMadera();
-
-        assertEquals(2, pico.fuerza());
-    }
-
+/*
     @Test
     public void picoDeMaderaSeUsaContraCadaUnoDeLosBloquesYSeReduceSuDurabilidadCorrespondienteAlMaterialDelPico(){
 

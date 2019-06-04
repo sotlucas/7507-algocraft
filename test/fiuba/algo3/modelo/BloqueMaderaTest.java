@@ -14,8 +14,6 @@ public class BloqueMaderaTest {
 
         BloqueMadera bloque = new BloqueMadera();
 
-        Assert.assertEquals(10, bloque.getDurabilidad());
-
         bloque.recibirDanio(hachaDeMadera);
 
         Assert.assertEquals(8, bloque.getDurabilidad());
@@ -27,8 +25,6 @@ public class BloqueMaderaTest {
         Pico picoDeMadera = new Pico(madera);
 
         BloqueMadera bloque = new BloqueMadera();
-
-        Assert.assertEquals(10, bloque.getDurabilidad());
 
         bloque.recibirDanio(picoDeMadera);
 
