@@ -1,7 +1,4 @@
-package fiuba.algo3.ejemplo1;
-
-import org.junit.Assert;
-import org.junit.Test;
+package fiuba.algo3.modelo;
 
 public class JugadorTest {
 
