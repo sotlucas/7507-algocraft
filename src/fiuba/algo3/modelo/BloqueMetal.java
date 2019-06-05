@@ -11,10 +11,18 @@ public class BloqueMetal extends Bloque {
     }
 
     public void recibirDanio(Pico pico) {
-        this.durabilidad -= 0;
-    } //deberia reducirse si es un pico de piedra
+
+        MaterialHerramienta materialPico = pico.getMaterial();
+
+        if(materialPico.getClass() == Piedra.class) {
+            durabilidad -= pico.getFuerza();
+        }
+
+    }
 
     public void recibirDanio(Hacha hacha) {
         this.durabilidad -= 0;
     }
+
+
 }

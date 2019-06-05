@@ -30,4 +30,6 @@ public class BloqueMaderaTest {
         Assert.assertEquals(10, bloque.getDurabilidad());
 
     }
+
+    //falta agregar la de que lo golpea un pico fino
 }
