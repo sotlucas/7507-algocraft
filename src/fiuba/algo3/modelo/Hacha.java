@@ -24,7 +24,7 @@ public class Hacha extends Herramienta{
 
     public void usarEn(Bloque bloqueMaterial){
 
-        //bloqueMaterial.recibirImpacto(this);
+        bloqueMaterial.recibirDanio(this);
         durabilidad = desgaste.desgastar();
     }
 
