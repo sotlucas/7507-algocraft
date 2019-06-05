@@ -2,16 +2,10 @@ package fiuba.algo3.modelo;
 
 public class PicoFino extends Herramienta {
 
-    public PicoFino(Piedra piedra) {
+    public PicoFino() {
         this.durabilidad = 1000;
         this.fuerza = 20;
-        this.material = piedra;
-    }
-
-    public PicoFino(Metal metal) {
-        this.durabilidad = 1000;
-        this.fuerza = 20;
-        this.material = metal;
+        this.material = null; // ver si creamos nuevo material
     }
 
     public double getDurabilidad() {
