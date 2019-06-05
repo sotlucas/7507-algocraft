@@ -15,11 +15,27 @@ public class Inventario {
     }
 
     public boolean contiene(Herramienta herramienta) {
+
+        int indice = 0;
+        boolean herramientaEncontrada = false;
+
+        while((!herramientaEncontrada) && (indice < herramientas.size())){
+
+            if (herramienta.getClass() == this.herramientas.get(indice).getClass()) {
+                herramientaEncontrada = true;
+            }
+
+            indice++;
+
+        }
+
+        return herramientaEncontrada;
+/*
         for (int i = 0; i < this.herramientas.size(); i++) {
             if (herramienta.getClass() == this.herramientas.get(i).getClass()) {
                 return true;
             }
         }
-        return false;
+        return false;*/
     }
 }
