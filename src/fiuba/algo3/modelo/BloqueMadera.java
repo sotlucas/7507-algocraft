@@ -2,9 +2,7 @@ package fiuba.algo3.modelo;
 
 public class BloqueMadera extends Bloque {
 
-    public BloqueMadera() {
-        this.durabilidad = 10;
-    }
+    public BloqueMadera() { this.durabilidad = 10; }
 
     public int getDurabilidad() {
         return this.durabilidad;

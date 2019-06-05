@@ -26,7 +26,6 @@ public class Hacha extends Herramienta{
 
         //bloqueMaterial.recibirImpacto(this);
         durabilidad = desgaste.desgastar();
-        //this.durabilidad -= this.fuerza;
     }
 
 }

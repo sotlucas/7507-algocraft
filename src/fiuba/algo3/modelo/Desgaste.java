@@ -4,7 +4,7 @@ public class Desgaste {
 
     private double durabilidad;
     private int fuerza;
-    private int factorDesgaste;
+    private double factorDesgaste;
 
     public Desgaste(double durabilidadInicial, int fuerza){
 
@@ -13,7 +13,7 @@ public class Desgaste {
         this.factorDesgaste = 1;
     }
 
-    public Desgaste(double durabilidadInicial, int fuerza, int factorDesgaste){
+    public Desgaste(double durabilidadInicial, int fuerza, double factorDesgaste){
 
         this.durabilidad = durabilidadInicial;
         this.fuerza = fuerza;
