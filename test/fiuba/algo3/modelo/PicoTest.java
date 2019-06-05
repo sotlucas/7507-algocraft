@@ -1,6 +1,6 @@
 package fiuba.algo3.modelo;
 
-import static org.junit.Assert.assertEquals;
+import org.junit.Assert;
 import org.junit.Test;
 
 public class PicoTest {
@@ -10,114 +10,107 @@ public class PicoTest {
         Madera madera = new Madera();
         Pico picoDeMadera = new Pico(madera);
 
-        assertEquals(100, picoDeMadera.getDurabilidad(), 0);
+        Assert.assertEquals(100, picoDeMadera.getDurabilidad(), 0);
     }
 
     @Test
-    public void test02PicoDeMaderaRecienCreadoTieneFuerza2 () {
+    public void test02PicoDeMaderaRecienCreadoTieneFuerza2() {
         Madera madera = new Madera();
         Pico picoDeMadera = new Pico(madera);
 
-        assertEquals(2, picoDeMadera.getFuerza());
+        Assert.assertEquals(2, picoDeMadera.getFuerza());
     }
 
     @Test
-    public void test03PicoDePiedraRecienCreadoTieneDurabilidad200 () {
+    public void test03PicoDePiedraRecienCreadoTieneDurabilidad200() {
         Piedra piedra = new Piedra();
         Pico picoDePiedra = new Pico(piedra);
 
-        assertEquals(200, picoDePiedra.getDurabilidad(), 0);
+        Assert.assertEquals(200, picoDePiedra.getDurabilidad(), 0);
     }
 
     @Test
-    public void test04PicoDePiedraRecienCreadoTieneFuerza4 () {
+    public void test04PicoDePiedraRecienCreadoTieneFuerza4() {
         Piedra piedra = new Piedra();
         Pico picoDePiedra = new Pico(piedra);
 
-        assertEquals(4, picoDePiedra.getFuerza());
+        Assert.assertEquals(4, picoDePiedra.getFuerza());
     }
 
     @Test
-    public void test05PicoDeMetalRecienCreadoTieneDurabilidad400 () {
+    public void test05PicoDeMetalRecienCreadoTieneDurabilidad400() {
         Metal metal = new Metal();
         Pico picoDeMetal = new Pico(metal);
 
-        assertEquals(400, picoDeMetal.getDurabilidad(), 0);
+        Assert.assertEquals(400, picoDeMetal.getDurabilidad(), 0);
     }
 
     @Test
-    public void test06PicoDeMetalRecienCreadoTieneFuerza12 () {
+    public void test06PicoDeMetalRecienCreadoTieneFuerza12() {
         Metal metal = new Metal();
         Pico picoDeMetal = new Pico(metal);
 
-        assertEquals(12, picoDeMetal.getFuerza());
-    }
-
-/*
-    @Test
-    public void picoDeMaderaSeUsaContraCadaUnoDeLosBloquesYSeReduceSuDurabilidadCorrespondienteAlMaterialDelPico(){
-
+        Assert.assertEquals(12, picoDeMetal.getFuerza());
     }
 
 
     @Test
-    public void SeCreaHachaDeMetalConSuDurabilidadYFuerzaCorrespondiente(){
-
-        Constructor constructor = new Constructor();
-        Hacha hachaMetal = constructor.construirHachaDeMetal();
-
-        Assert.assertEquals(10, hachaMetal.getFuerza());
-        Assert.assertEquals(400, hachaMetal.getDurabilidad(), 0);
-    }
-
-    @Test
-    public void hachaDeMaderaSeUsaContraBloqueDeMaderaYSeReduceSuDurabilidadCorrespondienteAlMaterialDelHacha(){
-
-        Constructor constructor = new Constructor();
-        Hacha hachaMadera = constructor.construirHachaDeMadera();
-        double durabilidadInicialHachaMadera = hachaMadera.getDurabilidad();
+    public void picoDeMaderaSeUsaContraCadaUnoDeLosBloquesYSeReduceSuDurabilidadCorrespondienteAlMaterialDelPico() {
+        Madera madera = new Madera();
+        Pico picoDeMadera = new Pico(madera);
 
         BloqueMadera bloqueMadera = new BloqueMadera();
+        BloquePiedra bloquePiedra = new BloquePiedra();
+        BloqueMetal bloqueMetal = new BloqueMetal();
 
-        hachaMadera.usarEn(bloqueMadera);
-        Assert.assertEquals(98, hachaMadera.getDurabilidad(), 0);
+        picoDeMadera.usarEn(bloqueMadera);
+        Assert.assertEquals(98.0, picoDeMadera.getDurabilidad(), 0);
 
+        picoDeMadera.usarEn(bloquePiedra);
+        Assert.assertEquals(96.0, picoDeMadera.getDurabilidad(), 0);
+
+        picoDeMadera.usarEn(bloqueMetal);
+        Assert.assertEquals(94.0, picoDeMadera.getDurabilidad(), 0);
     }
 
     @Test
-    public void hachaDeMaderaSeUsaContraBloqueDePiedraYSeReduceSuDurabilidadCorrespondienteAlMaterialDelHacha(){
+    public void picoDePiedraSeUsaContraCadaUnoDeLosBloquesYSeReduceSuDurabilidadCorrespondienteAlMaterialDelPico() {
+        Piedra piedra = new Piedra();
+        Pico picoDePiedra = new Pico(piedra);
 
-        Constructor constructor = new Constructor();
-        Hacha hachaMadera = constructor.construirHachaDeMadera();
-
-        double durabilidadInicialHachaMadera = hachaMadera.getDurabilidad();
-
+        BloqueMadera bloqueMadera = new BloqueMadera();
         BloquePiedra bloquePiedra = new BloquePiedra();
+        BloqueMetal bloqueMetal = new BloqueMetal();
 
-        hachaMadera.usarEn(bloquePiedra);
-        Assert.assertEquals(98, hachaMadera.getDurabilidad(), 0);
+        picoDePiedra.usarEn(bloqueMadera);
+        Assert.assertEquals(197.33, picoDePiedra.getDurabilidad(), 0.01);
 
+        picoDePiedra.usarEn(bloquePiedra);
+        Assert.assertEquals(194.66, picoDePiedra.getDurabilidad(), 0.01);
+
+        picoDePiedra.usarEn(bloqueMetal);
+        Assert.assertEquals(192.0, picoDePiedra.getDurabilidad(), 0.01);
     }
 
     @Test
-    public void hachaDePiedraSeUsaContraBloqueDeMaderaYSeReduceSuDurabilidadCorrespondienteAlMaterialDelHacha(){
+    public void picoDeMetalSeUsaContraCadaUnoDeLosBloquesYSeReduceSuDurabilidadCorrespondienteAlMaterialDelPico() {
+        Metal metal = new Metal();
+        Pico picoDeMetal = new Pico(metal);
 
-        Constructor constructor = new Constructor();
-        Hacha hachaPiedra = constructor.construirHachaDePiedra();
-        double durabilidadInicialHachaPiedra = hachaPiedra.getDurabilidad();
-
+        BloqueMadera bloqueMadera = new BloqueMadera();
         BloquePiedra bloquePiedra = new BloquePiedra();
+        BloqueMetal bloqueMetal = new BloqueMetal();
 
-        hachaPiedra.usarEn(bloquePiedra);
-        Assert.assertEquals(195, hachaPiedra.getDurabilidad(), 0);
+        picoDeMetal.usarEn(bloqueMadera);
+        Assert.assertEquals(360.0, picoDeMetal.getDurabilidad(), 0);
 
+        picoDeMetal.usarEn(bloquePiedra);
+        Assert.assertEquals(320.0, picoDeMetal.getDurabilidad(), 0);
+
+        picoDeMetal.usarEn(bloqueMetal);
+        Assert.assertEquals(280.0, picoDeMetal.getDurabilidad(), 0);
     }
 
 
-
-
-
-
-    //hachaSeUsaContraCadaUnoDeLosMaterialesYSeReduceSuDurabilidadCorrespondienteAlMaterialDelHacha
-*/
 }
+
