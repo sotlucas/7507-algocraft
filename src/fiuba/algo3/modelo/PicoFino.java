@@ -6,15 +6,31 @@ public class PicoFino extends Herramienta {
         this.durabilidad = 1000;
         this.fuerza = 20;
         this.material = null; // ver si creamos nuevo material
+        this.desgaste = new Desgaste(1000,1000,10);
     }
 
-    public double getDurabilidad() {
-        return this.durabilidad;
+    public void usarEn(BloqueMadera bloqueMadera){
+
+        //bloqueMaterial.recibirImpacto(this);
+        durabilidad -= 0;
     }
 
-    public int getFuerza() {
-        return this.fuerza;
+    public void usarEn(BloqueMetal bloqueMetal){
+
+        //bloqueMaterial.recibirImpacto(this);
+        durabilidad -= 0;
     }
 
-    public MaterialHerramienta getMaterial() { return this.material; }
+    public void usarEn(BloquePiedra bloquePiedra){
+
+        //bloqueMaterial.recibirImpacto(this);
+        durabilidad -= 0;
+    }
+
+    public void usarEn(BloqueDiamante bloqueDiamante){
+
+        //bloqueMaterial.recibirImpacto(this);
+        durabilidad = desgaste.desgastar();
+    }
+
 }
