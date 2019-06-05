@@ -6,10 +6,6 @@ public class BloqueMetal extends Bloque {
         this.durabilidad = 50;
     }
 
-    public int getDurabilidad() {
-        return this.durabilidad;
-    }
-
     public void recibirDanio(Pico pico) {
 
         MaterialHerramienta materialPico = pico.getMaterial();
