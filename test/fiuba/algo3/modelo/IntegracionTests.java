@@ -65,4 +65,20 @@ public class IntegracionTests {
         hachaDeMetal.usarEn(bloqueMetal);
         Assert.assertEquals(durabilidadInicialBloque, bloqueMetal.getDurabilidad());
     }
+
+    @Test //obligatoria
+    public void test02BloqueDePiedraSeGolpeaConDistintasHachasYNoSeReduceSuDurabilidad() {
+
+        Hacha hachaDeMadera = new Hacha(new Madera());
+        Hacha hachaDePiedra = new Hacha(new Piedra());
+        Hacha hachaDeMetal = new Hacha(new Metal());
+
+        BloquePiedra bloque = new BloquePiedra();
+
+        bloque.recibirDanio(hachaDeMadera);
+        bloque.recibirDanio(hachaDePiedra);
+        bloque.recibirDanio(hachaDeMetal);
+
+        Assert.assertEquals(30, bloque.getDurabilidad());
+    }
 }

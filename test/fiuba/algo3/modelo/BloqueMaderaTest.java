@@ -6,6 +6,14 @@ import org.junit.Test;
 
 public class BloqueMaderaTest {
 
+    @Test
+    public void test01AlCrearseBloqueDeMaderaDevuelveAlgoDistintoDeNull(){
+
+        BloqueMadera bloqueMadera = new BloqueMadera();
+
+        Assert.assertNotNull(bloqueMadera);
+    }
+
     @Test //obligatoria
     public void bloqueDeMaderaEsGolpeadoConHachaDeMaderaYSeVerificaQueSeReduceSuDurabilidad(){
         Madera madera = new Madera();
@@ -19,6 +27,30 @@ public class BloqueMaderaTest {
     }
 
     @Test //obligatoria
+    public void bloqueDeMaderaEsGolpeadoConHachaDePiedraYSeVerificaQueSeReduceSuDurabilidad(){
+
+        Hacha hachaDePiedra = new Hacha(new Piedra());
+
+        BloqueMadera bloque = new BloqueMadera();
+
+        bloque.recibirDanio(hachaDePiedra);
+
+        Assert.assertEquals(5, bloque.getDurabilidad());
+    }
+
+    @Test //obligatoria
+    public void bloqueDeMaderaEsGolpeadoConHachaDeMetalYSeVerificaQueSeReduceSuDurabilidad(){
+
+        Hacha hachaDeMetal = new Hacha(new Metal());
+
+        BloqueMadera bloque = new BloqueMadera();
+
+        bloque.recibirDanio(hachaDeMetal);
+
+        Assert.assertEquals(0, bloque.getDurabilidad());
+    }
+
+    @Test //obligatoria
     public void bloqueDeMaderaEsGolpeadoConPicoDeMaderaYSeVerificaQueNoSeReduceSuDurabilidad(){
         Madera madera = new Madera();
         Pico picoDeMadera = new Pico(madera);
@@ -26,6 +58,47 @@ public class BloqueMaderaTest {
         BloqueMadera bloque = new BloqueMadera();
 
         bloque.recibirDanio(picoDeMadera);
+
+        Assert.assertEquals(10, bloque.getDurabilidad());
+
+    }
+
+    @Test //obligatoria
+    public void bloqueDeMaderaEsGolpeadoConPicoDePiedraYSeVerificaQueNoSeReduceSuDurabilidad(){
+
+
+        Pico picoDePiedra = new Pico(new Piedra());
+
+        BloqueMadera bloque = new BloqueMadera();
+
+        bloque.recibirDanio(picoDePiedra);
+
+        Assert.assertEquals(10, bloque.getDurabilidad());
+
+    }
+
+    @Test //obligatoria
+    public void bloqueDeMaderaEsGolpeadoConPicoDeMetalYSeVerificaQueNoSeReduceSuDurabilidad(){
+
+
+        Pico picoDeMetal = new Pico(new Metal());
+
+        BloqueMadera bloque = new BloqueMadera();
+
+        bloque.recibirDanio(picoDeMetal);
+
+        Assert.assertEquals(10, bloque.getDurabilidad());
+
+    }
+
+    @Test //obligatoria
+    public void bloqueDeMaderaEsGolpeadoConPicoFinoYSeVerificaQueNoSeReduceSuDurabilidad(){
+
+        PicoFino picoFino = new PicoFino();
+
+        BloqueMadera bloque = new BloqueMadera();
+
+        bloque.recibirDanio(picoFino);
 
         Assert.assertEquals(10, bloque.getDurabilidad());
 

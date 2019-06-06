@@ -6,7 +6,23 @@ import org.junit.Test;
 public class PicoTest {
 
     @Test
-    public void test01PicoDeMaderaRecienCreadoTieneDurabilidad100() {
+    public void test01losConstructoresDelPicoDevuelvenAlgoDistintoDeNull() {
+
+        Madera madera = new Madera();
+        Piedra piedra = new Piedra();
+        Metal metal = new Metal();
+
+        Pico picoDeMadera = new Pico(madera);
+        Pico picoDePiedra = new Pico(piedra);
+        Pico picoDeMetal = new Pico(metal);
+
+        Assert.assertNotNull(picoDeMadera);
+        Assert.assertNotNull(picoDePiedra);
+        Assert.assertNotNull(picoDeMetal);
+    }
+
+    @Test
+    public void test02PicoDeMaderaRecienCreadoTieneDurabilidad100() {
         Madera madera = new Madera();
         Pico picoDeMadera = new Pico(madera);
 
@@ -14,7 +30,7 @@ public class PicoTest {
     }
 
     @Test
-    public void test02PicoDeMaderaRecienCreadoTieneFuerza2() {
+    public void test03PicoDeMaderaRecienCreadoTieneFuerza2() {
         Madera madera = new Madera();
         Pico picoDeMadera = new Pico(madera);
 
@@ -22,7 +38,7 @@ public class PicoTest {
     }
 
     @Test
-    public void test03PicoDePiedraRecienCreadoTieneDurabilidad200() {
+    public void test04PicoDePiedraRecienCreadoTieneDurabilidad200() {
         Piedra piedra = new Piedra();
         Pico picoDePiedra = new Pico(piedra);
 
@@ -30,7 +46,7 @@ public class PicoTest {
     }
 
     @Test
-    public void test04PicoDePiedraRecienCreadoTieneFuerza4() {
+    public void test05PicoDePiedraRecienCreadoTieneFuerza4() {
         Piedra piedra = new Piedra();
         Pico picoDePiedra = new Pico(piedra);
 
@@ -38,7 +54,7 @@ public class PicoTest {
     }
 
     @Test
-    public void test05PicoDeMetalRecienCreadoTieneDurabilidad400() {
+    public void test06PicoDeMetalRecienCreadoTieneDurabilidad400() {
         Metal metal = new Metal();
         Pico picoDeMetal = new Pico(metal);
 
@@ -46,7 +62,7 @@ public class PicoTest {
     }
 
     @Test
-    public void test06PicoDeMetalRecienCreadoTieneFuerza12() {
+    public void test07PicoDeMetalRecienCreadoTieneFuerza12() {
         Metal metal = new Metal();
         Pico picoDeMetal = new Pico(metal);
 
@@ -55,7 +71,7 @@ public class PicoTest {
 
 
     @Test
-    public void test07PicoDeMaderaSeUsaContraCadaUnoDeLosBloquesYSeReduceSuDurabilidadCorrespondienteAlMaterialDelPico() {
+    public void test08PicoDeMaderaSeUsaContraCadaUnoDeLosBloquesYSeReduceSuDurabilidadCorrespondienteAlMaterialDelPico() {
         Madera madera = new Madera();
         Pico picoDeMadera = new Pico(madera);
 
@@ -74,7 +90,7 @@ public class PicoTest {
     }
 
     @Test
-    public void test08PicoDePiedraSeUsaContraCadaUnoDeLosBloquesYSeReduceSuDurabilidadCorrespondienteAlMaterialDelPico() {
+    public void test09PicoDePiedraSeUsaContraCadaUnoDeLosBloquesYSeReduceSuDurabilidadCorrespondienteAlMaterialDelPico() {
         Piedra piedra = new Piedra();
         Pico picoDePiedra = new Pico(piedra);
 
@@ -93,7 +109,7 @@ public class PicoTest {
     }
 
     @Test
-    public void test09PicoDeMetalSeUsaContraCadaUnoDeLosBloquesYSeReduceSuDurabilidadCorrespondienteAlMaterialDelPico() {
+    public void test10PicoDeMetalSeUsaContraCadaUnoDeLosBloquesYSeReduceSuDurabilidadCorrespondienteAlMaterialDelPico() {
         Metal metal = new Metal();
         Pico picoDeMetal = new Pico(metal);
 
@@ -112,7 +128,7 @@ public class PicoTest {
     }
 
     @Test
-    public void test10CuandoLaDurabilidadDelPicoLlegaACeroNoSeReduceMas(){
+    public void test11CuandoLaDurabilidadDelPicoLlegaACeroNoSeReduceMas(){
 
         Pico picoMetal = new Pico(new Metal());
 

@@ -18,4 +18,5 @@ public class BloqueMadera extends Bloque {
         }
 
     }
+    public void recibirDanio(PicoFino picoFino){ this.durabilidad -= 0;}
 }

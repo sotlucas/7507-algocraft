@@ -7,6 +7,13 @@ import org.junit.Test;
 
 public class PicoFinoTest {
 
+    @Test
+    public void test01ElConstructorDePicoFinoDevuelveAlgoDistintoDeNull() {
+
+        PicoFino picoFino = new PicoFino();
+
+        Assert.assertNotNull(picoFino);
+    }
 
     @Test //obligatoria
     public void test01SeCreaPicoFinoConSuDurabilidad1000(){
@@ -26,8 +33,6 @@ public class PicoFinoTest {
 
     }
 
-
-    //CORREGIR ESTA PRUEBA
     @Test //obligatoria
     public void test03PicoFinoSeUsaContraBloqueDeDiamanteYSeReduceLaDurabilidadDelPico(){
 
@@ -65,23 +70,19 @@ public class PicoFinoTest {
     @Test
     public void test05CuandoLaDurabilidadDelPicoFinoLlegaACeroNoSeReduceMas(){
 
-        Pico picoMetal = new Pico(new Metal());
+        PicoFino picoFino = new PicoFino();
 
-        //el hacha nunca dania al bloque de piedra, permite abstraerse de la durabilidad del bloque
-        BloqueMetal bloqueMetal = new BloqueMetal();
+        BloqueDiamante bloqueDiamante = new BloqueDiamante();
 
-        //golpea 50 veces
-        for(int i = 0; i < 12; i++){
-
-            picoMetal.usarEn(bloqueMetal);
+        for(int i = 0; i < 66; i++) {
+            picoFino.usarEn(bloqueDiamante);
         }
 
-        Assert.assertEquals(0, picoMetal.getDurabilidad(), 0);
+        Assert.assertEquals(0, picoFino.getDurabilidad(), 0);
 
-        picoMetal.usarEn(bloqueMetal);
-        Assert.assertEquals(0, picoMetal.getDurabilidad(), 0);
+        picoFino.usarEn(bloqueDiamante);
+        Assert.assertEquals(0, picoFino.getDurabilidad(), 0);
 
     }
-
 
 }

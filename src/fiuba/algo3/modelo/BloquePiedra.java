@@ -19,4 +19,5 @@ public class BloquePiedra extends Bloque {
     public void recibirDanio(Hacha hacha) {
         this.durabilidad -= 0;
     }
+    public void recibirDanio(PicoFino picoFino){ this.durabilidad -= 0;}
 }

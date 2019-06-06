@@ -9,5 +9,6 @@ public abstract class Bloque {
     }
     public abstract void recibirDanio(Pico pico);
     public abstract void recibirDanio(Hacha hacha);
+    public abstract void recibirDanio(PicoFino picoFino);
 
 }
