@@ -1,9 +1,7 @@
 package fiuba.algo3.modelo;
 
-public class DesgasteEspecial {
+public class DesgasteEspecial extends Desgaste{
 
-    private double durabilidad;
-    private double factor;
 
     public DesgasteEspecial(){
 

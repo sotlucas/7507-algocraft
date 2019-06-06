@@ -36,7 +36,7 @@ public class PicoFinoTest {
 
         picoFino.usarEn(bloqueDiamante);
 
-        Assert.assertEquals(998, picoFino.getDurabilidad(), 0);
+        Assert.assertEquals(900, picoFino.getDurabilidad(), 0);
 
     }
 
@@ -61,19 +61,6 @@ public class PicoFinoTest {
 
 
     }
-
-    @Test
-    public void ere(){
-
-        PicoFino picoFino = new PicoFino();
-
-        BloqueMadera bloqueMadera = new BloqueMadera();
-        BloquePiedra bloquePiedra = new BloquePiedra();
-        BloqueMetal bloqueMetal = new BloqueMetal();
-    }
-
-
-
 
     @Test
     public void test05CuandoLaDurabilidadDelPicoFinoLlegaACeroNoSeReduceMas(){

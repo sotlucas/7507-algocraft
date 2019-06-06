@@ -3,12 +3,12 @@ package fiuba.algo3.modelo;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class DesgasteTest {
+public class DesgasteNormalTest {
 
     @Test
     public void test01ElConstructorPorDefectoDeDesgasteDevuelveAlgoDistintoDeNull(){
 
-        //Desgaste tipoDeDesgaste = new Desgaste();
+        //DesgasteNormal tipoDeDesgaste = new DesgasteNormal();
         //Assert.assertNotNull(tipoDeDesgaste);
     }
 
@@ -17,7 +17,7 @@ public class DesgasteTest {
 
         int durabilidadInicialHerramienta = 100;
         int fuerzaHerramienta = 2;
-        Desgaste tipoDeDesgaste = new Desgaste(durabilidadInicialHerramienta, fuerzaHerramienta);
+        DesgasteNormal tipoDeDesgaste = new DesgasteNormal(durabilidadInicialHerramienta, fuerzaHerramienta);
 
         Assert.assertEquals(98, tipoDeDesgaste.desgastar(), 0);
     }
@@ -28,7 +28,7 @@ public class DesgasteTest {
         int durabilidadInicialHerramienta = 100;
         int fuerzaHerramienta = 2;
         int factor = 2;
-        Desgaste tipoDeDesgaste = new Desgaste(durabilidadInicialHerramienta, fuerzaHerramienta, factor);
+        DesgasteNormal tipoDeDesgaste = new DesgasteNormal(durabilidadInicialHerramienta, fuerzaHerramienta, factor);
 
         Assert.assertEquals(99, tipoDeDesgaste.desgastar(), 0);
     }
@@ -40,7 +40,7 @@ public class DesgasteTest {
         double durabilidadInicial = 10;
         int fuerzaHerramienta = 2;
 
-        Desgaste desgaste = new Desgaste(durabilidadInicial, fuerzaHerramienta);
+        DesgasteNormal desgaste = new DesgasteNormal(durabilidadInicial, fuerzaHerramienta);
 
         desgaste.desgastar();
         desgaste.desgastar();
