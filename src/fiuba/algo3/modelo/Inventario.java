@@ -30,12 +30,5 @@ public class Inventario {
         }
 
         return herramientaEncontrada;
-/*
-        for (int i = 0; i < this.herramientas.size(); i++) {
-            if (herramienta.getClass() == this.herramientas.get(i).getClass()) {
-                return true;
-            }
-        }
-        return false;*/
     }
 }

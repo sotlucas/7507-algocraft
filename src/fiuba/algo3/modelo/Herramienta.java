@@ -7,8 +7,6 @@ public abstract class Herramienta {
     protected MaterialHerramienta material;
     protected Desgaste desgaste;
 
-    //public abstract void usarEn(Bloque bloqueMaterial);
-
     public int getFuerza(){
         return fuerza;
     }
@@ -16,6 +14,7 @@ public abstract class Herramienta {
     public double getDurabilidad(){
         return durabilidad;
     }
+
     public MaterialHerramienta getMaterial(){
         return material;
     }
