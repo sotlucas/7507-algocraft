@@ -52,6 +52,5 @@ public class DesgasteTest {
         //en la siguiente linea se verifica que no baja de cero
         Assert.assertEquals(0, desgaste.desgastar(), 0);
 
-
     }
 }

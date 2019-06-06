@@ -9,7 +9,7 @@ public class PicoFinoTest {
 
 
     @Test //obligatoria
-    public void seCreaPicoFinoConSuDurabilidad1000(){
+    public void test01SeCreaPicoFinoConSuDurabilidad1000(){
 
         PicoFino picoFino = new PicoFino();
 
@@ -18,7 +18,7 @@ public class PicoFinoTest {
     }
 
     @Test //obligatoria
-    public void seCreaPicoFinoConSuFuerza20(){
+    public void test02SeCreaPicoFinoConSuFuerza20(){
 
         PicoFino picoFino = new PicoFino();
 
@@ -27,20 +27,22 @@ public class PicoFinoTest {
     }
 
 
+    //CORREGIR ESTA PRUEBA
     @Test //obligatoria
-    public void picoFinoSeUsaContraBloqueDeDiamanteYSeReduceLaDurabilidadDelBloque(){
+    public void test03PicoFinoSeUsaContraBloqueDeDiamanteYSeReduceLaDurabilidadDelPico(){
 
         PicoFino picoFino = new PicoFino();
         BloqueDiamante bloqueDiamante = new BloqueDiamante();
 
         picoFino.usarEn(bloqueDiamante);
 
-        Assert.assertEquals(900, picoFino.getDurabilidad(), 0);
+        Assert.assertEquals(998, picoFino.getDurabilidad(), 0);
 
     }
 
+
     @Test //obligatoria
-    public void picoFinoSeUsaContraLosBloquesDeOtrosMaterialesYNoSeReducenSusDurabilidades(){
+    public void test04PicoFinoSeUsaContraBloquesDeMetalMaderaYPiedraYNoSeReduceLaDurabilidadDelPico(){
 
         PicoFino picoFino = new PicoFino();
 
@@ -57,6 +59,40 @@ public class PicoFinoTest {
         picoFino.usarEn(bloqueMetal);
         Assert.assertEquals(1000, picoFino.getDurabilidad(), 0);
 
+
+    }
+
+    @Test
+    public void ere(){
+
+        PicoFino picoFino = new PicoFino();
+
+        BloqueMadera bloqueMadera = new BloqueMadera();
+        BloquePiedra bloquePiedra = new BloquePiedra();
+        BloqueMetal bloqueMetal = new BloqueMetal();
+    }
+
+
+
+
+    @Test
+    public void test05CuandoLaDurabilidadDelPicoFinoLlegaACeroNoSeReduceMas(){
+
+        Pico picoMetal = new Pico(new Metal());
+
+        //el hacha nunca dania al bloque de piedra, permite abstraerse de la durabilidad del bloque
+        BloqueMetal bloqueMetal = new BloqueMetal();
+
+        //golpea 50 veces
+        for(int i = 0; i < 12; i++){
+
+            picoMetal.usarEn(bloqueMetal);
+        }
+
+        Assert.assertEquals(0, picoMetal.getDurabilidad(), 0);
+
+        picoMetal.usarEn(bloqueMetal);
+        Assert.assertEquals(0, picoMetal.getDurabilidad(), 0);
 
     }
 

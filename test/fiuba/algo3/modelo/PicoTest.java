@@ -55,7 +55,7 @@ public class PicoTest {
 
 
     @Test
-    public void picoDeMaderaSeUsaContraCadaUnoDeLosBloquesYSeReduceSuDurabilidadCorrespondienteAlMaterialDelPico() {
+    public void test07PicoDeMaderaSeUsaContraCadaUnoDeLosBloquesYSeReduceSuDurabilidadCorrespondienteAlMaterialDelPico() {
         Madera madera = new Madera();
         Pico picoDeMadera = new Pico(madera);
 
@@ -74,7 +74,7 @@ public class PicoTest {
     }
 
     @Test
-    public void picoDePiedraSeUsaContraCadaUnoDeLosBloquesYSeReduceSuDurabilidadCorrespondienteAlMaterialDelPico() {
+    public void test08PicoDePiedraSeUsaContraCadaUnoDeLosBloquesYSeReduceSuDurabilidadCorrespondienteAlMaterialDelPico() {
         Piedra piedra = new Piedra();
         Pico picoDePiedra = new Pico(piedra);
 
@@ -93,7 +93,7 @@ public class PicoTest {
     }
 
     @Test
-    public void picoDeMetalSeUsaContraCadaUnoDeLosBloquesYSeReduceSuDurabilidadCorrespondienteAlMaterialDelPico() {
+    public void test09PicoDeMetalSeUsaContraCadaUnoDeLosBloquesYSeReduceSuDurabilidadCorrespondienteAlMaterialDelPico() {
         Metal metal = new Metal();
         Pico picoDeMetal = new Pico(metal);
 
@@ -109,6 +109,27 @@ public class PicoTest {
 
         picoDeMetal.usarEn(bloqueMetal);
         Assert.assertEquals(280.0, picoDeMetal.getDurabilidad(), 0);
+    }
+
+    @Test
+    public void test10CuandoLaDurabilidadDelPicoLlegaACeroNoSeReduceMas(){
+
+        Pico picoMetal = new Pico(new Metal());
+
+        //el hacha nunca dania al bloque de piedra, permite abstraerse de la durabilidad del bloque
+        BloqueMetal bloqueMetal = new BloqueMetal();
+
+        //golpea 50 veces
+        for(int i = 0; i < 12; i++){
+
+            picoMetal.usarEn(bloqueMetal);
+        }
+
+        Assert.assertEquals(0, picoMetal.getDurabilidad(), 0);
+
+        picoMetal.usarEn(bloqueMetal);
+        Assert.assertEquals(0, picoMetal.getDurabilidad(), 0);
+
     }
 
 

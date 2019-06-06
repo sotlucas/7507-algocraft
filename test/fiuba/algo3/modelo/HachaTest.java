@@ -133,7 +133,7 @@ import org.junit.Test;
         }
 
         @Test
-        public void test11CuandoLaDurabilidadDeCualquierHachaLlegaACeroNoSeReduceMas(){
+        public void test11CuandoLaDurabilidadDelHachaLlegaACeroNoSeReduceMas(){
 
             Hacha hachaDeMadera = new Hacha(new Madera());
 
@@ -150,8 +150,6 @@ import org.junit.Test;
 
             hachaDeMadera.usarEn(bloquePiedra);
             Assert.assertEquals(0, hachaDeMadera.getDurabilidad(), 0);
-
-
 
         }
 
