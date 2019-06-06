@@ -13,6 +13,12 @@ public class BloqueDiamante extends Bloque{
     }
 
     public void recibirDanio(PicoFino picoFino) {
-        this.durabilidad -= picoFino.getFuerza();
+
+        durabilidad -= picoFino.getFuerza();
+
+        if(durabilidad < 0){
+
+            durabilidad = 0;
+        }
     }
 }

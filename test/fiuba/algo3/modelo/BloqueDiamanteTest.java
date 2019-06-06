@@ -6,7 +6,8 @@ import org.junit.Test;
 public class BloqueDiamanteTest {
 
     @Test //obligatoria
-    public void bloqueDeDiamanteEsGolpeadoConHachaDeMaderaYSeVerificaQueNoSeReduceSuDurabilidad(){
+    public void test01BloqueDeDiamanteEsGolpeadoConHachaDeMaderaYSeVerificaQueNoSeReduceSuDurabilidad(){
+
         Madera madera = new Madera();
         Hacha hachaDeMadera = new Hacha(madera);
 
@@ -18,7 +19,8 @@ public class BloqueDiamanteTest {
     }
 
     @Test //obligatoria
-    public void bloqueDeDiamanteEsGolpeadoConPicoDeMaderaYSeVerificaQueNoSeReduceSuDurabilidad(){
+    public void test02BloqueDeDiamanteEsGolpeadoConPicoDeMaderaYSeVerificaQueNoSeReduceSuDurabilidad(){
+
         Madera madera = new Madera();
         Pico picoDeMadera = new Pico(madera);
 
@@ -31,7 +33,7 @@ public class BloqueDiamanteTest {
     }
 
     @Test //obligatoria
-    public void bloqueDeDiamanteEsGolpeadoConPicoFinoYSeVerificaQueSeReduceSuDurabilidad(){
+    public void test03BloqueDeDiamanteEsGolpeadoConPicoFinoYSeVerificaQueSeReduceSuDurabilidad(){
 
         PicoFino picoFino = new PicoFino();
 
@@ -40,6 +42,26 @@ public class BloqueDiamanteTest {
         bloque.recibirDanio(picoFino);
 
         Assert.assertEquals(80, bloque.getDurabilidad());
+
+    }
+
+    @Test
+    public void test04CuandoLaDurabilidadDelBloqueDeDiamanteLlegaACeroNoSeReduceMas(){
+
+        PicoFino picoFino = new PicoFino();
+
+        BloqueDiamante bloqueDiamante = new BloqueDiamante();
+
+        bloqueDiamante.recibirDanio(picoFino);
+        bloqueDiamante.recibirDanio(picoFino);
+        bloqueDiamante.recibirDanio(picoFino);
+        bloqueDiamante.recibirDanio(picoFino);
+        bloqueDiamante.recibirDanio(picoFino);
+
+        Assert.assertEquals(0, bloqueDiamante.getDurabilidad());
+
+        bloqueDiamante.recibirDanio(picoFino);
+        Assert.assertEquals(0, bloqueDiamante.getDurabilidad());
 
     }
 }

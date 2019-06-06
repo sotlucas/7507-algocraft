@@ -24,6 +24,10 @@ public class Desgaste {
 
         durabilidad -= fuerza/factorDesgaste;
 
+        if(durabilidad < 0){
+            durabilidad = 0;
+        }
+
         return durabilidad;
     }
 }

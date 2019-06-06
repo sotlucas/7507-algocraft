@@ -33,7 +33,7 @@ public class BloqueMetalTest {
     }
 
     @Test
-    public void CuandoLaDurabilidadDelBloqueDeMetalLlegaACeroNoSeReduceMas(){
+    public void test03CuandoLaDurabilidadDelBloqueDeMetalLlegaACeroNoSeReduceMas(){
 
         Piedra piedra = new Piedra();
         Pico picoDePiedra = new Pico(piedra);

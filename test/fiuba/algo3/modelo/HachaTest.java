@@ -132,6 +132,28 @@ import org.junit.Test;
             Assert.assertEquals(385.0, hachaDeMetal.getDurabilidad(), 0);
         }
 
+        @Test
+        public void test11CuandoLaDurabilidadDeCualquierHachaLlegaACeroNoSeReduceMas(){
+
+            Hacha hachaDeMadera = new Hacha(new Madera());
+
+            //el hacha nunca dania al bloque de piedra, permite abstraerse de la durabilidad del bloque
+            BloquePiedra bloquePiedra = new BloquePiedra();
+
+            //golpea 50 veces
+            for(int i = 0; i < 50; i++){
+
+                hachaDeMadera.usarEn(bloquePiedra);
+            }
+
+            Assert.assertEquals(0, hachaDeMadera.getDurabilidad(), 0);
+
+            hachaDeMadera.usarEn(bloquePiedra);
+            Assert.assertEquals(0, hachaDeMadera.getDurabilidad(), 0);
+
+
+
+        }
 
     }
 

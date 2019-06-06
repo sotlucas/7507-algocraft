@@ -7,7 +7,7 @@ import org.junit.Test;
 public class BloquePiedraTest {
 
     @Test
-    public void bloqueDePiedraEsGolpeadoConPicoDeMaderaYSeReduceSegunLaFuerzaDelPico(){
+    public void test01BloqueDePiedraEsGolpeadoConPicoDeMaderaYSeReduceSegunLaFuerzaDelPico(){
         Madera madera = new Madera();
         Pico picoDeMadera = new Pico(madera);
 
@@ -19,7 +19,7 @@ public class BloquePiedraTest {
     }
 
     @Test //obligatoria
-    public void piedraSeGolpeaConUnHachaYNoSeReduceSuDurabilidad() {
+    public void test02BloqueDePiedraSeGolpeaConUnHachaYNoSeReduceSuDurabilidad() {
         Madera madera = new Madera();
         Hacha hachaDeMadera = new Hacha(madera);
 
@@ -31,14 +31,14 @@ public class BloquePiedraTest {
     }
 
     @Test
-    public void bloqueDePiedraSeInicializaConDurabilidad30(){
+    public void test03BloqueDePiedraSeInicializaConDurabilidad30(){
         BloquePiedra bloque = new BloquePiedra();
 
         Assert.assertEquals(30, bloque.getDurabilidad());
     }
 
     @Test
-    public void CuandoLaDurabilidadDelBloqueDePiedraLlegaACeroNoSeReduceMas(){
+    public void test04CuandoLaDurabilidadDelBloqueDePiedraLlegaACeroNoSeReduceMas(){
 
         Pico picoDePiedra = new Pico(new Madera());
 
