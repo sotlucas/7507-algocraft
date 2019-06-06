@@ -31,5 +31,26 @@ public class BloqueMaderaTest {
 
     }
 
+    @Test
+    public void CuandoLaDurabilidadDelBloqueDeMaderaLlegaACeroNoSeReduceMas(){
+
+        Madera madera = new Madera();
+        Hacha hachaDeMadera = new Hacha(madera);
+
+        BloqueMadera bloqueMadera = new BloqueMadera();
+
+        bloqueMadera.recibirDanio(hachaDeMadera);
+        bloqueMadera.recibirDanio(hachaDeMadera);
+        bloqueMadera.recibirDanio(hachaDeMadera);
+        bloqueMadera.recibirDanio(hachaDeMadera);
+        bloqueMadera.recibirDanio(hachaDeMadera);
+
+        Assert.assertEquals(0, bloqueMadera.getDurabilidad());
+
+        bloqueMadera.recibirDanio(hachaDeMadera);
+        Assert.assertEquals(0, bloqueMadera.getDurabilidad());
+
+    }
+
     //falta agregar la de que lo golpea un pico fino
 }

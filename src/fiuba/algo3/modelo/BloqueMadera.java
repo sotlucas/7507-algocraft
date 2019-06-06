@@ -9,6 +9,13 @@ public class BloqueMadera extends Bloque {
     }
 
     public void recibirDanio(Hacha hacha) {
-        this.durabilidad -= hacha.getFuerza();
+
+        durabilidad -= hacha.getFuerza();
+
+        if(durabilidad < 0){
+
+            durabilidad = 0;
+        }
+
     }
 }

@@ -131,56 +131,8 @@ import org.junit.Test;
             hachaDeMetal.usarEn(bloqueMetal);
             Assert.assertEquals(385.0, hachaDeMetal.getDurabilidad(), 0);
         }
-/*
-        @Test
-        public void SeCreaHachaDePiedraConSuDurabilidadYFuerzaCorrespondiente(){
-
-            Piedra piedra = new Piedra();
-            Hacha hachaDePiedra = new Hacha(piedra);
-
-            Assert.assertEquals(200, hachaDePiedra.getDurabilidad());
-            Assert.assertEquals(5, hachaDePiedra.getFuerza());
-        }*/
-/*
-        @Test  //obligatoria
-        public void SeCreaHachaDeMetalConSuDurabilidadYFuerzaCorrespondiente() {
-        }
 
 
-        @Test //obligatoria
-        public void hachaDeMaderaSeUsaContraCadaUnoDeLosBloquesYSeReduceSuDurabilidadCorrespondienteAlMaterialDelHecha(){
-
-
-        }
-
-
-        @Test
-        public void hachaDeMaderaSeUsaContraBloqueDePiedraYSeReduceSuDurabilidadCorrespondienteAlMaterialDelHacha(){
-
-
-        }
-
-    @Test
-    public void hachaDePiedraSeUsaContraBloqueDeMaderaYSeReduceSuDurabilidadCorrespondienteAlMaterialDelHacha(){
-
-        Constructor constructor = new Constructor();
-        Hacha hachaPiedra = constructor.construirHachaDePiedra();
-        double durabilidadInicialHachaPiedra = hachaPiedra.getDurabilidad();
-
-        BloquePiedra bloquePiedra = new BloquePiedra();
-
-        hachaPiedra.usarEn(bloquePiedra);
-        Assert.assertEquals(195, hachaPiedra.getDurabilidad(), 0);
-
-    }
-
-
-
-
-
-
-    //hachaSeUsaContraCadaUnoDeLosMaterialesYSeReduceSuDurabilidadCorrespondienteAlMaterialDelHacha
-*/
     }
 
 
