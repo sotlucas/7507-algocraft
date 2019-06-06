@@ -6,6 +6,47 @@ import org.junit.Test;
 public class IntegracionTests {
 
     @Test
+    public void test01SeCreanDiversasHerramientasYSeUtilizanEnTodosLosTiposDeBloques(){
+
+        Hacha hachaDeMadera1 = new Hacha(new Madera());// durabilidad: 100
+        Hacha hachaDePiedra1 = new Hacha(new Piedra()); // durabilidad: 200
+        Hacha hachaDeMetal1 = new Hacha(new Metal()); // durabilidad: 400
+
+        Pico picoMadera1 = new Pico(new Madera()); // durabilidad: 100
+        Pico picoPiedra1 = new Pico(new Piedra());// durabilidad: 200
+        Pico picoMetal1 = new Pico(new Metal());// durabilidad: 400
+        PicoFino picoFino1 = new PicoFino();// durabilidad: 1000
+
+        BloqueMadera bloqueMadera1 = new BloqueMadera();// durabilidad: 10
+        BloquePiedra bloquePiedra1 = new BloquePiedra();// durabilidad: 30
+        BloqueMetal bloqueMetal1 = new BloqueMetal();// durabilidad: 50
+        BloqueDiamante bloqueDiamante1 = new BloqueDiamante();// durabilidad: 100
+
+        //--------------------------------------------------------
+
+        //verificacion hachaDeMadera1 se desgaste al impactar cualquier bloque
+        double durabilidadInicialHachaMadera1 = hachaDeMadera1.getDurabilidad();
+        hachaDeMadera1.usarEn(bloqueMadera1);
+        Assert.assertEquals(durabilidadInicialHachaMadera1-2, hachaDeMadera1.getDurabilidad(),0);
+        hachaDeMadera1.usarEn(bloquePiedra1);
+        Assert.assertEquals(durabilidadInicialHachaMadera1-4, hachaDeMadera1.getDurabilidad(),0);
+        hachaDeMadera1.usarEn(bloqueMetal1);
+        Assert.assertEquals(durabilidadInicialHachaMadera1-6, hachaDeMadera1.getDurabilidad(),0);
+
+        //verificacion hachaDePiedra1 se desgaste al impactar cualquier bloque
+        double durabilidadInicialHachaPiedra1 = hachaDePiedra1.getDurabilidad();
+        hachaDePiedra1.usarEn(bloqueMadera1);
+        Assert.assertEquals(durabilidadInicialHachaPiedra1-5, hachaDePiedra1.getDurabilidad(),0);
+        hachaDePiedra1.usarEn(bloquePiedra1);
+        Assert.assertEquals(durabilidadInicialHachaPiedra1-10, hachaDePiedra1.getDurabilidad(),0);
+        hachaDePiedra1.usarEn(bloqueMetal1);
+        Assert.assertEquals(durabilidadInicialHachaPiedra1-15, hachaDePiedra1.getDurabilidad(),0);
+
+        
+
+    }
+
+    @Test
     public void test02BloqueDeMaderaEsImpactadoConHachasDeDistintosMaterialesYSeReduceSuDurabilidadDependiendoDeLaFuerzaDelHacha(){
 
         Hacha hachaDeMadera = new Hacha(new Madera());
