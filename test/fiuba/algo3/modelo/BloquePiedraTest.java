@@ -36,4 +36,24 @@ public class BloquePiedraTest {
 
         Assert.assertEquals(30, bloque.getDurabilidad());
     }
+
+    @Test
+    public void CuandoLaDurabilidadDelBloqueDePiedraLlegaACeroNoSeReduceMas(){
+
+        Pico picoDePiedra = new Pico(new Madera());
+
+        BloquePiedra bloquePiedra = new BloquePiedra();
+
+        //golpea 12 veces hasta casi el limite de durabilidad del bloque
+        for(int i = 0; i < 15; i++){
+
+            bloquePiedra.recibirDanio(picoDePiedra);
+        }
+
+        Assert.assertEquals(0, bloquePiedra.getDurabilidad());
+
+        bloquePiedra.recibirDanio(picoDePiedra);
+        Assert.assertEquals(0, bloquePiedra.getDurabilidad());
+
+    }
 }

@@ -32,4 +32,25 @@ public class BloqueMetalTest {
         Assert.assertEquals(durabilidadInicialBloque - 4, bloqueMetal.getDurabilidad());
     }
 
+    @Test
+    public void CuandoLaDurabilidadDelBloqueDeMetalLlegaACeroNoSeReduceMas(){
+
+        Piedra piedra = new Piedra();
+        Pico picoDePiedra = new Pico(piedra);
+
+        BloqueMetal bloqueMetal = new BloqueMetal();
+
+        //golpea 12 veces hasta casi el limite de durabilidad del bloque
+        for(int i = 0; i < 12; i++){
+
+            bloqueMetal.recibirDanio(picoDePiedra);
+        }
+
+        Assert.assertEquals(2, bloqueMetal.getDurabilidad());
+
+        bloqueMetal.recibirDanio(picoDePiedra);
+        Assert.assertEquals(0, bloqueMetal.getDurabilidad());
+
+    }
+
 }

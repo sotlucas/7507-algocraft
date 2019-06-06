@@ -7,7 +7,13 @@ public class BloquePiedra extends Bloque {
     }
 
     public void recibirDanio(Pico pico) {
-        this.durabilidad -= pico.getFuerza();
+
+        durabilidad -= pico.getFuerza();
+
+        if(durabilidad < 0){
+
+            durabilidad = 0;
+        }
     }
 
     public void recibirDanio(Hacha hacha) {

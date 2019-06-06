@@ -14,6 +14,11 @@ public class BloqueMetal extends Bloque {
             durabilidad -= pico.getFuerza();
         }
 
+        if(durabilidad < 0){
+
+            durabilidad = 0;
+        }
+
     }
 
     public void recibirDanio(Hacha hacha) {
