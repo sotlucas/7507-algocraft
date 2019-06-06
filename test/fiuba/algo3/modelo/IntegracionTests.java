@@ -22,27 +22,85 @@ public class IntegracionTests {
         BloqueMetal bloqueMetal1 = new BloqueMetal();// durabilidad: 50
         BloqueDiamante bloqueDiamante1 = new BloqueDiamante();// durabilidad: 100
 
-        //--------------------------------------------------------
+        //----------- Verificacion del desgaste de las herramientas contra los bloques ------------------
 
-        //verificacion hachaDeMadera1 se desgaste al impactar cualquier bloque
+        //verificacion picos de distintos materiales se desgastan segun su material al impactar un bloque sin importar el tipo de bloque
+        double durabilidadInicialPicoMadera1 = picoMadera1.getDurabilidad();
+        picoMadera1.usarEn(bloqueDiamante1);
+        Assert.assertEquals(durabilidadInicialPicoMadera1 - 2, picoMadera1.getDurabilidad(), 0);
+        double durabilidadInicialPicoPiedra1 = picoPiedra1.getDurabilidad();
+        picoPiedra1.usarEn(bloqueDiamante1);
+        Assert.assertEquals(durabilidadInicialPicoPiedra1 - 2.6, picoPiedra1.getDurabilidad(), 0.1);
+        double durabilidadInicialPicoMetal1 = picoMetal1.getDurabilidad();
+        picoMetal1.usarEn(bloqueDiamante1);
+        Assert.assertEquals(durabilidadInicialPicoMetal1 - 40, picoMetal1.getDurabilidad(), 0);
+
+        //verificacion hachas de distintos materiales se desgastan segun su material al impactar un bloque sin importar el tipo de bloque
         double durabilidadInicialHachaMadera1 = hachaDeMadera1.getDurabilidad();
-        hachaDeMadera1.usarEn(bloqueMadera1);
-        Assert.assertEquals(durabilidadInicialHachaMadera1-2, hachaDeMadera1.getDurabilidad(),0);
-        hachaDeMadera1.usarEn(bloquePiedra1);
-        Assert.assertEquals(durabilidadInicialHachaMadera1-4, hachaDeMadera1.getDurabilidad(),0);
-        hachaDeMadera1.usarEn(bloqueMetal1);
-        Assert.assertEquals(durabilidadInicialHachaMadera1-6, hachaDeMadera1.getDurabilidad(),0);
-
-        //verificacion hachaDePiedra1 se desgaste al impactar cualquier bloque
+        hachaDeMadera1.usarEn(bloqueDiamante1);
+        Assert.assertEquals(durabilidadInicialHachaMadera1 - 2, hachaDeMadera1.getDurabilidad(), 0);
         double durabilidadInicialHachaPiedra1 = hachaDePiedra1.getDurabilidad();
-        hachaDePiedra1.usarEn(bloqueMadera1);
-        Assert.assertEquals(durabilidadInicialHachaPiedra1-5, hachaDePiedra1.getDurabilidad(),0);
-        hachaDePiedra1.usarEn(bloquePiedra1);
-        Assert.assertEquals(durabilidadInicialHachaPiedra1-10, hachaDePiedra1.getDurabilidad(),0);
-        hachaDePiedra1.usarEn(bloqueMetal1);
-        Assert.assertEquals(durabilidadInicialHachaPiedra1-15, hachaDePiedra1.getDurabilidad(),0);
+        hachaDePiedra1.usarEn(bloqueDiamante1);
+        Assert.assertEquals(durabilidadInicialHachaPiedra1 - 5, hachaDePiedra1.getDurabilidad(), 0.1);
+        double durabilidadInicialHachaMetal1 = hachaDeMetal1.getDurabilidad();
+        hachaDeMetal1.usarEn(bloqueDiamante1);
+        Assert.assertEquals(durabilidadInicialHachaMetal1 - 5, hachaDeMetal1.getDurabilidad(), 0);
 
-        
+        //verificacion pico fino solo se desgasta al impactar contra bloque de diamante
+        double durabilidadInicialPicoFino1 = picoFino1.getDurabilidad();
+        picoFino1.usarEn(bloqueDiamante1);
+        Assert.assertEquals(durabilidadInicialPicoFino1 - 100, picoFino1.getDurabilidad(), 0);
+        picoFino1.usarEn(bloqueMadera1);
+        Assert.assertEquals(durabilidadInicialPicoFino1 - 100, picoFino1.getDurabilidad(), 0);
+        picoFino1.usarEn(bloquePiedra1);
+        Assert.assertEquals(durabilidadInicialPicoFino1 - 100, picoFino1.getDurabilidad(), 0);
+        picoFino1.usarEn(bloqueMetal1);
+        Assert.assertEquals(durabilidadInicialPicoFino1 - 100, picoFino1.getDurabilidad(), 0);
+        picoFino1.usarEn(bloqueDiamante1);
+        Assert.assertEquals(durabilidadInicialPicoFino1 - 190, picoFino1.getDurabilidad(), 0);
+
+        //bloque de madera se desgasta solo con las hachas
+        double durabilidadInicialBloqueMadera1 = bloqueMadera1.getDurabilidad();
+        picoMadera1.usarEn(bloqueMadera1);
+        picoPiedra1.usarEn(bloqueMadera1);
+        picoMetal1.usarEn(bloqueMadera1);
+        picoFino1.usarEn(bloqueMadera1);
+        Assert.assertEquals(durabilidadInicialBloqueMadera1, bloqueMadera1.getDurabilidad(),0);
+
+        hachaDeMadera1.usarEn(bloqueMadera1);
+        Assert.assertEquals(durabilidadInicialBloqueMadera1 - 2, bloqueMadera1.getDurabilidad(), 0);
+        hachaDePiedra1.usarEn(bloqueMadera1);
+        Assert.assertEquals(durabilidadInicialBloqueMadera1 - 7, bloqueMadera1.getDurabilidad(), 0);
+        hachaDeMetal1.usarEn(bloqueMadera1);
+        Assert.assertEquals(durabilidadInicialBloqueMadera1 - 10, bloqueMadera1.getDurabilidad(), 0);
+
+        //bloque de piedra se desgasta solo con los picos salvo el pico fino
+        double durabilidadInicialBloquePiedra1 = bloquePiedra1.getDurabilidad();
+        hachaDeMadera1.usarEn(bloquePiedra1);
+        hachaDePiedra1.usarEn(bloquePiedra1);
+        hachaDeMetal1.usarEn(bloquePiedra1);
+        picoFino1.usarEn(bloquePiedra1);
+        Assert.assertEquals(durabilidadInicialBloquePiedra1, bloquePiedra1.getDurabilidad(),0);
+
+        picoMadera1.usarEn(bloquePiedra1);
+        Assert.assertEquals(durabilidadInicialBloquePiedra1 - 2, bloquePiedra1.getDurabilidad(), 0);
+        picoPiedra1.usarEn(bloquePiedra1);
+        Assert.assertEquals(durabilidadInicialBloquePiedra1 - 6, bloquePiedra1.getDurabilidad(), 0);
+        picoMetal1.usarEn(bloquePiedra1);
+        Assert.assertEquals(durabilidadInicialBloquePiedra1 - 18, bloquePiedra1.getDurabilidad(), 0);
+
+        //bloque de metal se desgaste solo con pico de piedra
+        double durabilidadInicialBloqueMetal1 = bloqueMetal1.getDurabilidad();
+        hachaDeMadera1.usarEn(bloqueMetal1);
+        hachaDePiedra1.usarEn(bloqueMetal1);
+        hachaDeMetal1.usarEn(bloqueMetal1);
+        picoFino1.usarEn(bloqueMetal1);
+        picoMadera1.usarEn(bloqueMetal1);
+        picoMetal1.usarEn(bloqueMetal1);
+        Assert.assertEquals(durabilidadInicialBloqueMetal1, bloqueMetal1.getDurabilidad(),0);
+
+        picoPiedra1.usarEn(bloqueMetal1);
+        Assert.assertEquals(durabilidadInicialBloqueMetal1 - 4, bloqueMetal1.getDurabilidad(), 0);
 
     }
 

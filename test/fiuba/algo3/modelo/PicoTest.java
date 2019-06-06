@@ -78,6 +78,7 @@ public class PicoTest {
         BloqueMadera bloqueMadera = new BloqueMadera();
         BloquePiedra bloquePiedra = new BloquePiedra();
         BloqueMetal bloqueMetal = new BloqueMetal();
+        BloqueDiamante bloqueDiamante = new BloqueDiamante();
 
         picoDeMadera.usarEn(bloqueMadera);
         Assert.assertEquals(98.0, picoDeMadera.getDurabilidad(), 0);
@@ -87,6 +88,9 @@ public class PicoTest {
 
         picoDeMadera.usarEn(bloqueMetal);
         Assert.assertEquals(94.0, picoDeMadera.getDurabilidad(), 0);
+
+        picoDeMadera.usarEn(bloqueDiamante);
+        Assert.assertEquals(92.0, picoDeMadera.getDurabilidad(), 0);
     }
 
     @Test
