@@ -175,7 +175,7 @@ public class IntegracionTests {
     }
 
     @Test
-    public void test03BloqueDePiedraEsImpactadoConTodosLosTiposDeHachasYNoSeReduceSuDurabilidad(){
+    public void test05BloqueDePiedraEsImpactadoConTodosLosTiposDeHachasYNoSeReduceSuDurabilidad(){
 
         Hacha hachaDeMadera = new Hacha(new Madera());
         Hacha hachaDeMetal = new Hacha(new Metal());
@@ -195,7 +195,7 @@ public class IntegracionTests {
     }
 
     @Test
-    public void test04BloqueDeMetalEsImpactadoConHachasDeDistintosMaterialesYNoSeReduceSuDurabilidad(){
+    public void test06BloqueDeMetalEsImpactadoConHachasDeDistintosMaterialesYNoSeReduceSuDurabilidad(){
 
         Hacha hachaDeMadera = new Hacha(new Madera());
         Hacha hachaDeMetal = new Hacha(new Metal());
@@ -215,7 +215,7 @@ public class IntegracionTests {
     }
 
     @Test //obligatoria
-    public void test02BloqueDeMetalRecibeGolpesDeTodosLosTiposDePicosYSoloReduceSuDurabilidadAlSerImpactadoConPicoDePiedra() {
+    public void test07BloqueDeMetalRecibeGolpesDeTodosLosTiposDePicosYSoloReduceSuDurabilidadAlSerImpactadoConPicoDePiedra() {
 
         Pico picoMadera = new Pico(new Madera());
         Pico picoPiedra = new Pico(new Piedra());
@@ -235,7 +235,7 @@ public class IntegracionTests {
     }
 
     @Test
-    public void test00BloqueDeDiamanteRecibeGolpesDeTodasLasHerramientasYReduceSuDurabilidadConElImpactoDelPicoFino(){
+    public void test08BloqueDeDiamanteRecibeGolpesDeTodasLasHerramientasYReduceSuDurabilidadConElImpactoDelPicoFino(){
 
         Hacha hachaDeMadera = new Hacha(new Madera());
         Hacha hachaDeMetal = new Hacha(new Metal());
