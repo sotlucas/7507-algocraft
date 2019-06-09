@@ -2,8 +2,13 @@ package fiuba.algo3.modelo;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.ExpectedException;
 
 public class MapaTest {
+
+    @Rule
+    public ExpectedException thrown = ExpectedException.none();
 
     @Test
     public void test01AlCrearseMapaDevuelveAlgoDistintoDeNull(){
@@ -38,14 +43,14 @@ public class MapaTest {
     public void testDespuesDeCrearTableroEstablezcoLaPosicionDelJugadorYEsaCasillaPasaAEstarOcupada(){
 
         Mapa mapa = new Mapa(10, 10);
-        Personaje personaje = new Personaje();
+        Jugador jugador = new Jugador();
         int alto = 5;
         int ancho = 5;
 
         Casilla casillaIndicada = mapa.getCasilla(alto, ancho);
         Assert.assertTrue(casillaIndicada.estaVacia());
 
-        mapa.colocar(personaje, alto, ancho);
+        mapa.colocar(jugador, alto, ancho);
         Assert.assertFalse(casillaIndicada.estaVacia());
     }
 
@@ -64,34 +69,112 @@ public class MapaTest {
     }
 
     @Test
-    public void testPersonajeIntentaAvanzarHaciaArribaAUnaCasillaLibreYSeVerificaQuePuedeHacerlo(){
+    public void testJugadorIntentaAvanzarHaciaArribaAUnaCasillaLibreYSeVerificaQuePuedeHacerlo(){
 
         Mapa mapa = new Mapa(4, 4);
-        Personaje personaje = new Personaje();
+        Jugador jugador = new Jugador();
 
-        mapa.colocar(personaje, 2, 2);
-        personaje.avanzar();
+        mapa.colocar(jugador, 2, 2);
+        jugador.setPosicion(2, 2); // posicion inicial del Jugador
+
+        jugador.avanzar(mapa, new HaciaArriba());
 
         //si el personaje se movio hacia arriba, la casilla deberia pasar a estar vacia
-        //Assert.assertTrue(mapa.getCasilla(2, 2).estaVacia());
-
-
+        Assert.assertTrue(mapa.getCasilla(2, 2).estaVacia());
     }
 
-    @Test //CORREGIR PRUEBA
-    public void testPersonajeIntentaAvanzarHaciaArribaAUnaCasillaOcupadaYSeVerificaQueNoPuede(){
-
+    @Test
+    public void testJugadorIntentaAvanzarHaciaArribaAUnaCasillaOcupadaYLanzaCasilleroEstaOcupadoException() {
         Mapa mapa = new Mapa(4, 4);
         BloquePiedra bloquePiedra = new BloquePiedra();
-        Personaje personaje = new Personaje();
+        Jugador jugador = new Jugador();
 
         mapa.colocar(bloquePiedra, 1, 2);
-        mapa.colocar(personaje, 2, 2);
-        personaje.avanzar();
+        mapa.colocar(jugador, 2, 2);
+        jugador.setPosicion(2, 2); // posicion inicial del Jugador
 
-        //si el personaje se movio hacia arriba, la casilla deberia pasar a estar vacia
-        //Assert.assertTrue(mapa.getCasilla(2, 2).estaVacia());
+        thrown.expect(CasilleroEstaOcupadoException.class);
+        jugador.avanzar(mapa, new HaciaArriba());
+    }
 
+    @Test
+    public void testJugadorIntentaAvanzarHaciaAbajoAUnaCasillaLibreYLaCasillaAnteriorPasaAEstarLibre() {
+        Mapa mapa = new Mapa(4, 4);
+        Jugador jugador = new Jugador();
 
+        mapa.colocar(jugador, 2, 2);
+        jugador.setPosicion(2, 2); // posicion inicial del Jugador
+
+        jugador.avanzar(mapa, new HaciaAbajo());
+
+        Assert.assertTrue(mapa.getCasilla(2, 2).estaVacia());
+    }
+
+    @Test
+    public void testJugadorIntentaAvanzarHaciaAbajoAUnaCasillaOcupadaYLanzaCasilleroEstaOcupadoException() {
+        Mapa mapa = new Mapa(4, 4);
+        BloquePiedra bloquePiedra = new BloquePiedra();
+        Jugador jugador = new Jugador();
+
+        mapa.colocar(bloquePiedra, 2, 2);
+        mapa.colocar(jugador, 2, 1);
+        jugador.setPosicion(2, 1); // posicion inicial del Jugador
+
+        thrown.expect(CasilleroEstaOcupadoException.class);
+        jugador.avanzar(mapa, new HaciaAbajo());
+    }
+
+    @Test
+    public void testJugadorIntentaAvanzarHaciaDerechaAUnaCasillaLibreYLaCasillaAnteriorPasaAEstarLibre() {
+        Mapa mapa = new Mapa(4, 4);
+        Jugador jugador = new Jugador();
+
+        mapa.colocar(jugador, 2, 2);
+        jugador.setPosicion(2, 2); // posicion inicial del Jugador
+
+        jugador.avanzar(mapa, new HaciaDerecha());
+
+        Assert.assertTrue(mapa.getCasilla(2, 2).estaVacia());
+    }
+
+    @Test
+    public void testJugadorIntentaAvanzarHaciaDerechaAUnaCasillaOcupadaYLanzaCasilleroEstaOcupadoException() {
+        Mapa mapa = new Mapa(4, 4);
+        BloquePiedra bloquePiedra = new BloquePiedra();
+        Jugador jugador = new Jugador();
+
+        mapa.colocar(bloquePiedra, 2, 2);
+        mapa.colocar(jugador, 1, 2);
+        jugador.setPosicion(1, 2); // posicion inicial del Jugador
+
+        thrown.expect(CasilleroEstaOcupadoException.class);
+        jugador.avanzar(mapa, new HaciaDerecha());
+    }
+
+    @Test
+    public void testJugadorIntentaAvanzarHaciaIzquierdaAUnaCasillaLibreYLaCasillaAnteriorPasaAEstarLibre() {
+        Mapa mapa = new Mapa(4, 4);
+        Jugador jugador = new Jugador();
+
+        mapa.colocar(jugador, 2, 2);
+        jugador.setPosicion(2, 2); // posicion inicial del Jugador
+
+        jugador.avanzar(mapa, new HaciaIzquierda());
+
+        Assert.assertTrue(mapa.getCasilla(2, 2).estaVacia());
+    }
+
+    @Test
+    public void testJugadorIntentaAvanzarHaciaIzquierdaAUnaCasillaOcupadaYLanzaCasilleroEstaOcupadoException() {
+        Mapa mapa = new Mapa(4, 4);
+        BloquePiedra bloquePiedra = new BloquePiedra();
+        Jugador jugador = new Jugador();
+
+        mapa.colocar(bloquePiedra, 2, 2);
+        mapa.colocar(jugador, 3, 2);
+        jugador.setPosicion(3, 2); // posicion inicial del Jugador
+
+        thrown.expect(CasilleroEstaOcupadoException.class);
+        jugador.avanzar(mapa, new HaciaIzquierda());
     }
 }

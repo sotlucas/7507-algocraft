@@ -3,7 +3,7 @@ package fiuba.algo3.modelo;
 import fiuba.algo3.modelo.BloqueMadera;
 import fiuba.algo3.modelo.Casilla;
 import fiuba.algo3.modelo.CasilleroEstaOcupadoException;
-import fiuba.algo3.modelo.Personaje;
+import fiuba.algo3.modelo.Jugador;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
@@ -37,11 +37,11 @@ public class CasillaTest {
     }
 
     @Test
-    public void test04AlCrearseCasilleroConElPersonajeElEstadoEsOcupado(){
+    public void test04AlCrearseCasilleroConElJugadorElEstadoEsOcupado(){
 
-        Personaje personaje = new Personaje();
+        Jugador jugador = new Jugador();
 
-        Casilla casilla = new Casilla(personaje);
+        Casilla casilla = new Casilla(jugador);
         Assert.assertFalse(casilla.estaVacia());
     }
 
@@ -56,14 +56,14 @@ public class CasillaTest {
     }
 
     @Test
-    public void test06SeIntentaColocarElPersonajeEnUnaCasillaYaOcupadaLanzaExcepcionCasillaYaOcupada(){
+    public void test06SeIntentaColocarElJugadorEnUnaCasillaYaOcupadaLanzaExcepcionCasillaYaOcupada(){
 
 
         Casilla casilla = new Casilla(new BloqueMadera());
-        Personaje personaje = new Personaje();
+        Jugador jugador = new Jugador();
 
         thrown.expect(CasilleroEstaOcupadoException.class);
-        casilla.colocar(personaje);
+        casilla.colocar(jugador);
     }
 
     @Test
@@ -77,12 +77,12 @@ public class CasillaTest {
     }
 
     @Test
-    public void test08SePuedeColocarElPersonajeEnUnaCasillaLibre(){
+    public void test08SePuedeColocarElJugadorEnUnaCasillaLibre(){
 
-        Personaje personaje = new Personaje();
+        Jugador jugador = new Jugador();
 
         Casilla casilla = new Casilla();
-        casilla.colocar(personaje);
+        casilla.colocar(jugador);
         Assert.assertFalse(casilla.estaVacia());
     }
 

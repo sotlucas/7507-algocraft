@@ -39,10 +39,8 @@ public class Mapa {
     }
 
     public void colocar(Elemento elemento, int alto, int ancho) {
-
         Casilla casillaIndicada = casillas[alto][ancho];
         casillaIndicada.colocar(elemento);
-
     }
 
     public boolean casillaEstaVacia(int alto, int ancho){
@@ -50,4 +48,10 @@ public class Mapa {
         return casillas[alto][ancho].estaVacia();
     }
 
+    public void mover(Elemento elemento, int desdeX, int desdeY, int hastaX, int hastaY) {
+        this.colocar(elemento, hastaY, hastaX);
+        // Tengo que borrar el elemento de la casilla anterior
+        Casilla casillaAnterior = casillas[desdeY][desdeX];
+        casillaAnterior.vaciar();
+    }
 }
