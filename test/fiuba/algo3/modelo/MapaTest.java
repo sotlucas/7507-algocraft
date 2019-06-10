@@ -180,4 +180,53 @@ public class MapaTest {
         thrown.expect(CasilleroEstaOcupadoException.class);
         jugador.avanzar(mapa, new HaciaIzquierda());
     }
+
+
+    @Test
+    public void testJugadorIntentaAvanzarHaciaArribaEnElBordeDelMapaYLanzaPosicionFueraDelMapaException() {
+        Mapa mapa = new Mapa(2, 2);
+        Jugador jugador = new Jugador();
+
+        mapa.colocar(jugador, 0, 0);
+        jugador.setPosicion(0, 0); // posicion inicial del Jugador
+
+        thrown.expect(PosicionFueraDelMapaException.class);
+        jugador.avanzar(mapa, new HaciaArriba());
+    }
+
+    @Test
+    public void testJugadorIntentaAvanzarHaciaAbajoEnElBordeDelMapaYLanzaPosicionFueraDelMapaException() {
+        Mapa mapa = new Mapa(2, 2);
+        Jugador jugador = new Jugador();
+
+        mapa.colocar(jugador, 1, 0);
+        jugador.setPosicion(1, 0); // posicion inicial del Jugador
+
+        thrown.expect(PosicionFueraDelMapaException.class);
+        jugador.avanzar(mapa, new HaciaAbajo());
+    }
+
+    @Test
+    public void testJugadorIntentaAvanzarHaciaDerechaEnElBordeDelMapaYLanzaPosicionFueraDelMapaException() {
+        Mapa mapa = new Mapa(2, 2);
+        Jugador jugador = new Jugador();
+
+        mapa.colocar(jugador, 1, 1);
+        jugador.setPosicion(1, 1); // posicion inicial del Jugador
+
+        thrown.expect(PosicionFueraDelMapaException.class);
+        jugador.avanzar(mapa, new HaciaDerecha());
+    }
+
+    @Test
+    public void testJugadorIntentaAvanzarHaciaIzquierdaEnElBordeDelMapaYLanzaPosicionFueraDelMapaException() {
+        Mapa mapa = new Mapa(2, 2);
+        Jugador jugador = new Jugador();
+
+        mapa.colocar(jugador, 1, 0);
+        jugador.setPosicion(1, 0); // posicion inicial del Jugador
+
+        thrown.expect(PosicionFueraDelMapaException.class);
+        jugador.avanzar(mapa, new HaciaIzquierda());
+    }
 }

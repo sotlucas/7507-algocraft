@@ -39,8 +39,12 @@ public class Mapa {
     }
 
     public void colocar(Elemento elemento, int fila, int columna) {
-        Casilla casillaIndicada = casillas[fila][columna];
-        casillaIndicada.colocar(elemento);
+        try {
+            Casilla casillaIndicada = casillas[fila][columna];
+            casillaIndicada.colocar(elemento);
+        } catch(ArrayIndexOutOfBoundsException e) {
+            throw new PosicionFueraDelMapaException();
+        }
     }
 
     public boolean casillaEstaVacia(int fila, int columna){
