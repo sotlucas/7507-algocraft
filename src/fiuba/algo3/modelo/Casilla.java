@@ -33,14 +33,6 @@ public class Casilla {
 
     }
 
-    public Casilla obtenerSuperior() {
-        return new Casilla();
-    }
-
-    public boolean hayCasillaSuperior() {
-        return true;
-    }
-
     public void vaciar() {
 
         this.elementoContenido = null;
