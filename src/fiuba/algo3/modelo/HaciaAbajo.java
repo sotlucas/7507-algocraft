@@ -4,6 +4,6 @@ public class HaciaAbajo extends Direccion {
     
     @Override
     public void avanzar(Mapa mapa, Jugador jugador) {
-        mapa.mover(jugador, jugador.getPosicionX(), jugador.getPosicionY(), jugador.getPosicionX(), jugador.getPosicionY() + 1);
+        mapa.mover(jugador, jugador.getPosicionColumna(), jugador.getPosicionFila(), jugador.getPosicionColumna(), jugador.getPosicionFila() + 1);
     }
 }

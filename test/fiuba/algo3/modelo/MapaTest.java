@@ -20,12 +20,12 @@ public class MapaTest {
     @Test
     public void test02AlCrearseMapaConDimensionesEstasQuedanEstablecidasCorrectamente(){
 
-        int alto = 5;
-        int ancho = 8;
+        int cantidadFilas = 5;
+        int cantidadColumnas = 8;
 
-        Mapa mapa = new Mapa(alto, ancho);
-        Assert.assertEquals(alto, mapa.getAltura());
-        Assert.assertEquals(ancho, mapa.getAncho());
+        Mapa mapa = new Mapa(cantidadFilas, cantidadColumnas);
+        Assert.assertEquals(cantidadFilas, mapa.getCantidadFilas());
+        Assert.assertEquals(cantidadColumnas, mapa.getCantidadColumnas());
     }
 
     @Test
@@ -44,13 +44,13 @@ public class MapaTest {
 
         Mapa mapa = new Mapa(10, 10);
         Jugador jugador = new Jugador();
-        int alto = 5;
-        int ancho = 5;
+        int cantidadFilas = 5;
+        int cantidadColumnas = 5;
 
-        Casilla casillaIndicada = mapa.getCasilla(alto, ancho);
+        Casilla casillaIndicada = mapa.getCasilla(cantidadFilas, cantidadColumnas);
         Assert.assertTrue(casillaIndicada.estaVacia());
 
-        mapa.colocar(jugador, alto, ancho);
+        mapa.colocar(jugador, cantidadFilas, cantidadColumnas);
         Assert.assertFalse(casillaIndicada.estaVacia());
     }
 
@@ -59,11 +59,11 @@ public class MapaTest {
 
         Mapa mapa = new Mapa(10, 10);
         BloqueDiamante bloque = new BloqueDiamante();
-        int alto = 5;
-        int ancho = 5;
+        int cantidadFilas = 5;
+        int cantidadColumnas = 5;
 
-        mapa.colocar(bloque, alto, ancho);
-        Casilla casillaIndicada = mapa.getCasilla(alto, ancho);
+        mapa.colocar(bloque, cantidadFilas, cantidadColumnas);
+        Casilla casillaIndicada = mapa.getCasilla(cantidadFilas, cantidadColumnas);
 
         Assert.assertFalse(casillaIndicada.estaVacia());
     }
@@ -79,8 +79,9 @@ public class MapaTest {
 
         jugador.avanzar(mapa, new HaciaArriba());
 
-        //si el personaje se movio hacia arriba, la casilla deberia pasar a estar vacia
+        //si el personaje se movio hacia arriba, la casilla deberia pasar a estar vacia y la nueva, ocupada
         Assert.assertTrue(mapa.getCasilla(2, 2).estaVacia());
+        Assert.assertFalse(mapa.getCasilla(1, 2).estaVacia()); //agregué esta para darle mas robustez
     }
 
     @Test
@@ -108,6 +109,7 @@ public class MapaTest {
         jugador.avanzar(mapa, new HaciaAbajo());
 
         Assert.assertTrue(mapa.getCasilla(2, 2).estaVacia());
+        Assert.assertFalse(mapa.getCasilla(3, 2).estaVacia());
     }
 
     @Test
@@ -117,8 +119,8 @@ public class MapaTest {
         Jugador jugador = new Jugador();
 
         mapa.colocar(bloquePiedra, 2, 2);
-        mapa.colocar(jugador, 2, 1);
-        jugador.setPosicion(2, 1); // posicion inicial del Jugador
+        mapa.colocar(jugador, 1, 2);
+        jugador.setPosicion(1, 2); // posicion inicial del Jugador
 
         thrown.expect(CasilleroEstaOcupadoException.class);
         jugador.avanzar(mapa, new HaciaAbajo());
@@ -131,10 +133,10 @@ public class MapaTest {
 
         mapa.colocar(jugador, 2, 2);
         jugador.setPosicion(2, 2); // posicion inicial del Jugador
-
         jugador.avanzar(mapa, new HaciaDerecha());
 
         Assert.assertTrue(mapa.getCasilla(2, 2).estaVacia());
+        Assert.assertFalse(mapa.getCasilla(2, 3).estaVacia());
     }
 
     @Test
@@ -144,8 +146,8 @@ public class MapaTest {
         Jugador jugador = new Jugador();
 
         mapa.colocar(bloquePiedra, 2, 2);
-        mapa.colocar(jugador, 1, 2);
-        jugador.setPosicion(1, 2); // posicion inicial del Jugador
+        mapa.colocar(jugador, 2, 1);
+        jugador.setPosicion(2, 1); // posicion inicial del Jugador
 
         thrown.expect(CasilleroEstaOcupadoException.class);
         jugador.avanzar(mapa, new HaciaDerecha());
@@ -162,6 +164,7 @@ public class MapaTest {
         jugador.avanzar(mapa, new HaciaIzquierda());
 
         Assert.assertTrue(mapa.getCasilla(2, 2).estaVacia());
+        Assert.assertFalse(mapa.getCasilla(2, 1).estaVacia());
     }
 
     @Test
@@ -171,8 +174,8 @@ public class MapaTest {
         Jugador jugador = new Jugador();
 
         mapa.colocar(bloquePiedra, 2, 2);
-        mapa.colocar(jugador, 3, 2);
-        jugador.setPosicion(3, 2); // posicion inicial del Jugador
+        mapa.colocar(jugador, 2, 3);
+        jugador.setPosicion(2, 3); // posicion inicial del Jugador
 
         thrown.expect(CasilleroEstaOcupadoException.class);
         jugador.avanzar(mapa, new HaciaIzquierda());

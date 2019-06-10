@@ -2,8 +2,8 @@ package fiuba.algo3.modelo;
 
 public class Jugador implements Elemento {
 
-    Inventario inventario;
-    Posicion posicion;
+    private Inventario inventario;
+    private Posicion posicion;
 
     public Jugador() {
         this.inventario = new Inventario();
@@ -19,16 +19,16 @@ public class Jugador implements Elemento {
         direccion.avanzar(mapa, this);
     }
 
-    public void setPosicion(int x, int y) {
-        this.posicion.setX(x);
-        this.posicion.setY(y);
+    public void setPosicion(int fila, int columna) {
+        this.posicion.setColumna(columna);
+        this.posicion.setFila(fila);
     }
 
-    public int getPosicionX() {
-        return this.posicion.getX();
+    public int getPosicionColumna() {
+        return this.posicion.getColumna();
     }
 
-    public int getPosicionY() {
-        return this.posicion.getY();
+    public int getPosicionFila() {
+        return this.posicion.getFila();
     }
 }

@@ -2,56 +2,57 @@ package fiuba.algo3.modelo;
 
 public class Mapa {
 
-    private int ancho;
-    private int alto;
+    private int cantidadColumnas;
+    private int cantidadFilas;
     private Casilla[][] casillas;
 
     public Mapa(){
 
     }
 
-    public Mapa(int alto, int ancho){
+    public Mapa(int cantidadFilas, int cantidadColumnas){
 
-        this.alto = alto;
-        this.ancho = ancho;
-        casillas = new Casilla[alto][ancho];
+        this.cantidadFilas = cantidadFilas;
+        this.cantidadColumnas = cantidadColumnas;
+        casillas = new Casilla[cantidadFilas][cantidadColumnas];
 
-        for(int i = 0; i < alto; i++ ){
-            for(int j = 0; j < ancho; j++){
+        for(int i = 0; i < cantidadFilas; i++ ){
+            for(int j = 0; j < cantidadColumnas; j++){
 
                 casillas[i][j] = new Casilla();
             }
         }
     }
 
-    public int getAltura() {
+    public int getCantidadFilas() {
 
-        return alto;
+        return cantidadFilas;
     }
 
-    public int getAncho() {
-        return ancho;
+    public int getCantidadColumnas() {
+        return cantidadColumnas;
     }
 
-    public Casilla getCasilla(int alto, int ancho){
+    public Casilla getCasilla(int fila, int columna){
 
-        return casillas[alto][ancho];
+        return casillas[fila][columna];
     }
 
-    public void colocar(Elemento elemento, int alto, int ancho) {
-        Casilla casillaIndicada = casillas[alto][ancho];
+    public void colocar(Elemento elemento, int fila, int columna) {
+        Casilla casillaIndicada = casillas[fila][columna];
         casillaIndicada.colocar(elemento);
     }
 
-    public boolean casillaEstaVacia(int alto, int ancho){
+    public boolean casillaEstaVacia(int fila, int columna){
 
-        return casillas[alto][ancho].estaVacia();
+        return casillas[fila][columna].estaVacia();
     }
 
-    public void mover(Elemento elemento, int desdeX, int desdeY, int hastaX, int hastaY) {
-        this.colocar(elemento, hastaY, hastaX);
+    public void mover(Elemento elemento, int columnaAnterior, int filaAnterior, int columnaSiguiente, int filaSiguiente) {
+
+        this.colocar(elemento, filaSiguiente, columnaSiguiente);
         // Tengo que borrar el elemento de la casilla anterior
-        Casilla casillaAnterior = casillas[desdeY][desdeX];
+        Casilla casillaAnterior = casillas[filaAnterior][columnaAnterior];
         casillaAnterior.vaciar();
     }
 }
