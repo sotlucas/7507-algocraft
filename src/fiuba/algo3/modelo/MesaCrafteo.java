@@ -12,28 +12,45 @@ public class MesaCrafteo {
             Pico de metal     "MMM-m--m-"
             Pico fino         "MMMpm--m-"
      */
-    
-    private char[] tablero;
+
+    private Material[] tablero;
 
     public MesaCrafteo(){
 
-        tablero = new char[9];
+        tablero = new Material[9];
         for(int i = 0; i < 9; i++){
 
-            tablero[i] = '-';
+            tablero[i] = null;
         }
     }
+
+
 
     public String getRecetaParaConstruir(){
 
         StringBuilder clave = new StringBuilder();
 
-        for(char letra: tablero){
+        for(Material material: tablero){
+            if(material != null) {
+                clave.append(material.getIdentificador());
+            } else {
 
-            clave.append(letra);
+                clave.append('-');
+            }
         }
 
         return clave.toString();
     }
 
+    public void disponerMaterialesParaPicoDeMadera() {
+        tablero[0] = new Madera();
+        tablero[1] = new Madera();
+        tablero[2] = new Madera();
+        tablero[3] = null;
+        tablero[4] = new Madera();
+        tablero[5] = null;
+        tablero[6] = null;
+        tablero[7] = new Madera();
+        tablero[8] = null;
+    }
 }

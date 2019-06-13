@@ -34,5 +34,17 @@ public class MesaCrafteoTest {
         Assert.assertEquals("---------", receta);
     }
 
+    @Test
+    public void testSeDesplieganMaterialesEnElTableroYLaMesaDevuelveLaClaveCorrectaCorrespondiente(){
+
+        MesaCrafteo mesaCrafteo = new MesaCrafteo();
+
+        mesaCrafteo.disponerMaterialesParaPicoDeMadera();
+        String receta = mesaCrafteo.getRecetaParaConstruir();
+
+        Assert.assertEquals("mmm-m--m-", receta);
+
+    }
+
 
 }
