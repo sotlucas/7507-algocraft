@@ -10,9 +10,9 @@ public class BloquePiedra extends Bloque {
 
         durabilidad -= pico.getFuerza();
 
-        if(durabilidad < 0){
+        if(durabilidad <= 0){
 
-            durabilidad = 0;
+            throw new BloqueSeRompioException();
         }
     }
 

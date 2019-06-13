@@ -12,9 +12,6 @@ public class DesgasteEspecial extends Desgaste{
     public double desgastar(){
 
         durabilidad -= durabilidad*factor;
-        if(durabilidad < 1){
-            durabilidad = 0;
-        }
         return durabilidad;
     }
 

@@ -2,9 +2,14 @@ package fiuba.algo3.modelo;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.ExpectedException;
 
 
 public class BloqueMaderaTest {
+
+    @Rule
+    public ExpectedException thrown = ExpectedException.none();
 
     @Test
     public void test01AlCrearseBloqueDeMaderaDevuelveAlgoDistintoDeNull(){
@@ -39,15 +44,14 @@ public class BloqueMaderaTest {
     }
 
     @Test //obligatoria
-    public void bloqueDeMaderaEsGolpeadoConHachaDeMetalYSeVerificaQueSeReduceSuDurabilidad(){
+    public void bloqueDeMaderaEsGolpeadoConHachaDeMetalYSeVerificaQueSeRompe(){
 
         Hacha hachaDeMetal = new Hacha(new Metal());
 
         BloqueMadera bloque = new BloqueMadera();
 
+        thrown.expect(BloqueSeRompioException.class);
         bloque.recibirDanio(hachaDeMetal);
-
-        Assert.assertEquals(0, bloque.getDurabilidad());
     }
 
     @Test //obligatoria
@@ -116,12 +120,9 @@ public class BloqueMaderaTest {
         bloqueMadera.recibirDanio(hachaDeMadera);
         bloqueMadera.recibirDanio(hachaDeMadera);
         bloqueMadera.recibirDanio(hachaDeMadera);
-        bloqueMadera.recibirDanio(hachaDeMadera);
 
-        Assert.assertEquals(0, bloqueMadera.getDurabilidad());
-
+        thrown.expect(BloqueSeRompioException.class);
         bloqueMadera.recibirDanio(hachaDeMadera);
-        Assert.assertEquals(0, bloqueMadera.getDurabilidad());
 
     }
 

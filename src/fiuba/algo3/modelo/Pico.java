@@ -30,6 +30,9 @@ public class Pico extends Herramienta {
 
         bloqueMaterial.recibirDanio(this);
         durabilidad = desgaste.desgastar();
+        if (durabilidad <= 0) {
+            throw new HerramientaSeRompioException();
+        }
     }
 
     public int getFuerzaEspecialContraMetal(){

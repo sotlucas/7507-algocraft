@@ -25,17 +25,4 @@ public class DesgasteEspecialTest {
 
     }
 
-    @Test
-    public void test03DurabilidadAlLlegarACeroYaNoSeReduceMas(){
-
-        DesgasteEspecial desgaste = new DesgasteEspecial();
-
-        for(int i = 0; i < 65; i++) {
-            desgaste.desgastar();
-        }
-        //debe colocarsele un delta ajustado pues nunca alcanza el cero realmente
-        Assert.assertEquals(0, desgaste.desgastar(), 0);
-
-    }
-
 }

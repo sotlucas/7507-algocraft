@@ -1,10 +1,15 @@
 package fiuba.algo3.modelo;
 
 import org.junit.Assert;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 
 public class BloquePiedraTest {
+
+    @Rule
+    public ExpectedException thrown = ExpectedException.none();
 
     @Test
     public void test01AlCrearseBloqueDePiedraDevuelveAlgoDistintoDeNull(){
@@ -120,16 +125,14 @@ public class BloquePiedraTest {
 
         BloquePiedra bloquePiedra = new BloquePiedra();
 
-        //golpea 12 veces hasta casi el limite de durabilidad del bloque
-        for(int i = 0; i < 15; i++){
+        //golpea 14 veces hasta casi el limite de durabilidad del bloque
+        for(int i = 0; i < 14; i++){
 
             bloquePiedra.recibirDanio(picoDePiedra);
         }
 
-        Assert.assertEquals(0, bloquePiedra.getDurabilidad());
-
+        thrown.expect(BloqueSeRompioException.class);
         bloquePiedra.recibirDanio(picoDePiedra);
-        Assert.assertEquals(0, bloquePiedra.getDurabilidad());
 
     }
 }

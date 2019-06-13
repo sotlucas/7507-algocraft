@@ -10,9 +10,9 @@ public class BloqueMetal extends Bloque {
 
         durabilidad -= pico.getFuerzaEspecialContraMetal();
 
-        if(durabilidad < 0){
+        if(durabilidad <= 0){
 
-            durabilidad = 0;
+            throw new BloqueSeRompioException();
         }
 
     }

@@ -16,9 +16,9 @@ public class BloqueDiamante extends Bloque{
 
         durabilidad -= picoFino.getFuerza();
 
-        if(durabilidad < 0){
+        if(durabilidad <= 0){
 
-            durabilidad = 0;
+            throw new BloqueSeRompioException();
         }
     }
 }

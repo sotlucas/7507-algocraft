@@ -25,6 +25,9 @@ public class PicoFino extends Herramienta {
 
         bloqueDiamante.recibirDanio(this);
         durabilidad = desgaste.desgastar();
+        if (durabilidad < 1) {
+            throw new HerramientaSeRompioException();
+        }
     }
 
 }

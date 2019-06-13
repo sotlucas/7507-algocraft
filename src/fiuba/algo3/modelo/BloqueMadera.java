@@ -12,9 +12,9 @@ public class BloqueMadera extends Bloque {
 
         durabilidad -= hacha.getFuerza();
 
-        if(durabilidad < 0){
+        if(durabilidad <= 0){
 
-            durabilidad = 0;
+            throw new BloqueSeRompioException();
         }
 
     }

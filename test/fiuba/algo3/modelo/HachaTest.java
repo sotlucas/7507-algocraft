@@ -1,9 +1,14 @@
 package fiuba.algo3.modelo;
 
 import org.junit.Assert;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
-    public class HachaTest {
+public class HachaTest {
+
+        @Rule
+        public ExpectedException thrown = ExpectedException.none();
 
         @Test
         public void test01losConstructoresDelHachaDevuelvenAlgoDistintoDeNull() {
@@ -122,6 +127,7 @@ import org.junit.Test;
             BloquePiedra bloquePiedra = new BloquePiedra();
             BloqueMetal bloqueMetal = new BloqueMetal();
 
+            thrown.expect(BloqueSeRompioException.class);
             hachaDeMetal.usarEn(bloqueMadera);
             Assert.assertEquals(395.0, hachaDeMetal.getDurabilidad(), 0);
 
@@ -141,13 +147,12 @@ import org.junit.Test;
             BloquePiedra bloquePiedra = new BloquePiedra();
 
             //golpea 50 veces
-            for(int i = 0; i < 50; i++){
+            for(int i = 0; i < 49; i++){
 
                 hachaDeMadera.usarEn(bloquePiedra);
             }
 
-            Assert.assertEquals(0, hachaDeMadera.getDurabilidad(), 0);
-
+            thrown.expect(HerramientaSeRompioException.class);
             hachaDeMadera.usarEn(bloquePiedra);
             Assert.assertEquals(0, hachaDeMadera.getDurabilidad(), 0);
 

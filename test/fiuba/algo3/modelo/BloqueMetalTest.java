@@ -1,9 +1,14 @@
 package fiuba.algo3.modelo;
 
 import org.junit.Assert;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 public class BloqueMetalTest {
+
+    @Rule
+    public ExpectedException thrown = ExpectedException.none();
 
     @Test
     public void test01AlCrearseBloqueDeMetalDevuelveAlgoDistintoDeNull(){
@@ -123,8 +128,8 @@ public class BloqueMetalTest {
 
         Assert.assertEquals(2, bloqueMetal.getDurabilidad());
 
+        thrown.expect(BloqueSeRompioException.class);
         bloqueMetal.recibirDanio(picoDePiedra);
-        Assert.assertEquals(0, bloqueMetal.getDurabilidad());
 
     }
 

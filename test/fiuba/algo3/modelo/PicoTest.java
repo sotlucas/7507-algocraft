@@ -1,9 +1,14 @@
 package fiuba.algo3.modelo;
 
 import org.junit.Assert;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 public class PicoTest {
+
+    @Rule
+    public ExpectedException thrown = ExpectedException.none();
 
     @Test
     public void test01losConstructoresDelPicoDevuelvenAlgoDistintoDeNull() {
@@ -132,7 +137,7 @@ public class PicoTest {
     }
 
     @Test
-    public void test11CuandoLaDurabilidadDelPicoLlegaACeroNoSeReduceMas(){
+    public void test11CuandoLaDurabilidadDelPicoLlegaACeroSeRompe(){
 
         Pico picoMetal = new Pico(new Metal());
 
@@ -140,15 +145,13 @@ public class PicoTest {
         BloqueMetal bloqueMetal = new BloqueMetal();
 
         //golpea 50 veces
-        for(int i = 0; i < 12; i++){
+        for(int i = 0; i < 9; i++){
 
             picoMetal.usarEn(bloqueMetal);
         }
 
-        Assert.assertEquals(0, picoMetal.getDurabilidad(), 0);
-
+        thrown.expect(HerramientaSeRompioException.class);
         picoMetal.usarEn(bloqueMetal);
-        Assert.assertEquals(0, picoMetal.getDurabilidad(), 0);
 
     }
 

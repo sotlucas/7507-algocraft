@@ -23,11 +23,6 @@ public class DesgasteNormal extends Desgaste{
     public double desgastar() {
 
         durabilidad -= fuerza/factorDesgaste;
-
-        if(durabilidad < 0){
-            durabilidad = 0;
-        }
-
         return durabilidad;
     }
 }

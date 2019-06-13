@@ -2,8 +2,13 @@ package fiuba.algo3.modelo;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.ExpectedException;
 
 public class BloqueDiamanteTest {
+
+    @Rule
+    public ExpectedException thrown = ExpectedException.none();
 
     @Test
     public void test01AlCrearseBloqueDeDiamanteDevuelveAlgoDistintoDeNull(){
@@ -118,12 +123,9 @@ public class BloqueDiamanteTest {
         bloqueDiamante.recibirDanio(picoFino);
         bloqueDiamante.recibirDanio(picoFino);
         bloqueDiamante.recibirDanio(picoFino);
-        bloqueDiamante.recibirDanio(picoFino);
 
-        Assert.assertEquals(0, bloqueDiamante.getDurabilidad());
-
+        thrown.expect(BloqueSeRompioException.class);
         bloqueDiamante.recibirDanio(picoFino);
-        Assert.assertEquals(0, bloqueDiamante.getDurabilidad());
 
     }
 }
