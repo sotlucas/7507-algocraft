@@ -24,8 +24,6 @@ public class MesaCrafteo {
         }
     }
 
-
-
     public String getRecetaParaConstruir(){
 
         StringBuilder clave = new StringBuilder();

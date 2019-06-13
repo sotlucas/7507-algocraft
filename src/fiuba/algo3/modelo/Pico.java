@@ -36,4 +36,5 @@ public class Pico extends Herramienta {
         return this.fuerzaEspecialContraMetal;
     }
 
+
 }

@@ -6,6 +6,24 @@ import org.junit.Test;
 public class IntegracionTests {
 
     @Test
+    public void testSeVerificaLaCorrectaInicializacionDelJugadorEnElMapa() {
+
+        Juego juego = new Juego();
+
+        //Assert.assertNotNull(mapa.getC);
+
+
+
+    }
+
+
+
+
+
+
+
+    // -------------------------- PRUEBAS INTEGRACION PRIMERA ENTREGA: -------------------------------------//
+    @Test
     public void test01SeCreanDiversasHerramientasYSeUtilizanEnTodosLosTiposDeBloques(){
 
         Hacha hachaDeMadera1 = new Hacha(new Madera());// durabilidad: 100
