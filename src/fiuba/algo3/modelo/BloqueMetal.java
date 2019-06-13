@@ -8,11 +8,7 @@ public class BloqueMetal extends Bloque {
 
     public void recibirDanio(Pico pico) {
 
-        MaterialHerramienta materialPico = pico.getMaterial();
-
-        if(materialPico.getClass() == Piedra.class) {
-            durabilidad -= pico.getFuerza();
-        }
+        durabilidad -= pico.getFuerzaEspecialContraMetal();
 
         if(durabilidad < 0){
 

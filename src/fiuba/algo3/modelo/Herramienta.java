@@ -6,6 +6,7 @@ public abstract class Herramienta {
     protected int fuerza;
     protected MaterialHerramienta material;
     protected Desgaste desgaste;
+    protected int fuerzaEspecialContraMetal;
 
     public int getFuerza(){
         return fuerza;
