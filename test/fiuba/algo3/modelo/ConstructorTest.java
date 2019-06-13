@@ -2,13 +2,19 @@ package fiuba.algo3.modelo;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.ExpectedException;
 import fiuba.algo3.modelo.Constructor;
 
 public class ConstructorTest {
+
+    private Constructor constructor = new Constructor();
+
+    @Rule
+    public ExpectedException thrown = ExpectedException.none();
     
     @Test
     public void testMandoRecetaDeHachaDeMaderaYReciboUnHacha() {
-        Constructor constructor = new Constructor();
         Hacha hachaDeMadera1 = new Hacha(new Madera());
 
         Herramienta hachaDeMadera2 = constructor.craftear("mm-mm--m-");
@@ -18,7 +24,6 @@ public class ConstructorTest {
 
     @Test
     public void testMandoRecetaDeHachaDeMaderaYElMaterialDeLoRecibidoEsMadera() {
-        Constructor constructor = new Constructor();
         Madera madera = new Madera();
 
         Herramienta hachaDeMadera = constructor.craftear("mm-mm--m-");
@@ -28,7 +33,6 @@ public class ConstructorTest {
 
     @Test
     public void testMandoRecetaDeHachaDePiedraYReciboUnHacha() {
-        Constructor constructor = new Constructor();
         Hacha hachaDePiedra1 = new Hacha(new Piedra());
 
         Herramienta hachaDePiedra2 = constructor.craftear("pp-pm--m-");
@@ -38,7 +42,6 @@ public class ConstructorTest {
 
     @Test
     public void testMandoRecetaDeHachaDePiedraYElMaterialDeLoRecibidoEsPiedra() {
-        Constructor constructor = new Constructor();
         Piedra piedra = new Piedra();
 
         Herramienta hachaDePiedra = constructor.craftear("pp-pm--m-");
@@ -48,7 +51,6 @@ public class ConstructorTest {
 
     @Test
     public void testMandoRecetaDeHachaDeMetalYReciboUnHacha() {
-        Constructor constructor = new Constructor();
         Hacha hachaDeMetal1 = new Hacha(new Metal());
 
         Herramienta hachaDeMetal2 = constructor.craftear("MM-Mm--m-");
@@ -58,7 +60,6 @@ public class ConstructorTest {
 
     @Test
     public void testMandoRecetaDeHachaDeMetalYElMaterialDeLoRecibidoEsMetal() {
-        Constructor constructor = new Constructor();
         Metal metal = new Metal();
 
         Herramienta hachaDeMetal = constructor.craftear("MM-Mm--m-");
@@ -68,7 +69,6 @@ public class ConstructorTest {
 
     @Test
     public void testMandoRecetaDePicoDeMaderaYReciboUnPico() {
-        Constructor constructor = new Constructor();
         Pico picoDeMadera1 = new Pico(new Madera());
 
         Herramienta picoDeMadera2 = constructor.craftear("mmm-m--m-");
@@ -78,7 +78,6 @@ public class ConstructorTest {
 
     @Test
     public void testMandoRecetaDePicoDeMaderaYElMaterialDeLoRecibidoEsMadera() {
-        Constructor constructor = new Constructor();
         Madera madera = new Madera();
 
         Herramienta picoDeMadera = constructor.craftear("mmm-m--m-");
@@ -88,7 +87,6 @@ public class ConstructorTest {
 
     @Test
     public void testMandoRecetaDePicoDePiedraYReciboUnPico() {
-        Constructor constructor = new Constructor();
         Pico picoDePiedra1 = new Pico(new Piedra());
 
         Herramienta picoDePiedra2 = constructor.craftear("ppp-m--m-");
@@ -98,7 +96,6 @@ public class ConstructorTest {
 
     @Test
     public void testMandoRecetaDePicoDePiedraYElMaterialDeLoRecibidoEsPiedra() {
-        Constructor constructor = new Constructor();
         Piedra piedra = new Piedra();
 
         Herramienta picoDePiedra = constructor.craftear("ppp-m--m-");
@@ -108,7 +105,6 @@ public class ConstructorTest {
 
     @Test
     public void testMandoRecetaDePicoDeMetalYReciboUnPico() {
-        Constructor constructor = new Constructor();
         Pico picoDeMetal1 = new Pico(new Metal());
 
         Herramienta picoDeMetal2 = constructor.craftear("MMM-m--m-");
@@ -118,7 +114,6 @@ public class ConstructorTest {
 
     @Test
     public void testMandoRecetaDePicoDeMetalYElMaterialDeLoRecibidoEsMetal() {
-        Constructor constructor = new Constructor();
         Metal metal = new Metal();
 
         Herramienta picoDeMetal = constructor.craftear("MMM-m--m-");
@@ -128,11 +123,16 @@ public class ConstructorTest {
 
     @Test
     public void testMandoRecetaDePicoFinoYReciboUnPicoFino() {
-        Constructor constructor = new Constructor();
         PicoFino picoFino1 = new PicoFino();
 
         Herramienta picoFino2 = constructor.craftear("MMMpm--m-");
 
         Assert.assertEquals(picoFino1.getClass(), picoFino2.getClass());
+    }
+
+    @Test
+    public void testMandoRecetaInexistenteYDevuelveRecetaNoExisteException() {
+        thrown.expect(RecetaNoExisteException.class);
+        constructor.craftear("---pm--m-");
     }
 }

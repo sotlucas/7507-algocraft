@@ -52,8 +52,7 @@ public class Constructor {
                 herramienta = new PicoFino();
                 break;
             default:
-                herramienta = null;
-                break;
+                throw new RecetaNoExisteException();
         }
 
         return herramienta;
