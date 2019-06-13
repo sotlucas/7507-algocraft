@@ -5,7 +5,6 @@ public class Juego {
     private Mapa mapa;
     private Jugador jugador;
 
-
     public Juego(){
 
         mapa = new Mapa(9, 13);

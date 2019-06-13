@@ -41,6 +41,7 @@ public class IntegracionTests {
 
 
     // -------------------------- PRUEBAS INTEGRACION PRIMERA ENTREGA: -------------------------------------//
+    /*
     @Test
     public void test01SeCreanDiversasHerramientasYSeUtilizanEnTodosLosTiposDeBloques(){
 
@@ -138,8 +139,8 @@ public class IntegracionTests {
         picoPiedra1.usarEn(bloqueMetal1);
         Assert.assertEquals(durabilidadInicialBloqueMetal1 - 4, bloqueMetal1.getDurabilidad(), 0);
 
-    }
-
+    }*/
+/*
     @Test
     public void test02BloqueDeMaderaEsImpactadoConHachasDeDistintosMaterialesYSeReduceSuDurabilidadDependiendoDeLaFuerzaDelHacha(){
 
@@ -159,7 +160,7 @@ public class IntegracionTests {
         hachaDeMetal.usarEn(bloqueMadera);
         //no puede reducirse mas que 10 unidades porque alcanza el cero
         Assert.assertEquals(durabilidadInicialBloque - 10, bloqueMadera.getDurabilidad());
-    }
+    }*/
 
     @Test
     public void test03BloqueDeMaderaEsImpactadoConTodosLosTiposDePicosYNoSeReduceSuDurabilidad(){
