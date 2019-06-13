@@ -71,4 +71,8 @@ public class Juego {
     }
 
 
+    public boolean casillaEstaVacia(int fila, int columna) {
+
+        return mapa.casillaEstaVacia(fila, columna);
+    }
 }
