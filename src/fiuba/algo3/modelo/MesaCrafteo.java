@@ -14,6 +14,7 @@ public class MesaCrafteo {
      */
 
     private Material[] tablero;
+    protected Constructor constructor;
 
     public MesaCrafteo(){
 
@@ -22,6 +23,7 @@ public class MesaCrafteo {
 
             tablero[i] = null;
         }
+        constructor = new Constructor();
     }
 
     public String getRecetaParaConstruir(){
@@ -50,5 +52,16 @@ public class MesaCrafteo {
         tablero[6] = null;
         tablero[7] = new Madera();
         tablero[8] = null;
+    }
+
+    public void colocar(Material material, int pos) {
+
+        tablero[pos] = material;
+    }
+
+    public Herramienta construir(){
+        String receta = this.getRecetaParaConstruir();
+
+        return constructor.craftear(receta);
     }
 }

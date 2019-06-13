@@ -46,5 +46,153 @@ public class MesaCrafteoTest {
 
     }
 
+    @Test
+    public void testSeColocaMaderaEnLaPrimeraPosicionYLaRecetaEsCorrecta(){
+        MesaCrafteo mesaCrafteo = new MesaCrafteo();
+        Material madera = new Madera();
 
+        mesaCrafteo.colocar(madera,0);
+        String receta = mesaCrafteo.getRecetaParaConstruir();
+
+        Assert.assertEquals("m--------", receta);
+    }
+
+
+    @Test
+    public void testColocoMaderasEnSuPosicionYLaMesaDeCrafteoDevuelveUnHachaDeMadera(){
+        MesaCrafteo mesaCrafteo = new MesaCrafteo();
+        Material madera = new Madera();
+
+        mesaCrafteo.colocar(madera,0);
+        mesaCrafteo.colocar(madera,1);
+        mesaCrafteo.colocar(madera,3);
+        mesaCrafteo.colocar(madera,4);
+        mesaCrafteo.colocar(madera,7);
+
+        Herramienta herramienta = mesaCrafteo.construir();
+        Assert.assertEquals(herramienta.getClass(), new Hacha(new Madera()).getClass());
+        Assert.assertEquals(herramienta.getMaterial().getClass(), new Madera().getClass());
+    }
+
+
+    @Test
+    public void testColocoMaderaYPiedraEnSuPosicionYLaMesaDeCrafteoDevuelveUnHachaDePiedra(){
+        MesaCrafteo mesaCrafteo = new MesaCrafteo();
+        Material madera = new Madera();
+        Material piedra = new Piedra();
+
+        mesaCrafteo.colocar(piedra,0);
+        mesaCrafteo.colocar(piedra,1);
+        mesaCrafteo.colocar(piedra,3);
+        mesaCrafteo.colocar(madera,4);
+        mesaCrafteo.colocar(madera,7);
+
+        Herramienta herramienta = mesaCrafteo.construir();
+        Assert.assertEquals(herramienta.getClass(), new Hacha(new Piedra()).getClass());
+        Assert.assertEquals(herramienta.getMaterial().getClass(), new Piedra().getClass());
+    }
+
+    @Test
+    public void testColocoMaderaYMetalEnSuPosicionYLaMesaDeCrafteoDevuelveUnHachaDeMetal(){
+        MesaCrafteo mesaCrafteo = new MesaCrafteo();
+        Material madera = new Madera();
+        Material metal = new Metal();
+
+        mesaCrafteo.colocar(metal,0);
+        mesaCrafteo.colocar(metal,1);
+        mesaCrafteo.colocar(metal,3);
+        mesaCrafteo.colocar(madera,4);
+        mesaCrafteo.colocar(madera,7);
+
+        Herramienta herramienta = mesaCrafteo.construir();
+        Assert.assertEquals(herramienta.getClass(), new Hacha(new Piedra()).getClass());
+        Assert.assertEquals(herramienta.getMaterial().getClass(), new Metal().getClass());
+    }
+
+    @Test
+    public void testColocoMaderasEnSuPosicionYLaMesaDeCrafteoDevuelveUnPicoDeMadera(){
+        MesaCrafteo mesaCrafteo = new MesaCrafteo();
+        Material madera = new Madera();
+
+        mesaCrafteo.colocar(madera,0);
+        mesaCrafteo.colocar(madera,1);
+        mesaCrafteo.colocar(madera,2);
+        mesaCrafteo.colocar(madera,4);
+        mesaCrafteo.colocar(madera,7);
+
+        Herramienta herramienta = mesaCrafteo.construir();
+        Assert.assertEquals(herramienta.getClass(), new Pico(new Madera()).getClass());
+        Assert.assertEquals(herramienta.getMaterial().getClass(), new Madera().getClass());
+    }
+
+    @Test
+    public void testColocoMaderaYPiedraEnSuPosicionYLaMesaDeCrafteoDevuelveUnPicoDeMadera(){
+        MesaCrafteo mesaCrafteo = new MesaCrafteo();
+        Material madera = new Madera();
+        Material piedra = new Piedra();
+
+        mesaCrafteo.colocar(piedra,0);
+        mesaCrafteo.colocar(piedra,1);
+        mesaCrafteo.colocar(piedra,2);
+        mesaCrafteo.colocar(madera,4);
+        mesaCrafteo.colocar(madera,7);
+
+        Herramienta herramienta = mesaCrafteo.construir();
+        Assert.assertEquals(herramienta.getClass(), new Pico(new Piedra()).getClass());
+        Assert.assertEquals(herramienta.getMaterial().getClass(), new Piedra().getClass());
+    }
+
+    @Test
+    public void testColocoMaderaYMetalEnSuPosicionYLaMesaDeCrafteoDevuelveUnPicoDeMadera(){
+        MesaCrafteo mesaCrafteo = new MesaCrafteo();
+        Material madera = new Madera();
+        Material metal = new Metal();
+
+        mesaCrafteo.colocar(metal,0);
+        mesaCrafteo.colocar(metal,1);
+        mesaCrafteo.colocar(metal,2);
+        mesaCrafteo.colocar(madera,4);
+        mesaCrafteo.colocar(madera,7);
+
+        Herramienta herramienta = mesaCrafteo.construir();
+        Assert.assertEquals(herramienta.getClass(), new Pico(new Piedra()).getClass());
+        Assert.assertEquals(herramienta.getMaterial().getClass(), new Metal().getClass());
+    }
+
+
+    @Test
+    public void testColocoMaderaMetalYPiedraEnSuPosicionYLaMesaDeCrafteoDevuelveUnPicoFino(){
+        MesaCrafteo mesaCrafteo = new MesaCrafteo();
+        Material madera = new Madera();
+        Material metal = new Metal();
+        Material piedra = new Piedra();
+
+        mesaCrafteo.colocar(metal,0);
+        mesaCrafteo.colocar(metal,1);
+        mesaCrafteo.colocar(metal,2);
+        mesaCrafteo.colocar(piedra,3);
+        mesaCrafteo.colocar(madera,4);
+        mesaCrafteo.colocar(madera,7);
+
+        Herramienta herramienta = mesaCrafteo.construir();
+        Assert.assertEquals(herramienta.getClass(), new PicoFino().getClass());
+    }
+
+    @Test
+    public void testIntentoCraftearUnPicoFinoConPiedraMalUbicadaYLanzaRecetaNoExisteExcepction(){
+        MesaCrafteo mesaCrafteo = new MesaCrafteo();
+        Material madera = new Madera();
+        Material metal = new Metal();
+        Material piedra = new Piedra();
+
+        mesaCrafteo.colocar(metal,0);
+        mesaCrafteo.colocar(metal,1);
+        mesaCrafteo.colocar(metal,2);
+        mesaCrafteo.colocar(metal,8);
+        mesaCrafteo.colocar(madera,4);
+        mesaCrafteo.colocar(madera,7);
+
+        thrown.expect(RecetaNoExisteException.class);
+        mesaCrafteo.construir();
+    }
 }
