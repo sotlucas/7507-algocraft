@@ -1,7 +1,9 @@
 package fiuba.algo3.modelo;
 
 import org.junit.Assert;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 public class IntegracionTests {
 
@@ -140,7 +142,10 @@ public class IntegracionTests {
         Assert.assertEquals(durabilidadInicialBloqueMetal1 - 4, bloqueMetal1.getDurabilidad(), 0);
 
     }*/
-/*
+
+    @Rule
+    public ExpectedException thrown = ExpectedException.none();
+
     @Test
     public void test02BloqueDeMaderaEsImpactadoConHachasDeDistintosMaterialesYSeReduceSuDurabilidadDependiendoDeLaFuerzaDelHacha(){
 
@@ -157,10 +162,9 @@ public class IntegracionTests {
         hachaDeMadera.usarEn(bloqueMadera);
         Assert.assertEquals(durabilidadInicialBloque - 7, bloqueMadera.getDurabilidad());
 
+        thrown.expect(BloqueSeRompioException.class);
         hachaDeMetal.usarEn(bloqueMadera);
-        //no puede reducirse mas que 10 unidades porque alcanza el cero
-        Assert.assertEquals(durabilidadInicialBloque - 10, bloqueMadera.getDurabilidad());
-    }*/
+    }
 
     @Test
     public void test03BloqueDeMaderaEsImpactadoConTodosLosTiposDePicosYNoSeReduceSuDurabilidad(){
