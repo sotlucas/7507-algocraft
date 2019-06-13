@@ -10,7 +10,8 @@ public class IntegracionTests {
 
         Juego juego = new Juego();
 
-        //Assert.assertNotNull(mapa.getC);
+        Assert.assertEquals(7, juego.getColumnaJugador());
+        Assert.assertEquals(7, juego.getFilaJugador());
     }
 
     @Test
@@ -27,7 +28,11 @@ public class IntegracionTests {
     }
 
     @Test
-    public void testSeVerifica
+    public void testSeVerificaQueSeIniciaElJuegoConElTerrenoInicializado(){
+
+
+    }
+
 
 
 

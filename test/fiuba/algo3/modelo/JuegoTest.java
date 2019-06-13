@@ -26,6 +26,11 @@ public class JuegoTest {
 
         Juego juego = new Juego();
 
+        Assert.assertEquals(7, juego.getColumnaJugador());
+        Assert.assertEquals(7, juego.getFilaJugador());
     }
+
+
+
 
 }

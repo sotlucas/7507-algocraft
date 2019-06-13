@@ -62,5 +62,14 @@ public class Juego {
         jugador.avanzar(mapa, direccion);
     }
 
+    public int getColumnaJugador(){
+
+        return jugador.getPosicionColumna();
+    }
+
+    public int getFilaJugador(){
+        return jugador.getPosicionFila();
+    }
+
 
 }
