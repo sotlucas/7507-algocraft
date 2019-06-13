@@ -29,6 +29,7 @@ public class Casilla {
             throw new CasilleroEstaOcupadoException();
         }
 
+        elementoContenido = elemento;
         estado = new Ocupado();
 
     }

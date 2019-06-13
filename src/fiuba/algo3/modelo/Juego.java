@@ -9,13 +9,13 @@ public class Juego {
     public Juego(){
 
         mapa = new Mapa(9, 13);
+        jugador = new Jugador();
         disponerElementosEnElMapa();
 
     }
 
     private void disponerElementosEnElMapa() {
 
-        jugador = new Jugador();
         mapa.colocar(jugador, 7, 7);
         jugador.setPosicion(7, 7);
 
@@ -57,7 +57,7 @@ public class Juego {
         return mapa.getCantidadColumnas();
     }
 
-    public void avanzarJugadorHacia(Direccion direccion){
+    public void avanzarJugador(Direccion direccion){
 
         jugador.avanzar(mapa, direccion);
     }

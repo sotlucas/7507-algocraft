@@ -2,22 +2,22 @@ package fiuba.algo3.modelo;
 
 public class Posicion {
     
-    private int x;
-    private int y;
+    private int columna;
+    private int fila;
 
-    public void setColumna(int x) {
-        this.x = x;
+    public void setColumna(int columna) {
+        this.columna = columna;
     }
 
-    public void setFila(int y) {
-        this.y = y;
+    public void setFila(int fila) {
+        this.fila = fila;
     }
 
     public int getColumna() {
-        return this.x;
+        return this.columna;
     }
 
     public int getFila() {
-        return this.y;
+        return this.fila;
     }
 }

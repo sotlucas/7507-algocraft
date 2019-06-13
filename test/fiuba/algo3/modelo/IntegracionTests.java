@@ -11,10 +11,23 @@ public class IntegracionTests {
         Juego juego = new Juego();
 
         //Assert.assertNotNull(mapa.getC);
-
-
-
     }
+
+    @Test
+    public void testSeVerificaQueElJugadorPuedeMoversePorCasillasVacias() {
+
+        Juego juego = new Juego();
+        Direccion direccion = new HaciaIzquierda();
+        juego.avanzarJugador(direccion);
+        juego.avanzarJugador(direccion);
+        juego.avanzarJugador(new HaciaArriba());
+        juego.avanzarJugador(new HaciaDerecha());
+        juego.avanzarJugador(new HaciaAbajo());
+        juego.avanzarJugador(new HaciaIzquierda());
+    }
+
+    @Test
+    public void testSeVerifica
 
 
 

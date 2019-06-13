@@ -28,10 +28,4 @@ public class JuegoTest {
 
     }
 
-    @Test
-    public void testSeVerificaQueElJugadorPuedeMoversePorCasillasVacias() {
-
-        Juego juego = new Juego();
-
-    }
 }
