@@ -2,8 +2,7 @@ package fiuba.algo3.modelo;
 
 public class MesaCrafteo {
 
-    /*
-        Recetas:
+    /*    Recetas:
             Hacha de madera   "mm-mm--m-"
             Hacha de piedra   "pp-pm--m-"
             Hacha de metal    "MM-Mm--m-"
@@ -23,7 +22,6 @@ public class MesaCrafteo {
 
             tablero[i] = null;
         }
-        constructor = new Constructor();
     }
 
     public String getRecetaParaConstruir(){
