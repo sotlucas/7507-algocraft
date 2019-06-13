@@ -126,7 +126,7 @@ public class MesaCrafteoTest {
     }
 
     @Test
-    public void testColocoMaderaYPiedraEnSuPosicionYLaMesaDeCrafteoDevuelveUnPicoDeMadera(){
+    public void testColocoMaderaYPiedraEnSuPosicionYLaMesaDeCrafteoDevuelveUnPicoDePiedra(){
         MesaCrafteo mesaCrafteo = new MesaCrafteo();
         Material madera = new Madera();
         Material piedra = new Piedra();
@@ -143,7 +143,7 @@ public class MesaCrafteoTest {
     }
 
     @Test
-    public void testColocoMaderaYMetalEnSuPosicionYLaMesaDeCrafteoDevuelveUnPicoDeMadera(){
+    public void testColocoMaderaYMetalEnSuPosicionYLaMesaDeCrafteoDevuelveUnPicoDeMetal(){
         MesaCrafteo mesaCrafteo = new MesaCrafteo();
         Material madera = new Madera();
         Material metal = new Metal();
