@@ -4,7 +4,7 @@ public abstract class Herramienta {
 
     protected double durabilidad;
     protected int fuerza;
-    protected MaterialHerramienta material;
+    protected Material material;
     protected Desgaste desgaste;
     protected int fuerzaEspecialContraMetal;
 
@@ -16,7 +16,7 @@ public abstract class Herramienta {
         return durabilidad;
     }
 
-    public MaterialHerramienta getMaterial(){
+    public Material getMaterial(){
         return material;
     }
 }

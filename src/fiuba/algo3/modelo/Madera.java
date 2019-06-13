@@ -1,7 +1,7 @@
 package fiuba.algo3.modelo;
 
-public class Madera extends MaterialHerramienta {
-    public void Madera() {
-
+public class Madera extends Material {
+    public  Madera() {
+        this.identificador = "m";
     }
 }
