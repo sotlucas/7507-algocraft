@@ -1,7 +1,7 @@
 package fiuba.algo3.modelo;
 
 public abstract class Material{
-    protected String identificador;
+    protected char identificador;
 
-    public String getIdentificador() { return this.identificador; }
+    public char getIdentificador() { return this.identificador; }
 }

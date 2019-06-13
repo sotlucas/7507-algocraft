@@ -19,8 +19,8 @@ public class MaterialTest {
     public void testMaterialMaderaSeInicializaConElIdentificadorCorrecto() {
 
         Madera madera = new Madera();
-        String identificador = madera.getIdentificador();
-        Assert.assertEquals("m", identificador);
+        char identificador = madera.getIdentificador();
+        Assert.assertEquals('m', identificador);
     }
 
     @Test
@@ -34,9 +34,9 @@ public class MaterialTest {
     @Test
     public void testMaterialPiedraSeInicializaConElIdentificadorCorrecto() {
         Piedra piedra = new Piedra();
-        String identificador = piedra.getIdentificador();
+        char identificador = piedra.getIdentificador();
 
-        Assert.assertEquals("p", identificador);
+        Assert.assertEquals('p', identificador);
     }
 
     @Test
@@ -51,8 +51,8 @@ public class MaterialTest {
     public void testMaterialMetalSeInicializaConElIdentificadorCorrecto() {
 
         Metal metal = new Metal();
-        String identificador = metal.getIdentificador();
+        char identificador = metal.getIdentificador();
 
-        Assert.assertEquals("M", identificador);
+        Assert.assertEquals('M', identificador);
     }
 }
