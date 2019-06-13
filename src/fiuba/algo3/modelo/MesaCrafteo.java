@@ -17,7 +17,7 @@ public class MesaCrafteo {
     protected Constructor constructor;
 
     public MesaCrafteo(){
-
+        constructor = new Constructor();
         tablero = new Material[9];
         for(int i = 0; i < 9; i++){
 

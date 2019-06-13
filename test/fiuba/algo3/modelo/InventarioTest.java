@@ -6,12 +6,12 @@ import org.junit.Assert;
 public class InventarioTest {
 
     @Test
-    public void test01AgregoHerramientaEnInventarioYComprueboQueSeGuarde() {
+    public void testAgregoHerramientaEnInventarioYComprueboQueSeGuarde() {
         Inventario inventario = new Inventario();
         Herramienta pico = new Pico(new Madera());
 
         inventario.agregarHerramienta(pico);
 
-        Assert.assertTrue(inventario.contiene(pico));
+        Assert.assertTrue(inventario.contieneHerramienta(pico));
     }
 }
