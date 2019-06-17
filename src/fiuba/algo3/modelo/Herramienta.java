@@ -7,6 +7,7 @@ public abstract class Herramienta {
     protected Material material;
     protected Desgaste desgaste;
     protected int fuerzaEspecialContraMetal;
+    protected String receta;
 
     public int getFuerza(){
         return fuerza;
@@ -19,4 +20,6 @@ public abstract class Herramienta {
     public Material getMaterial(){
         return material;
     }
+
+    public String getReceta() { return receta;}
 }

@@ -155,6 +155,33 @@ public class PicoTest {
 
     }
 
+    @Test
+    public void testSeVerificaQueLaRecetaDeElPicoDeMaderaEsCorrecta(){
+
+        Pico picoDeMadera = new Pico(new Madera());
+        String recetaPicoMadera = "mmm-m--m-";
+
+        Assert.assertEquals(picoDeMadera.getReceta(), recetaPicoMadera);
+    }
+
+    @Test
+    public void testSeVerificaQueLaRecetaDeElPicoDePiedraEsCorrecta(){
+
+        Pico picoDePiedra = new Pico(new Piedra());
+        String recetaPicoPiedra = "ppp-m--m-";
+
+        Assert.assertEquals(picoDePiedra.getReceta(), recetaPicoPiedra);
+    }
+
+    @Test
+    public void testSeVerificaQueLaRecetaDeElPicoDeMetalEsCorrecta(){
+
+        Pico picoDeMetal = new Pico(new Metal());
+        String recetaPicoMetal = "MMM-m--m-";
+
+        Assert.assertEquals(picoDeMetal.getReceta(), recetaPicoMetal);
+    }
+
 
 }
 

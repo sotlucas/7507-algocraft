@@ -72,6 +72,15 @@ public class PicoFinoTest {
 
     }
 
+    @Test
+    public void testSeVerificaQueLaRecetaDeElPicoFinoEsCorrecta(){
+
+        PicoFino picoFino = new PicoFino();
+        String recetaPicoFino = "MMMpm--m-";
+
+        Assert.assertEquals(picoFino.getReceta(), recetaPicoFino);
+    }
+
 /*    @Test
     public void test05CuandoLaDurabilidadDelPicoFinoLlegaACeroNoSeReduceMas(){
 

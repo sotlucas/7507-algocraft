@@ -7,6 +7,7 @@ public class PicoFino extends Herramienta {
         this.fuerza = 20;
         this.material = null; // ver si creamos nuevo material
         this.desgaste = new DesgasteEspecial();
+        this.receta = "MMMpm--m-";
     }
 
     public void usarEn(BloqueMadera bloqueMadera){

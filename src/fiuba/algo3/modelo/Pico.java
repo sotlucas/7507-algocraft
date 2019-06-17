@@ -8,6 +8,7 @@ public class Pico extends Herramienta {
         this.material = madera;
         this.desgaste = new DesgasteNormal(100, 2);
         this.fuerzaEspecialContraMetal = 0;
+        this.receta = "mmm-m--m-";
     }
 
     public Pico(Piedra piedra) {
@@ -16,6 +17,7 @@ public class Pico extends Herramienta {
         this.material = piedra;
         this.desgaste = new DesgasteNormal(200, 4, 1.5);
         this.fuerzaEspecialContraMetal = 4;
+        this.receta = "ppp-m--m-";
     }
 
     public Pico(Metal metal) {
@@ -24,6 +26,7 @@ public class Pico extends Herramienta {
         this.material = metal;
         this.desgaste = new DesgasteNormal(400, 12, 0.3);
         this.fuerzaEspecialContraMetal = 0;
+        this.receta = "MMM-m--m-";
     }
 
     public void usarEn(Bloque bloqueMaterial){

@@ -158,6 +158,33 @@ public class HachaTest {
 
         }
 
+        @Test
+        public void testSeVerificaQueLaRecetaDeElHachaDeMaderaEsCorrecta(){
+
+            Hacha hachaDeMadera = new Hacha(new Madera());
+            String recetaHachaMadera = "mm-mm--m-";
+
+            Assert.assertEquals(hachaDeMadera.getReceta(), recetaHachaMadera);
+        }
+
+        @Test
+        public void testSeVerificaQueLaRecetaDeElHachaDePiedraEsCorrecta(){
+
+            Hacha hachaDePiedra = new Hacha(new Piedra());
+            String recetaHachaPiedra = "pp-pm--m-";
+
+            Assert.assertEquals(hachaDePiedra.getReceta(), recetaHachaPiedra);
+        }
+
+        @Test
+        public void testSeVerificaQueLaRecetaDeElHachaDeMetalEsCorrecta(){
+
+            Hacha hachaDeMetal = new Hacha(new Metal());
+            String recetaHachaMetal = "MM-Mm--m-";
+
+            Assert.assertEquals(hachaDeMetal.getReceta(), recetaHachaMetal);
+        }
+
     }
 
 
