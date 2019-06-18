@@ -18,13 +18,22 @@ public class MapaTest {
     }
 
     @Test
-    public void test02AlCrearseMapaConDimensionesEstasQuedanEstablecidasCorrectamente(){
+    public void testAlCrearseMapaQuedanEstablecidasCorrectamenteLaCantidadDeFilas(){
 
         int cantidadFilas = 5;
         int cantidadColumnas = 8;
 
         Mapa mapa = new Mapa(cantidadFilas, cantidadColumnas);
         Assert.assertEquals(cantidadFilas, mapa.getCantidadFilas());
+    }
+
+    @Test
+    public void testAlCrearseMapaQuedanEstablecidasCorrectamenteLaCantidadDeColumnas(){
+
+        int cantidadFilas = 5;
+        int cantidadColumnas = 8;
+
+        Mapa mapa = new Mapa(cantidadFilas, cantidadColumnas);
         Assert.assertEquals(cantidadColumnas, mapa.getCantidadColumnas());
     }
 
