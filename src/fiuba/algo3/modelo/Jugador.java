@@ -8,6 +8,8 @@ public class Jugador implements Posicionable{
     private Material materialSeleccionado = null;
     private boolean estaPosicionado;
     private Mapa mapa;
+    // El siguiente es un atributo que deberia tener:
+    private Herramienta herramientaSeleccionada;
 
     public Jugador(){
         this.mesaDeCrafteo = new MesaCrafteo();
@@ -74,5 +76,12 @@ public class Jugador implements Posicionable{
     }
 
     public boolean estaPosicionado(){ return this.estaPosicionado;}
+
+    // ---------- EL JUGADOR TENDRIA QUE TENER ESTOS METODOS:
+
+    public void golpear(Bloque bloque){
+
+        herramientaSeleccionada.usarEn(bloque);
+    }
 
 }

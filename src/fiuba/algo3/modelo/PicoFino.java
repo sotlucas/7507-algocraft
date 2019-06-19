@@ -9,7 +9,7 @@ public class PicoFino extends Herramienta {
         this.desgaste = new DesgasteEspecial();
         this.receta = "MMMpm--m-";
     }
-
+/*
     public void usarEn(BloqueMadera bloqueMadera){
         durabilidad -= 0;
     }
@@ -21,14 +21,18 @@ public class PicoFino extends Herramienta {
     public void usarEn(BloquePiedra bloquePiedra){
         durabilidad -= 0;
     }
+*/
+    public void usarEn(Bloque bloque){
 
-    public void usarEn(BloqueDiamante bloqueDiamante){
-
-        bloqueDiamante.recibirDanio(this);
-        durabilidad = desgaste.desgastar();
+        bloque.recibirDanio(this);
         if (durabilidad < 1) {
             throw new HerramientaSeRompioException();
         }
+    }
+
+    public void desgastar(){
+
+        durabilidad = this.desgaste.desgastar();
     }
 
 }

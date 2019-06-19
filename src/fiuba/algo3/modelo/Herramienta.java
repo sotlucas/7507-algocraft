@@ -9,6 +9,8 @@ public abstract class Herramienta {
     protected int fuerzaEspecialContraMetal;
     protected String receta;
 
+    public abstract void usarEn(Bloque bloque);
+
     public int getFuerza(){
         return fuerza;
     }
