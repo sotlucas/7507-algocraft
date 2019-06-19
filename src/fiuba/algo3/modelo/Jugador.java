@@ -1,17 +1,29 @@
 package fiuba.algo3.modelo;
 
-public class Jugador implements Posicionable {
+public class Jugador implements Posicionable{
 
     private MesaCrafteo mesaDeCrafteo;
     private Inventario inventario;
     private Posicion posicion;
     private Material materialSeleccionado = null;
+    private boolean estaPosicionado;
+    private Mapa mapa;
 
-    public Jugador() {
+    public Jugador(){
         this.mesaDeCrafteo = new MesaCrafteo();
         this.inventario = new Inventario();
         this.posicion = new Posicion();
         this.inventario.agregarHerramienta(new Hacha(new Madera()));
+        this.estaPosicionado = false;
+    }
+
+    public Jugador(Mapa mapa) {
+        this.mesaDeCrafteo = new MesaCrafteo();
+        this.inventario = new Inventario();
+        this.posicion = new Posicion();
+        this.inventario.agregarHerramienta(new Hacha(new Madera()));
+        this.estaPosicionado = false;
+        this.mapa = mapa;
     }
 
     public boolean inventarioContieneHerramienta(Herramienta herramienta) {
@@ -22,13 +34,15 @@ public class Jugador implements Posicionable {
         return this.inventario.contieneMaterial(material);
     }
 
-    public void avanzar(Mapa mapa, Direccion direccion) {
+    public void avanzar(Direccion direccion) {
         direccion.avanzar(mapa, this);
     }
 
     public void setPosicion(int fila, int columna) {
+
         this.posicion.setColumna(columna);
         this.posicion.setFila(fila);
+        this.estaPosicionado = true;
     }
 
     public int getPosicionColumna() {
@@ -58,4 +72,7 @@ public class Jugador implements Posicionable {
     public void agregarHerramientaAInventario(Herramienta herramienta) {
         this.inventario.agregarHerramienta(herramienta);
     }
+
+    public boolean estaPosicionado(){ return this.estaPosicionado;}
+
 }

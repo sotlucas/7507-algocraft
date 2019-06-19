@@ -38,10 +38,20 @@ public class Mapa {
         return casillas[fila][columna];
     }
 
-    public void colocar(Posicionable elemento, int fila, int columna) {
+    public void colocarBloque(Bloque bloque, int fila, int columna) {
         try {
             Casilla casillaIndicada = casillas[fila][columna];
-            casillaIndicada.colocar(elemento);
+            casillaIndicada.colocar(bloque);
+        } catch(ArrayIndexOutOfBoundsException e) {
+            throw new PosicionFueraDelMapaException();
+        }
+    }
+
+    public void colocarJugador(Jugador jugador, int fila, int columna) {
+        try {
+            Casilla casillaIndicada = casillas[fila][columna];
+            casillaIndicada.colocar(jugador);
+            jugador.setPosicion(fila, columna);
         } catch(ArrayIndexOutOfBoundsException e) {
             throw new PosicionFueraDelMapaException();
         }
@@ -52,9 +62,9 @@ public class Mapa {
         return casillas[fila][columna].estaVacia();
     }
 
-    public void mover(Posicionable elemento, int columnaAnterior, int filaAnterior, int columnaSiguiente, int filaSiguiente) {
+    public void moverJugador(Jugador jugador, int columnaAnterior, int filaAnterior, int columnaSiguiente, int filaSiguiente) {
 
-        this.colocar(elemento, filaSiguiente, columnaSiguiente);
+        this.colocarJugador(jugador, filaSiguiente, columnaSiguiente);
         // Tengo que borrar el elemento de la casilla anterior
         Casilla casillaAnterior = casillas[filaAnterior][columnaAnterior];
         casillaAnterior.vaciar();

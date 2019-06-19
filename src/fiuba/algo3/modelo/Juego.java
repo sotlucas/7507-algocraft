@@ -8,42 +8,41 @@ public class Juego {
     public Juego(){
 
         mapa = new Mapa(9, 13);
-        jugador = new Jugador();
+        jugador = new Jugador(mapa);
         disponerElementosEnElMapa();
 
     }
 
     private void disponerElementosEnElMapa() {
 
-        mapa.colocar(jugador, 7, 7);
-        jugador.setPosicion(7, 7);
+        mapa.colocarJugador(jugador, 7, 7);
 
-        mapa.colocar(new BloqueMetal(),1,1);
-        mapa.colocar(new BloqueMetal(),1,2);
-        mapa.colocar(new BloqueMetal(),2,1);
-        mapa.colocar(new BloqueMetal(),2,2);
+        mapa.colocarBloque(new BloqueMetal(),1,1);
+        mapa.colocarBloque(new BloqueMetal(),1,2);
+        mapa.colocarBloque(new BloqueMetal(),2,1);
+        mapa.colocarBloque(new BloqueMetal(),2,2);
 
-        mapa.colocar(new BloqueMadera(),4,1);
-        mapa.colocar(new BloqueMadera(),4,2);
-        mapa.colocar(new BloqueMadera(),4,3);
-        mapa.colocar(new BloqueMadera(),4,4);
-        mapa.colocar(new BloqueMadera(),5,1);
-        mapa.colocar(new BloqueMadera(),5,2);
-        mapa.colocar(new BloqueMadera(),5,3);
-        mapa.colocar(new BloqueMadera(),5,4);
-        mapa.colocar(new BloqueMadera(),6,1);
-        mapa.colocar(new BloqueMadera(),6,2);
-        mapa.colocar(new BloqueMadera(),6,3);
-        mapa.colocar(new BloqueMadera(),6,4);
-        mapa.colocar(new BloqueMadera(),7,1);
-        mapa.colocar(new BloqueMadera(),7,2);
-        mapa.colocar(new BloqueMadera(),7,3);
-        mapa.colocar(new BloqueMadera(),7,4);
+        mapa.colocarBloque(new BloqueMadera(),4,1);
+        mapa.colocarBloque(new BloqueMadera(),4,2);
+        mapa.colocarBloque(new BloqueMadera(),4,3);
+        mapa.colocarBloque(new BloqueMadera(),4,4);
+        mapa.colocarBloque(new BloqueMadera(),5,1);
+        mapa.colocarBloque(new BloqueMadera(),5,2);
+        mapa.colocarBloque(new BloqueMadera(),5,3);
+        mapa.colocarBloque(new BloqueMadera(),5,4);
+        mapa.colocarBloque(new BloqueMadera(),6,1);
+        mapa.colocarBloque(new BloqueMadera(),6,2);
+        mapa.colocarBloque(new BloqueMadera(),6,3);
+        mapa.colocarBloque(new BloqueMadera(),6,4);
+        mapa.colocarBloque(new BloqueMadera(),7,1);
+        mapa.colocarBloque(new BloqueMadera(),7,2);
+        mapa.colocarBloque(new BloqueMadera(),7,3);
+        mapa.colocarBloque(new BloqueMadera(),7,4);
 
-        mapa.colocar(new BloquePiedra(),4,9);
-        mapa.colocar(new BloquePiedra(),4,10);
-        mapa.colocar(new BloquePiedra(),5,9);
-        mapa.colocar(new BloquePiedra(),5,10);
+        mapa.colocarBloque(new BloquePiedra(),4,9);
+        mapa.colocarBloque(new BloquePiedra(),4,10);
+        mapa.colocarBloque(new BloquePiedra(),5,9);
+        mapa.colocarBloque(new BloquePiedra(),5,10);
 
     }
 
@@ -58,7 +57,7 @@ public class Juego {
 
     public void avanzarJugador(Direccion direccion){
 
-        jugador.avanzar(mapa, direccion);
+        jugador.avanzar(direccion);
     }
 
     public int getColumnaJugador(){

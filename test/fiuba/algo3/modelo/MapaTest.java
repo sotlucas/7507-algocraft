@@ -52,14 +52,14 @@ public class MapaTest {
     public void testDespuesDeCrearTableroEstablezcoLaPosicionDelJugadorYEsaCasillaPasaAEstarOcupada(){
 
         Mapa mapa = new Mapa(10, 10);
-        Jugador jugador = new Jugador();
-        int cantidadFilas = 5;
-        int cantidadColumnas = 5;
+        Jugador jugador = new Jugador(mapa);
+        int fila = 5;
+        int columna = 5;
 
-        Casilla casillaIndicada = mapa.getCasilla(cantidadFilas, cantidadColumnas);
+        Casilla casillaIndicada = mapa.getCasilla(fila, columna);
         Assert.assertTrue(casillaIndicada.estaVacia());
 
-        mapa.colocar(jugador, cantidadFilas, cantidadColumnas);
+        mapa.colocarJugador(jugador, fila, columna);
         Assert.assertFalse(casillaIndicada.estaVacia());
     }
 
@@ -71,22 +71,32 @@ public class MapaTest {
         int cantidadFilas = 5;
         int cantidadColumnas = 5;
 
-        mapa.colocar(bloque, cantidadFilas, cantidadColumnas);
+        mapa.colocarBloque(bloque, cantidadFilas, cantidadColumnas);
         Casilla casillaIndicada = mapa.getCasilla(cantidadFilas, cantidadColumnas);
 
         Assert.assertFalse(casillaIndicada.estaVacia());
     }
 
     @Test
+    public void testSeIntentaMoverAlJugadorSinHaberEstablecidoSuPosicionYseLanzaExcepcion(){
+
+        Mapa mapa = new Mapa(10, 10);
+        BloqueDiamante bloque = new BloqueDiamante();
+        Jugador jugador = new Jugador(mapa);
+
+        thrown.expect(JugadorNoPosicionadoException.class);
+        jugador.avanzar(new HaciaArriba());
+    }
+
+    @Test
     public void testJugadorIntentaAvanzarHaciaArribaAUnaCasillaLibreYSeVerificaQuePuedeHacerlo(){
 
         Mapa mapa = new Mapa(4, 4);
-        Jugador jugador = new Jugador();
+        Jugador jugador = new Jugador(mapa);
 
-        mapa.colocar(jugador, 2, 2);
-        jugador.setPosicion(2, 2); // posicion inicial del Jugador
+        mapa.colocarJugador(jugador, 2, 2);
 
-        jugador.avanzar(mapa, new HaciaArriba());
+        jugador.avanzar(new HaciaArriba());
 
         //si el personaje se movio hacia arriba, la casilla deberia pasar a estar vacia y la nueva, ocupada
         Assert.assertTrue(mapa.getCasilla(2, 2).estaVacia());
@@ -97,25 +107,23 @@ public class MapaTest {
     public void testJugadorIntentaAvanzarHaciaArribaAUnaCasillaOcupadaYLanzaCasilleroEstaOcupadoException() {
         Mapa mapa = new Mapa(4, 4);
         BloquePiedra bloquePiedra = new BloquePiedra();
-        Jugador jugador = new Jugador();
+        Jugador jugador = new Jugador(mapa);
 
-        mapa.colocar(bloquePiedra, 1, 2);
-        mapa.colocar(jugador, 2, 2);
-        jugador.setPosicion(2, 2); // posicion inicial del Jugador
+        mapa.colocarBloque(bloquePiedra, 1, 2);
+        mapa.colocarJugador(jugador, 2, 2);
 
         thrown.expect(CasilleroEstaOcupadoException.class);
-        jugador.avanzar(mapa, new HaciaArriba());
+        jugador.avanzar(new HaciaArriba());
     }
 
     @Test
     public void testJugadorIntentaAvanzarHaciaAbajoAUnaCasillaLibreYLaCasillaAnteriorPasaAEstarLibre() {
         Mapa mapa = new Mapa(4, 4);
-        Jugador jugador = new Jugador();
+        Jugador jugador = new Jugador(mapa);
 
-        mapa.colocar(jugador, 2, 2);
-        jugador.setPosicion(2, 2); // posicion inicial del Jugador
+        mapa.colocarJugador(jugador, 2, 2);
 
-        jugador.avanzar(mapa, new HaciaAbajo());
+        jugador.avanzar(new HaciaAbajo());
 
         Assert.assertTrue(mapa.getCasilla(2, 2).estaVacia());
         Assert.assertFalse(mapa.getCasilla(3, 2).estaVacia());
@@ -125,24 +133,22 @@ public class MapaTest {
     public void testJugadorIntentaAvanzarHaciaAbajoAUnaCasillaOcupadaYLanzaCasilleroEstaOcupadoException() {
         Mapa mapa = new Mapa(4, 4);
         BloquePiedra bloquePiedra = new BloquePiedra();
-        Jugador jugador = new Jugador();
+        Jugador jugador = new Jugador(mapa);
 
-        mapa.colocar(bloquePiedra, 2, 2);
-        mapa.colocar(jugador, 1, 2);
-        jugador.setPosicion(1, 2); // posicion inicial del Jugador
+        mapa.colocarBloque(bloquePiedra, 2, 2);
+        mapa.colocarJugador(jugador, 1, 2);
 
         thrown.expect(CasilleroEstaOcupadoException.class);
-        jugador.avanzar(mapa, new HaciaAbajo());
+        jugador.avanzar(new HaciaAbajo());
     }
 
     @Test
     public void testJugadorIntentaAvanzarHaciaDerechaAUnaCasillaLibreYLaCasillaAnteriorPasaAEstarLibre() {
         Mapa mapa = new Mapa(4, 4);
-        Jugador jugador = new Jugador();
+        Jugador jugador = new Jugador(mapa);
 
-        mapa.colocar(jugador, 2, 2);
-        jugador.setPosicion(2, 2); // posicion inicial del Jugador
-        jugador.avanzar(mapa, new HaciaDerecha());
+        mapa.colocarJugador(jugador, 2, 2);
+        jugador.avanzar(new HaciaDerecha());
 
         Assert.assertTrue(mapa.getCasilla(2, 2).estaVacia());
         Assert.assertFalse(mapa.getCasilla(2, 3).estaVacia());
@@ -152,25 +158,23 @@ public class MapaTest {
     public void testJugadorIntentaAvanzarHaciaDerechaAUnaCasillaOcupadaYLanzaCasilleroEstaOcupadoException() {
         Mapa mapa = new Mapa(4, 4);
         BloquePiedra bloquePiedra = new BloquePiedra();
-        Jugador jugador = new Jugador();
+        Jugador jugador = new Jugador(mapa);
 
-        mapa.colocar(bloquePiedra, 2, 2);
-        mapa.colocar(jugador, 2, 1);
-        jugador.setPosicion(2, 1); // posicion inicial del Jugador
+        mapa.colocarBloque(bloquePiedra, 2, 2);
+        mapa.colocarJugador(jugador, 2, 1);
 
         thrown.expect(CasilleroEstaOcupadoException.class);
-        jugador.avanzar(mapa, new HaciaDerecha());
+        jugador.avanzar(new HaciaDerecha());
     }
 
     @Test
     public void testJugadorIntentaAvanzarHaciaIzquierdaAUnaCasillaLibreYLaCasillaAnteriorPasaAEstarLibre() {
         Mapa mapa = new Mapa(4, 4);
-        Jugador jugador = new Jugador();
+        Jugador jugador = new Jugador(mapa);
 
-        mapa.colocar(jugador, 2, 2);
-        jugador.setPosicion(2, 2); // posicion inicial del Jugador
+        mapa.colocarJugador(jugador, 2, 2);
 
-        jugador.avanzar(mapa, new HaciaIzquierda());
+        jugador.avanzar(new HaciaIzquierda());
 
         Assert.assertTrue(mapa.getCasilla(2, 2).estaVacia());
         Assert.assertFalse(mapa.getCasilla(2, 1).estaVacia());
@@ -180,62 +184,57 @@ public class MapaTest {
     public void testJugadorIntentaAvanzarHaciaIzquierdaAUnaCasillaOcupadaYLanzaCasilleroEstaOcupadoException() {
         Mapa mapa = new Mapa(4, 4);
         BloquePiedra bloquePiedra = new BloquePiedra();
-        Jugador jugador = new Jugador();
+        Jugador jugador = new Jugador(mapa);
 
-        mapa.colocar(bloquePiedra, 2, 2);
-        mapa.colocar(jugador, 2, 3);
-        jugador.setPosicion(2, 3); // posicion inicial del Jugador
+        mapa.colocarBloque(bloquePiedra, 2, 2);
+        mapa.colocarJugador(jugador, 2, 3);
 
         thrown.expect(CasilleroEstaOcupadoException.class);
-        jugador.avanzar(mapa, new HaciaIzquierda());
+        jugador.avanzar(new HaciaIzquierda());
     }
 
 
     @Test
     public void testJugadorIntentaAvanzarHaciaArribaEnElBordeDelMapaYLanzaPosicionFueraDelMapaException() {
         Mapa mapa = new Mapa(2, 2);
-        Jugador jugador = new Jugador();
+        Jugador jugador = new Jugador(mapa);
 
-        mapa.colocar(jugador, 0, 0);
-        jugador.setPosicion(0, 0); // posicion inicial del Jugador
+        mapa.colocarJugador(jugador, 0, 0);
 
         thrown.expect(PosicionFueraDelMapaException.class);
-        jugador.avanzar(mapa, new HaciaArriba());
+        jugador.avanzar(new HaciaArriba());
     }
 
     @Test
     public void testJugadorIntentaAvanzarHaciaAbajoEnElBordeDelMapaYLanzaPosicionFueraDelMapaException() {
         Mapa mapa = new Mapa(2, 2);
-        Jugador jugador = new Jugador();
+        Jugador jugador = new Jugador(mapa);
 
-        mapa.colocar(jugador, 1, 0);
-        jugador.setPosicion(1, 0); // posicion inicial del Jugador
+        mapa.colocarJugador(jugador, 1, 0);
 
         thrown.expect(PosicionFueraDelMapaException.class);
-        jugador.avanzar(mapa, new HaciaAbajo());
+        jugador.avanzar(new HaciaAbajo());
     }
 
     @Test
     public void testJugadorIntentaAvanzarHaciaDerechaEnElBordeDelMapaYLanzaPosicionFueraDelMapaException() {
         Mapa mapa = new Mapa(2, 2);
-        Jugador jugador = new Jugador();
+        Jugador jugador = new Jugador(mapa);
 
-        mapa.colocar(jugador, 1, 1);
-        jugador.setPosicion(1, 1); // posicion inicial del Jugador
+        mapa.colocarJugador(jugador, 1, 1);
 
         thrown.expect(PosicionFueraDelMapaException.class);
-        jugador.avanzar(mapa, new HaciaDerecha());
+        jugador.avanzar(new HaciaDerecha());
     }
 
     @Test
     public void testJugadorIntentaAvanzarHaciaIzquierdaEnElBordeDelMapaYLanzaPosicionFueraDelMapaException() {
         Mapa mapa = new Mapa(2, 2);
-        Jugador jugador = new Jugador();
+        Jugador jugador = new Jugador(mapa);
 
-        mapa.colocar(jugador, 1, 0);
-        jugador.setPosicion(1, 0); // posicion inicial del Jugador
+        mapa.colocarJugador(jugador, 1, 0);
 
         thrown.expect(PosicionFueraDelMapaException.class);
-        jugador.avanzar(mapa, new HaciaIzquierda());
+        jugador.avanzar(new HaciaIzquierda());
     }
 }
