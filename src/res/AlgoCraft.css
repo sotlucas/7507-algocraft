@@ -1,0 +1,80 @@
+#background {
+    -fx-background-image: url("tierra_bg.png");
+}
+#juego-escena {
+    -fx-background-color: #95B6FF;
+}
+.label {
+    -fx-font-size: 12px;
+    -fx-text-fill: #fff;
+}
+.button {
+    -fx-max-width: 400;
+    -fx-pref-height: 40;
+    -fx-alignment: center;
+    -fx-padding: 0 20;
+    -fx-border-color: black;
+    -fx-border-width: 2;
+    -fx-background-image: url("button_background.png");
+    -fx-background-size: cover;
+    -fx-focus-color: transparent;
+    -fx-background-insets: 0;
+}
+.button > .label {
+    -fx-fill: #fff;
+    -fx-font-family: 'Minecraft';
+    -fx-font-size: 16;
+    -fx-effect: dropshadow(one-pass-box, #4C4C4C, 0, 1.0, 2, 2);
+}
+.button:hover {
+    -fx-background-image: url("button_active_background.png");
+    -fx-background-size: cover;
+}
+.button:hover > .label {
+    -fx-text-fill: #FFFFA0;
+}
+/* Creditos */
+#titulo-hbox {
+    -fx-padding: 20 0 0 0;
+}
+#titulo {
+    -fx-fill: white;
+    -fx-font-family: 'Minecraft';
+    -fx-font-size: 16;
+}
+#logo-creditos {
+    -fx-padding: 70 0 40 0;
+}
+#titulo-creditos {
+    -fx-fill: white;
+    -fx-font-family: 'Minecraft';
+    -fx-font-size: 24;
+}
+#nombre {
+    -fx-fill: white;
+    -fx-font-family: 'Minecraft';
+    -fx-font-size: 16;
+}
+#boton-volver {
+    -fx-padding: 0 0 20 0;
+}
+/* Casillas y contenedor */
+#contenedor-casillas {
+    -fx-max-width: 480px;
+    -fx-max-height: 450px;
+    -fx-background-image: url("fondo_inventario.png");
+    -fx-background-size: 100% 100%;
+}
+#casilla:hover {
+    -fx-opacity: 0.7;
+}
+#titulo-inventario {
+    -fx-text-fill: #343434;
+    -fx-font-family: 'Minecraft';
+    -fx-font-size: 24;
+}
+
+/* Bloque */
+#bloque:hover {
+    -fx-opacity: 0.7;
+}
