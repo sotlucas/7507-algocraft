@@ -3,7 +3,7 @@ package fiuba.algo3.modelo;
 public class Casilla {
 
     private Estado estado;
-    private Elemento elementoContenido;
+    private Posicionable elementoContenido;
 
     public Casilla(){
 
@@ -11,7 +11,7 @@ public class Casilla {
         elementoContenido = null;
     }
 
-    public Casilla(Elemento elemento){
+    public Casilla(Posicionable elemento){
 
         estado = new Ocupado();
     }
@@ -22,7 +22,7 @@ public class Casilla {
         return estado.estaVacio();
     }
 
-    public void colocar(Elemento elemento){
+    public void colocar(Posicionable elemento){
 
         if(!estado.estaVacio()){
 

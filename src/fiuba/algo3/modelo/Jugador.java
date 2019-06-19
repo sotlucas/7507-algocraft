@@ -1,6 +1,6 @@
 package fiuba.algo3.modelo;
 
-public class Jugador implements Elemento {
+public class Jugador implements Posicionable {
 
     private MesaCrafteo mesaDeCrafteo;
     private Inventario inventario;

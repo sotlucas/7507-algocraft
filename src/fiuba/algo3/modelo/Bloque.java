@@ -1,6 +1,6 @@
 package fiuba.algo3.modelo;
 
-public abstract class Bloque implements Elemento{
+public abstract class Bloque implements Posicionable {
 
     protected int durabilidad;
 

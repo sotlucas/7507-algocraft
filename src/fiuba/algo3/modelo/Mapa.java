@@ -38,7 +38,7 @@ public class Mapa {
         return casillas[fila][columna];
     }
 
-    public void colocar(Elemento elemento, int fila, int columna) {
+    public void colocar(Posicionable elemento, int fila, int columna) {
         try {
             Casilla casillaIndicada = casillas[fila][columna];
             casillaIndicada.colocar(elemento);
@@ -52,7 +52,7 @@ public class Mapa {
         return casillas[fila][columna].estaVacia();
     }
 
-    public void mover(Elemento elemento, int columnaAnterior, int filaAnterior, int columnaSiguiente, int filaSiguiente) {
+    public void mover(Posicionable elemento, int columnaAnterior, int filaAnterior, int columnaSiguiente, int filaSiguiente) {
 
         this.colocar(elemento, filaSiguiente, columnaSiguiente);
         // Tengo que borrar el elemento de la casilla anterior
