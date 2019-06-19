@@ -38,14 +38,16 @@ public class Creditos {
         VBox.setVgrow(r, Priority.ALWAYS);
         r.getChildren().add(logo);
         Text tituloCred = new Text("Desarrolladores");
-        Text nombre1 = new Text("Lucas - 102730");
-        Text nombre2 = new Text("Fulano - 102548");
-        Text nombre3 = new Text("Mengano - 101253");
+        Text nombre1 = new Text("Lucas Sotelo - 102730");
+        Text nombre2 = new Text("Mauricio Oubiña - 102325");
+        Text nombre3 = new Text("Agustín Hejeij - 102324");
+        Text nombre4 = new Text("Ezequiel Crespo - 102714");
         tituloCred.setId("titulo-creditos");
         nombre1.setId("nombre");
         nombre2.setId("nombre");
         nombre3.setId("nombre");
-        contenedor.getChildren().addAll(r, tituloCred, nombre1, nombre2, nombre3);
+        nombre4.setId("nombre");
+        contenedor.getChildren().addAll(r, tituloCred, nombre1, nombre2, nombre3, nombre4);
         contenedor.setLayoutY(2000);
 
         // Bottom

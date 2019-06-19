@@ -4,6 +4,7 @@ import fiuba.algo3.controlador.ControladorDeEscena;
 import javafx.geometry.Pos;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -55,10 +56,18 @@ public class Juego {
             }
         }
 
-
-
         main.setAlignment(Pos.CENTER);
         main.getChildren().addAll(menu, grid);
+
+        main.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.E) {
+                controladorDeEscena.activate("inventario");
+            }
+            if (event.getCode() == KeyCode.ESCAPE) {
+                controladorDeEscena.activate("main");
+            }
+
+        });
     }
 
     public Pane getPane() {

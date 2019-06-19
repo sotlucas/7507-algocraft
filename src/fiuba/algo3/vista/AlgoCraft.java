@@ -23,6 +23,9 @@ public class AlgoCraft extends Application {
         border.setPadding(new Insets(20, 0, 20, 20));
         border.setId("background");
 
+        // Cierra correctamente el programa con la "x" de la ventana
+        primaryStage.setOnCloseRequest(e -> Platform.exit());
+
         // Logo
         ImageView logo = new ImageView(new Image(getClass().getResourceAsStream("../../../res/logo_mc.png"), 600, 0, true, true));
         logo.setId("logo");
