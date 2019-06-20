@@ -8,7 +8,8 @@ public class BloqueMadera extends Bloque {
         this.durabilidad -= 0;
     }
 
-    public void recibirDanio(Hacha hacha) {
+    public void recibirDanio(Hacha hacha)
+    {
         if(durabilidad <= 0){
 
             throw new BloqueSeRompioException();

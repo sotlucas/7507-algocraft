@@ -126,13 +126,12 @@ public class BloquePiedraTest {
         BloquePiedra bloquePiedra = new BloquePiedra();
 
         //golpea 14 veces hasta casi el limite de durabilidad del bloque
-        for(int i = 0; i < 14; i++){
+        for(int i = 0; i < 15; i++){
 
             bloquePiedra.recibirDanio(picoDePiedra);
         }
 
         thrown.expect(BloqueSeRompioException.class);
         bloquePiedra.recibirDanio(picoDePiedra);
-
     }
 }

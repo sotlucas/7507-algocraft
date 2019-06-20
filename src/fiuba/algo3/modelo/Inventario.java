@@ -60,4 +60,7 @@ public class Inventario {
         return materiales.get(posicion);
     }
 
+    public Herramienta seleccionarHerramienta(int posicion) {
+        return herramientas.get(posicion);
+    }
 }

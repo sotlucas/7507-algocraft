@@ -62,6 +62,10 @@ public class Jugador implements Posicionable{
         this.materialSeleccionado = this.inventario.seleccionarMaterial(posicion);
     }
 
+    public void seleccionarHerramienta(int posicion) {
+        this.herramientaSeleccionada = this.inventario.seleccionarHerramienta(posicion);
+    }
+
     public void colocarEnMesa(int posicion) {
         this.mesaDeCrafteo.colocar(this.materialSeleccionado, posicion); 
     }
@@ -89,5 +93,10 @@ public class Jugador implements Posicionable{
 
     public double getDurabilidadHerramientaActual() {
         return this.herramientaSeleccionada.getDurabilidad();
+    }
+
+    //LO CREE SOLO PARA PRUEBAS:
+    public Material getMaterialSeleccionado(){
+        return this.materialSeleccionado;
     }
 }
