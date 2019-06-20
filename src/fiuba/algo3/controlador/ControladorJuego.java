@@ -5,13 +5,13 @@ import fiuba.algo3.vista.JuegoVista;
 
 import java.util.HashMap;
 
-public class ControladorMapa {
+public class ControladorJuego {
 
     private Juego juego;
     private JuegoVista juegoVista;
     private HashMap<Character, String> BloquesHash = new HashMap<>();
 
-    public ControladorMapa(Juego juego, JuegoVista juegoVista) {
+    public ControladorJuego(Juego juego, JuegoVista juegoVista) {
         this.juego = juego;
         this.juegoVista = juegoVista;
         inicializarHash();

@@ -1,8 +1,7 @@
 package fiuba.algo3.vista;
 
 import fiuba.algo3.controlador.ControladorDeEscena;
-import fiuba.algo3.controlador.ControladorMapa;
-import fiuba.algo3.modelo.Juego;
+import fiuba.algo3.controlador.ControladorJuego;
 import javafx.geometry.Pos;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -12,7 +11,7 @@ import javafx.scene.layout.*;
 public class JuegoVista {
 
     GridPane mapa;
-    ControladorMapa controlador;
+    ControladorJuego controlador;
 
     private BorderPane main;
 
@@ -93,7 +92,7 @@ public class JuegoVista {
         mapa.add(img, col, fila);
     }
 
-    public void setControlador(ControladorMapa controlador) {
+    public void setControlador(ControladorJuego controlador) {
         this.controlador = controlador;
     }
 }

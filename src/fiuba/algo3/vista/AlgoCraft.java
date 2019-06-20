@@ -2,7 +2,7 @@ package fiuba.algo3.vista;
 
 import fiuba.algo3.controlador.ControladorDeEscena;
 import fiuba.algo3.controlador.ControladorDeInventario;
-import fiuba.algo3.controlador.ControladorMapa;
+import fiuba.algo3.controlador.ControladorJuego;
 import fiuba.algo3.modelo.Juego;
 import fiuba.algo3.modelo.Jugador;
 import fiuba.algo3.modelo.Madera;
@@ -114,7 +114,7 @@ public class AlgoCraft extends Application {
         // Actualizar vistas
         controladorDeInventario.actualizarVista();
 
-        ControladorMapa controladorMapa = new ControladorMapa(juego, juegoVista);
-        controladorMapa.actualizarVista();
+        ControladorJuego controladorJuego = new ControladorJuego(juego, juegoVista);
+        controladorJuego.actualizarVista();
     }
 }
