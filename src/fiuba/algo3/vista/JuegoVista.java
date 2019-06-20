@@ -75,7 +75,18 @@ public class JuegoVista {
             if (event.getCode() == KeyCode.ESCAPE) {
                 controladorDeEscena.activate("main");
             }
-
+            if (event.getCode() == KeyCode.W) {
+                controlador.moverArriba();
+            }
+            if (event.getCode() == KeyCode.A) {
+                controlador.moverIzquierda();
+            }
+            if (event.getCode() == KeyCode.S) {
+                controlador.moverAbajo();
+            }
+            if (event.getCode() == KeyCode.D) {
+                controlador.moverDerecha();
+            }
         });
     }
 
