@@ -8,6 +8,7 @@ public class Hacha extends Herramienta{
         this.material = madera;
         this.desgaste = new DesgasteNormal(100, 2);
         this.receta = "mm-mm--m-";
+        this.identificador = "hacha_madera";
     }
 
     public Hacha(Piedra piedra){
@@ -16,6 +17,7 @@ public class Hacha extends Herramienta{
         this.material = piedra;
         this.desgaste = new DesgasteNormal(200, 5);
         this.receta = "pp-pm--m-";
+        this.identificador = "hacha_piedra";
     }
 
     public Hacha(Metal metal){
@@ -24,6 +26,7 @@ public class Hacha extends Herramienta{
         this.material = metal;
         this.desgaste = new DesgasteNormal(400, 10, 2);
         this.receta = "MM-Mm--m-";
+        this.identificador = "hacha_metal";
     }
 
     public void usarEn(Bloque bloqueMaterial){

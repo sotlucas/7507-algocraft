@@ -8,6 +8,7 @@ public abstract class Herramienta {
     protected Desgaste desgaste;
     protected int fuerzaEspecialContraMetal;
     protected String receta;
+    protected String identificador;
 
     public abstract void usarEn(Bloque bloque);
 
@@ -24,4 +25,6 @@ public abstract class Herramienta {
     }
 
     public String getReceta() { return receta;}
+
+    public String getIdentificador() { return this.identificador; }
 }

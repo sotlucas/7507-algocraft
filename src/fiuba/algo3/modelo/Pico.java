@@ -9,6 +9,7 @@ public class Pico extends Herramienta {
         this.desgaste = new DesgasteNormal(100, 2);
         this.fuerzaEspecialContraMetal = 0;
         this.receta = "mmm-m--m-";
+        this.identificador = "pico_madera";
     }
 
     public Pico(Piedra piedra) {
@@ -18,6 +19,7 @@ public class Pico extends Herramienta {
         this.desgaste = new DesgasteNormal(200, 4, 1.5);
         this.fuerzaEspecialContraMetal = 4;
         this.receta = "ppp-m--m-";
+        this.identificador = "pico_piedra";
     }
 
     public Pico(Metal metal) {
@@ -27,6 +29,7 @@ public class Pico extends Herramienta {
         this.desgaste = new DesgasteNormal(400, 12, 0.3);
         this.fuerzaEspecialContraMetal = 0;
         this.receta = "MMM-m--m-";
+        this.identificador = "pico_metal";
     }
 
     public void usarEn(Bloque bloqueMaterial){
