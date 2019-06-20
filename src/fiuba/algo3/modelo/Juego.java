@@ -56,8 +56,11 @@ public class Juego {
     }
 
     public void avanzarJugador(Direccion direccion){
-
-        jugador.avanzar(direccion);
+        try {
+            jugador.avanzar(direccion);
+        } catch (CasilleroEstaOcupadoException a) {
+        } catch (PosicionFueraDelMapaException b) {
+        }
     }
 
     public int getColumnaJugador(){
