@@ -7,6 +7,9 @@ import org.junit.rules.ExpectedException;
 
 public class IntegracionTests {
 
+    @Rule
+    public ExpectedException thrown = ExpectedException.none();
+
     @Test
     public void testSeVerificaLaCorrectaInicializacionDelJugadorEnElMapa() {
 
@@ -34,6 +37,8 @@ public class IntegracionTests {
 
 
     }
+
+
 
 
 
@@ -143,8 +148,6 @@ public class IntegracionTests {
 
     }*/
 
-    @Rule
-    public ExpectedException thrown = ExpectedException.none();
 
     @Test
     public void test02BloqueDeMaderaEsImpactadoConHachasDeDistintosMaterialesYSeReduceSuDurabilidadDependiendoDeLaFuerzaDelHacha(){
@@ -162,8 +165,8 @@ public class IntegracionTests {
         hachaDeMadera.usarEn(bloqueMadera);
         Assert.assertEquals(durabilidadInicialBloque - 7, bloqueMadera.getDurabilidad());
 
-        thrown.expect(BloqueSeRompioException.class);
         hachaDeMetal.usarEn(bloqueMadera);
+        Assert.assertEquals(durabilidadInicialBloque - 17, bloqueMadera.getDurabilidad());
     }
 
     @Test
@@ -303,6 +306,41 @@ public class IntegracionTests {
 
         picoFino.usarEn(bloqueDiamante);
         Assert.assertEquals(durabilidadInicialBloque-20, bloqueDiamante.getDurabilidad());
+
+    }
+
+    //----------------- INTEGRACION CASILLAS -----------------------------
+
+    @Test
+    public void testAlDestruirCompletamenteUnBloqueLaCasillaQueLoConteniaPasaAEstarVacia(){
+
+        Mapa mapa = new Mapa(5, 5);
+
+        Jugador jugador = new Jugador(mapa);
+        BloqueMadera bloqueMadera = new BloqueMadera();
+
+        mapa.colocarBloque(bloqueMadera, 1, 2);
+        mapa.colocarJugador(jugador, 2, 2);
+
+        int durabilidadBloque = bloqueMadera.getDurabilidad();
+
+        jugador.golpear(new HaciaArriba());
+        Assert.assertEquals(durabilidadBloque - 2, bloqueMadera.getDurabilidad());
+
+        jugador.golpear(new HaciaArriba());
+        Assert.assertEquals(durabilidadBloque - 4, bloqueMadera.getDurabilidad());
+
+        jugador.golpear(new HaciaArriba());
+        Assert.assertEquals(durabilidadBloque - 6, bloqueMadera.getDurabilidad());
+
+        jugador.golpear(new HaciaArriba());
+        Assert.assertEquals(durabilidadBloque - 8, bloqueMadera.getDurabilidad());
+
+        jugador.golpear(new HaciaArriba());
+        Assert.assertEquals(0, bloqueMadera.getDurabilidad());
+
+        //la casilla donde se encontraba el bloque:
+        Assert.assertTrue(mapa.getCasilla(1 ,2).estaVacia());
 
     }
 }

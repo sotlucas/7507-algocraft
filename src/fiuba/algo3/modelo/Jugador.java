@@ -82,11 +82,6 @@ public class Jugador implements Posicionable{
 
     // ---------- EL JUGADOR TENDRIA QUE TENER ESTOS METODOS:
 
-    public void golpear(Bloque bloque)
-    {
-        herramientaSeleccionada.usarEn(bloque);
-    }
-
     public void golpear(Direccion direccion){
 
         direccion.golpear(mapa, herramientaSeleccionada, this);

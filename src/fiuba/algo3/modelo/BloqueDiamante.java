@@ -22,4 +22,9 @@ public class BloqueDiamante extends Bloque{
             throw new BloqueSeRompioException();
         }
     }
+
+    @Override
+    public Material cederMaterial() {
+        return new Diamante();
+    }
 }

@@ -50,8 +50,11 @@ public class BloqueMaderaTest {
 
         BloqueMadera bloque = new BloqueMadera();
 
+        bloque.recibirDanio(hachaDeMetal);
+
         thrown.expect(BloqueSeRompioException.class);
         bloque.recibirDanio(hachaDeMetal);
+
     }
 
     @Test //obligatoria
@@ -120,11 +123,11 @@ public class BloqueMaderaTest {
         bloqueMadera.recibirDanio(hachaDeMadera);
         bloqueMadera.recibirDanio(hachaDeMadera);
         bloqueMadera.recibirDanio(hachaDeMadera);
+        bloqueMadera.recibirDanio(hachaDeMadera);
 
         thrown.expect(BloqueSeRompioException.class);
         bloqueMadera.recibirDanio(hachaDeMadera);
 
     }
 
-    //falta agregar la de que lo golpea un pico fino
 }

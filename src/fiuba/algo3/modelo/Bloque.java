@@ -10,5 +10,6 @@ public abstract class Bloque implements Posicionable{
     public abstract void recibirDanio(Pico pico);
     public abstract void recibirDanio(Hacha hacha);
     public abstract void recibirDanio(PicoFino picoFino);
+    public abstract Material cederMaterial();
 
 }

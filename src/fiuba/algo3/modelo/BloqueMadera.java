@@ -9,14 +9,19 @@ public class BloqueMadera extends Bloque {
     }
 
     public void recibirDanio(Hacha hacha) {
-
-        durabilidad -= hacha.getFuerza();
-
         if(durabilidad <= 0){
 
             throw new BloqueSeRompioException();
         }
+        durabilidad -= hacha.getFuerza();
+
+
 
     }
     public void recibirDanio(PicoFino picoFino){ this.durabilidad -= 0;}
+
+    @Override
+    public Madera cederMaterial() {
+        return new Madera();
+    }
 }

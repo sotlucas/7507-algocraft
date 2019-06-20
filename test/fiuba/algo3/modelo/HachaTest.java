@@ -127,7 +127,6 @@ public class HachaTest {
             BloquePiedra bloquePiedra = new BloquePiedra();
             BloqueMetal bloqueMetal = new BloqueMetal();
 
-            thrown.expect(BloqueSeRompioException.class);
             hachaDeMetal.usarEn(bloqueMadera);
             Assert.assertEquals(395.0, hachaDeMetal.getDurabilidad(), 0);
 

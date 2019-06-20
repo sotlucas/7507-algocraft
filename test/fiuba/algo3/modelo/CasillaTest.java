@@ -86,4 +86,31 @@ public class CasillaTest {
         Assert.assertFalse(casilla.estaVacia());
     }
 
+    @Test
+    public void testAlVaciarseUnaCasillaOcupadaSeVerificaQueElEstadoPasaASerVacio(){
+
+        BloqueMadera bloqueMadera = new BloqueMadera();
+        Casilla casilla = new Casilla();
+        casilla.colocar(bloqueMadera);
+
+        Assert.assertFalse(casilla.estaVacia());
+
+        casilla.vaciar();
+        Assert.assertTrue(casilla.estaVacia());
+    }
+
+    @Test
+    public void testAlVaciarseUnaCasillaOcupadaSeVerificaQueElContenidoPasaASerNull(){
+
+        BloqueMadera bloqueMadera = new BloqueMadera();
+        Casilla casilla = new Casilla();
+        casilla.colocar(bloqueMadera);
+
+        Assert.assertNotNull(casilla.getElementoContenido());
+
+        casilla.vaciar();
+        Assert.assertNull(casilla.getElementoContenido());
+    }
+
+
 }

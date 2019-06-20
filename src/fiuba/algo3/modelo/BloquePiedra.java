@@ -20,4 +20,9 @@ public class BloquePiedra extends Bloque {
         this.durabilidad -= 0;
     }
     public void recibirDanio(PicoFino picoFino){ this.durabilidad -= 0;}
+
+    @Override
+    public Material cederMaterial() {
+        return new Piedra();
+    }
 }
