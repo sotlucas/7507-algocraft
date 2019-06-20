@@ -74,4 +74,10 @@ public class Juego {
 
         return mapa.casillaEstaVacia(fila, columna);
     }
+
+    public char getIdentificadorEnPosicion(int fila, int columna) {
+        return this.mapa.getIdentificadorEnPosicion(fila, columna);
+    }
+
+    public Jugador getJugador() { return this.jugador;}
 }

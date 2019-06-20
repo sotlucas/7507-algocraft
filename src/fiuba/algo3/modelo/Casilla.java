@@ -45,4 +45,13 @@ public class Casilla {
 
         return elementoContenido;
     }
+
+    public char getIdentificador() {
+        if(estado.estaVacio()){
+            return 'v';
+        }
+        else {
+            return elementoContenido.getIdentificador();
+        }
+    }
 }

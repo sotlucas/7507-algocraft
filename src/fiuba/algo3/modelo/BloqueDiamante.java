@@ -2,7 +2,10 @@ package fiuba.algo3.modelo;
 
 public class BloqueDiamante extends Bloque{
 
-    public BloqueDiamante() { this.durabilidad = 100; }
+    public BloqueDiamante() {
+        this.durabilidad = 100;
+        this.identificador = 'd';
+    }
 
     public void recibirDanio(Pico pico) {
         this.durabilidad -= 0;
@@ -21,6 +24,10 @@ public class BloqueDiamante extends Bloque{
 
             throw new BloqueSeRompioException();
         }
+    }
+
+    public char getIdentificador(){
+        return this.identificador;
     }
 
     @Override

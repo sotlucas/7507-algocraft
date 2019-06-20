@@ -2,6 +2,8 @@ package fiuba.algo3.vista;
 
 import fiuba.algo3.controlador.ControladorDeEscena;
 import fiuba.algo3.controlador.ControladorDeInventario;
+import fiuba.algo3.controlador.ControladorMapa;
+import fiuba.algo3.modelo.Juego;
 import fiuba.algo3.modelo.Jugador;
 import fiuba.algo3.modelo.Madera;
 import fiuba.algo3.modelo.Metal;
@@ -63,7 +65,7 @@ public class AlgoCraft extends Application {
         // Inicialiazo controlador de escena y vistas
         ControladorDeEscena controladorDeEscena = new ControladorDeEscena(scene);
         InventarioVista inventarioVista = new InventarioVista(scene, controladorDeEscena);
-        Juego juegoVista = new Juego(controladorDeEscena);
+        JuegoVista juegoVista = new JuegoVista(controladorDeEscena);
         Creditos creditosVista = new Creditos(scene, controladorDeEscena);
         controladorDeEscena.agregarEscena("main", border);
         controladorDeEscena.agregarEscena("inventario", inventarioVista.getPane());
@@ -80,7 +82,8 @@ public class AlgoCraft extends Application {
         });
 
         // PRUEBA
-        Jugador jugador = new Jugador();
+        Juego juego = new Juego();
+        Jugador jugador = juego.getJugador();
         jugador.agregarMaterialAInventario(new Piedra());
         jugador.agregarMaterialAInventario(new Madera());
         jugador.agregarMaterialAInventario(new Metal());
@@ -110,5 +113,8 @@ public class AlgoCraft extends Application {
         ControladorDeInventario controladorDeInventario = new ControladorDeInventario(jugador.getInventario(), inventarioVista);
         // Actualizar vistas
         controladorDeInventario.actualizarVista();
+
+        ControladorMapa controladorMapa = new ControladorMapa(juego, juegoVista);
+        controladorMapa.actualizarVista();
     }
 }

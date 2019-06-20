@@ -10,6 +10,7 @@ public class Jugador implements Posicionable{
     private Mapa mapa;
     // El siguiente es un atributo que deberia tener:
     private Herramienta herramientaSeleccionada;
+    private char identificador;
 
     public Jugador(){
         this.mesaDeCrafteo = new MesaCrafteo();
@@ -19,6 +20,7 @@ public class Jugador implements Posicionable{
         this.estaPosicionado = false;
         //Provisorio:
         this.herramientaSeleccionada = new Hacha(new Madera());
+        this.identificador = 'j';
     }
 
     public Jugador(Mapa mapa) {
@@ -29,6 +31,7 @@ public class Jugador implements Posicionable{
         this.estaPosicionado = false;
         this.mapa = mapa;
         this.herramientaSeleccionada = new Hacha(new Madera());
+        this.identificador = 'j';
     }
 
     public boolean inventarioContieneHerramienta(Herramienta herramienta) {
@@ -93,5 +96,10 @@ public class Jugador implements Posicionable{
 
     public Inventario getInventario() {
         return this.inventario;
+    }
+
+    @Override
+    public char getIdentificador(){
+        return this.identificador;
     }
 }

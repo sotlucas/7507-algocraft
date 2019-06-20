@@ -3,7 +3,9 @@ package fiuba.algo3.modelo;
 public class BloquePiedra extends Bloque {
 
     public BloquePiedra() {
+
         this.durabilidad = 30;
+        this.identificador = 'p';
     }
 
     public void recibirDanio(Pico pico) {
@@ -20,6 +22,10 @@ public class BloquePiedra extends Bloque {
         this.durabilidad -= 0;
     }
     public void recibirDanio(PicoFino picoFino){ this.durabilidad -= 0;}
+
+    public char getIdentificador(){
+        return this.identificador;
+    }
 
     @Override
     public Material cederMaterial() {

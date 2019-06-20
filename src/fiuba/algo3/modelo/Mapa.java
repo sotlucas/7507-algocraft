@@ -74,4 +74,9 @@ public class Mapa {
         Casilla casillaAnterior = casillas[filaAnterior][columnaAnterior];
         casillaAnterior.vaciar();
     }
+
+    public char getIdentificadorEnPosicion(int fila, int columna) {
+        Casilla casilla = casillas [fila][columna];
+        return casilla.getIdentificador();
+    }
 }
