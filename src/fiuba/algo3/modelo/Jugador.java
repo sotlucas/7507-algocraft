@@ -96,7 +96,11 @@ public class Jugador implements Posicionable{
     }
 
     //LO CREE SOLO PARA PRUEBAS:
-    public Material getMaterialSeleccionado(){
+    public Material getMaterialSeleccionado() {
         return this.materialSeleccionado;
+    }
+
+    public Inventario getInventario() {
+        return this.inventario;
     }
 }

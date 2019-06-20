@@ -6,15 +6,17 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyCode;
 import javafx.scene.layout.*;
 
-public class Inventario {
+import java.util.ArrayList;
+
+public class InventarioVista {
     private BorderPane root;
     private ImageView seleccionado = null;
     private Scene scene;
+    private GridPane inventario;
 
-    public Inventario(Scene scene, ControladorDeEscena controladorDeEscena) {
+    public InventarioVista(Scene scene, ControladorDeEscena controladorDeEscena) {
         this.scene = scene;
         root = new BorderPane();
         root.setId("background");
@@ -25,7 +27,7 @@ public class Inventario {
 
         Label titulo1 = new Label("Crafting");
         titulo1.setId("titulo-inventario");
-        GridPane inventario = crearInventario(3, 9);
+        this.inventario = crearInventario(3, 9);
         Label titulo2 = new Label("Inventario");
         titulo2.setId("titulo-inventario");
         HBox mesaDeCrafteo = crearMesa();
@@ -42,12 +44,6 @@ public class Inventario {
 
         root.setTop(menu);
         root.setCenter(contenedor);
-
-        root.setOnKeyPressed(event -> {
-            if (event.getCode() == KeyCode.E) {
-                controladorDeEscena.activate("juego");
-            }
-        });
     }
 
     public Pane getPane() {
@@ -63,10 +59,6 @@ public class Inventario {
                 agregarCasilla(inventario, col, fila);
             }
         }
-
-        // PROBANDO, BORRAR
-        agregarElemento(inventario, "diamante", 1, 1);
-        agregarElemento(inventario, "metal", 2, 2);
 
         return inventario;
     }
@@ -125,5 +117,9 @@ public class Inventario {
 
     private ImageView getImagen(String nombre, int tamanio) {
         return new ImageView(new Image(getClass().getResourceAsStream("../../../res/"+nombre+".png"), tamanio, 0, true, true));
+    }
+
+    public void agregar(String elemento, int fila, int columna) {
+        this.agregarElemento(this.inventario, elemento, fila, columna);
     }
 }

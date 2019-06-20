@@ -8,6 +8,7 @@ public class PicoFino extends Herramienta {
         this.material = null; // ver si creamos nuevo material
         this.desgaste = new DesgasteEspecial();
         this.receta = "MMMpm--m-";
+        this.identificador = "pico_fino";
     }
 
     public void usarEn(Bloque bloque){
