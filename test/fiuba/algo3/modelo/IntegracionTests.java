@@ -343,4 +343,73 @@ public class IntegracionTests {
         Assert.assertTrue(mapa.getCasilla(1 ,2).estaVacia());
 
     }
+
+    // ---------------- INTEGRACION INVENTARIO ---------------------
+    @Test
+    public void testAlDestruirCompletamenteUnBloqueDeMaderaSeAgregaElMaterialCorrespondienteAlInventario(){
+
+        Mapa mapa = new Mapa(5, 5);
+
+        Jugador jugador = new Jugador(mapa);
+        BloqueMadera bloqueMadera = new BloqueMadera();
+
+        mapa.colocarBloque(bloqueMadera, 1, 2);
+        mapa.colocarJugador(jugador, 2, 2);
+
+        int durabilidadBloque = bloqueMadera.getDurabilidad();
+
+        jugador.golpear(new HaciaArriba());
+        Assert.assertEquals(durabilidadBloque - 2, bloqueMadera.getDurabilidad());
+
+        jugador.golpear(new HaciaArriba());
+        Assert.assertEquals(durabilidadBloque - 4, bloqueMadera.getDurabilidad());
+
+        jugador.golpear(new HaciaArriba());
+        Assert.assertEquals(durabilidadBloque - 6, bloqueMadera.getDurabilidad());
+
+        jugador.golpear(new HaciaArriba());
+        Assert.assertEquals(durabilidadBloque - 8, bloqueMadera.getDurabilidad());
+
+        jugador.golpear(new HaciaArriba());
+        Assert.assertEquals(0, bloqueMadera.getDurabilidad());
+
+        jugador.seleccionarMaterial(0);
+        Material material = jugador.getMaterialSeleccionado();
+
+
+    }
+
+
+    /*
+     * Este metodo tiene que poder elegir un pico de metal (por ejemplo) y utilizarlo contra la piedra
+     */
+    @Test
+    public void testAlDestruirCompletamenteUnBloqueDePiedraSeAgregaElMaterialCorrespondienteAlInventario(){
+
+        Mapa mapa = new Mapa(5, 5);
+
+        Jugador jugador = new Jugador(mapa);
+        BloquePiedra bloquePiedra = new BloquePiedra();
+        Pico picoMetal = new Pico(new Metal());
+
+        jugador.agregarHerramientaAInventario(picoMetal);
+        jugador.seleccionarHerramienta(1);
+
+        mapa.colocarBloque(bloquePiedra, 1, 2);
+        mapa.colocarJugador(jugador, 2, 2);
+
+        int durabilidadBloque = bloquePiedra.getDurabilidad();
+
+        jugador.golpear(new HaciaArriba());
+        Assert.assertEquals(durabilidadBloque - 12, bloquePiedra.getDurabilidad());
+
+        jugador.golpear(new HaciaArriba());
+        Assert.assertEquals(durabilidadBloque - 24, bloquePiedra.getDurabilidad());
+
+        jugador.golpear(new HaciaArriba());//Luego de esta instruccion el bloque de debe haber roto y cedido el material
+
+        jugador.seleccionarMaterial(0);
+        Material material = jugador.getMaterialSeleccionado();
+
+    }
 }

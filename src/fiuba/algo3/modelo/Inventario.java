@@ -60,8 +60,14 @@ public class Inventario {
         return materiales.get(posicion);
     }
 
-    public ArrayList<Herramienta> getHerramientas() {
-        return herramientas;
+    public Herramienta seleccionarHerramienta(int posicion) {
+        return herramientas.get(posicion);
+
+    }
+    public ArrayList<Herramienta> getHerramientas(){
+
+        return this.herramientas;
+
     }
 
     public ArrayList<Material> getMateriales() {
