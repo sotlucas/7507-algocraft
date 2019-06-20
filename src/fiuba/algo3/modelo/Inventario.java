@@ -60,4 +60,11 @@ public class Inventario {
         return materiales.get(posicion);
     }
 
+    public ArrayList<Herramienta> getHerramientas() {
+        return herramientas;
+    }
+
+    public ArrayList<Material> getMateriales() {
+        return materiales;
+    }
 }

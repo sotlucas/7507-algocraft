@@ -1,6 +1,11 @@
 package fiuba.algo3.vista;
 
 import fiuba.algo3.controlador.ControladorDeEscena;
+import fiuba.algo3.controlador.ControladorDeInventario;
+import fiuba.algo3.modelo.Jugador;
+import fiuba.algo3.modelo.Madera;
+import fiuba.algo3.modelo.Metal;
+import fiuba.algo3.modelo.Piedra;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.geometry.Insets;
@@ -23,11 +28,8 @@ public class AlgoCraft extends Application {
         border.setPadding(new Insets(20, 0, 20, 20));
         border.setId("background");
 
-        // Cierra correctamente el programa con la "x" de la ventana
-        primaryStage.setOnCloseRequest(e -> Platform.exit());
-
         // Logo
-        ImageView logo = new ImageView(new Image(getClass().getResourceAsStream("../../../res/logo_mc.png"), 600, 0, true, true));
+        ImageView logo = new ImageView(new Image(getClass().getResourceAsStream("../../../res/algocraft.png"), 600, 0, true, true));
         logo.setId("logo");
 
         // Botones
@@ -51,19 +53,22 @@ public class AlgoCraft extends Application {
         // Agrego VBox al BorderPane
         border.setCenter(vbButtons);
 
-
         Scene scene = new Scene(border, 832, 512);
-        primaryStage.setTitle("AlgoCraft - v.0.0.1");
+        primaryStage.setTitle("Algocraft 0.0.1");
+        primaryStage.getIcons().add(new Image(AlgoCraft.class.getResourceAsStream("../../../res/icon.png")));
         primaryStage.setScene(scene);
         scene.getStylesheets().add(AlgoCraft.class.getResource("../../../res/AlgoCraft.css").toExternalForm());
         primaryStage.show();
 
-        // Inicialiazo controlador de escena
+        // Inicialiazo controlador de escena y vistas
         ControladorDeEscena controladorDeEscena = new ControladorDeEscena(scene);
+        InventarioVista inventarioVista = new InventarioVista(scene, controladorDeEscena);
+        Juego juegoVista = new Juego(controladorDeEscena);
+        Creditos creditosVista = new Creditos(scene, controladorDeEscena);
         controladorDeEscena.agregarEscena("main", border);
-        controladorDeEscena.agregarEscena("inventario", (new Inventario(scene, controladorDeEscena)).getPane());
-        controladorDeEscena.agregarEscena("juego", (new Juego(controladorDeEscena)).getPane());
-        controladorDeEscena.agregarEscena("creditos", (new Creditos(scene, controladorDeEscena)).getPane());
+        controladorDeEscena.agregarEscena("inventario", inventarioVista.getPane());
+        controladorDeEscena.agregarEscena("juego", juegoVista.getPane());
+        controladorDeEscena.agregarEscena("creditos", creditosVista.getPane());
         btnJugar.setOnAction(e -> {
                 controladorDeEscena.activate("juego");
         });
@@ -73,5 +78,37 @@ public class AlgoCraft extends Application {
         btnSalir.setOnAction(e -> {
             Platform.exit();
         });
+
+        // PRUEBA
+        Jugador jugador = new Jugador();
+        jugador.agregarMaterialAInventario(new Piedra());
+        jugador.agregarMaterialAInventario(new Madera());
+        jugador.agregarMaterialAInventario(new Metal());
+        jugador.agregarMaterialAInventario(new Madera());
+        jugador.agregarMaterialAInventario(new Madera());
+        jugador.agregarMaterialAInventario(new Metal());
+        jugador.agregarMaterialAInventario(new Madera());
+        jugador.agregarMaterialAInventario(new Madera());
+        jugador.agregarMaterialAInventario(new Metal());
+        jugador.agregarMaterialAInventario(new Madera());
+        jugador.agregarMaterialAInventario(new Madera());
+        jugador.agregarMaterialAInventario(new Metal());
+        jugador.agregarMaterialAInventario(new Madera());
+        jugador.agregarMaterialAInventario(new Piedra());
+        jugador.agregarMaterialAInventario(new Madera());
+        jugador.agregarMaterialAInventario(new Metal());
+        jugador.agregarMaterialAInventario(new Madera());
+        jugador.agregarMaterialAInventario(new Madera());
+        jugador.agregarMaterialAInventario(new Metal());
+        jugador.agregarMaterialAInventario(new Madera());
+        jugador.agregarMaterialAInventario(new Madera());
+        jugador.agregarMaterialAInventario(new Metal());
+        jugador.agregarMaterialAInventario(new Madera());
+        jugador.agregarMaterialAInventario(new Madera());
+        jugador.agregarMaterialAInventario(new Metal());
+        jugador.agregarMaterialAInventario(new Madera());
+        ControladorDeInventario controladorDeInventario = new ControladorDeInventario(jugador.getInventario(), inventarioVista);
+        // Actualizar vistas
+        controladorDeInventario.actualizarVista();
     }
 }

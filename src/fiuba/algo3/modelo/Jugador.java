@@ -90,4 +90,8 @@ public class Jugador implements Posicionable{
     public double getDurabilidadHerramientaActual() {
         return this.herramientaSeleccionada.getDurabilidad();
     }
+
+    public Inventario getInventario() {
+        return this.inventario;
+    }
 }
