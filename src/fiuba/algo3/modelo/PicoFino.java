@@ -9,19 +9,7 @@ public class PicoFino extends Herramienta {
         this.desgaste = new DesgasteEspecial();
         this.receta = "MMMpm--m-";
     }
-/*
-    public void usarEn(BloqueMadera bloqueMadera){
-        durabilidad -= 0;
-    }
 
-    public void usarEn(BloqueMetal bloqueMetal){
-        durabilidad -= 0;
-    }
-
-    public void usarEn(BloquePiedra bloquePiedra){
-        durabilidad -= 0;
-    }
-*/
     public void usarEn(Bloque bloque){
 
         bloque.recibirDanio(this);

@@ -19,4 +19,20 @@ public class HaciaIzquierda extends Direccion {
         //jugador.setPosicion(filaSiguienteJugador, columnaSiguienteJugador);
 
     }
+
+    @Override
+    public void golpear(Mapa mapa, Herramienta herramienta, Jugador jugador){
+
+        int columnaJugador = jugador.getPosicionColumna();
+        int filaJugador = jugador.getPosicionFila();
+        Casilla casillaApuntada = mapa.getCasilla(filaJugador, columnaJugador - 1);
+        Posicionable bloque = casillaApuntada.getElementoContenido();
+
+        if(bloque != null)
+        {
+            herramienta.usarEn((Bloque)bloque);
+        }
+
+
+    }
 }

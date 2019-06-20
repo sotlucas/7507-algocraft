@@ -39,4 +39,10 @@ public class Casilla {
         this.elementoContenido = null;
         this.estado = new Vacio();
     }
+
+    //METODO NO APROPIADO:
+    public Posicionable getElementoContenido(){
+
+        return elementoContenido;
+    }
 }

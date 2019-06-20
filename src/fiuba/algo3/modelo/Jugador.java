@@ -17,6 +17,8 @@ public class Jugador implements Posicionable{
         this.posicion = new Posicion();
         this.inventario.agregarHerramienta(new Hacha(new Madera()));
         this.estaPosicionado = false;
+        //Provisorio:
+        this.herramientaSeleccionada = new Hacha(new Madera());
     }
 
     public Jugador(Mapa mapa) {
@@ -26,6 +28,7 @@ public class Jugador implements Posicionable{
         this.inventario.agregarHerramienta(new Hacha(new Madera()));
         this.estaPosicionado = false;
         this.mapa = mapa;
+        this.herramientaSeleccionada = new Hacha(new Madera());
     }
 
     public boolean inventarioContieneHerramienta(Herramienta herramienta) {
@@ -79,9 +82,17 @@ public class Jugador implements Posicionable{
 
     // ---------- EL JUGADOR TENDRIA QUE TENER ESTOS METODOS:
 
-    public void golpear(Bloque bloque){
-
+    public void golpear(Bloque bloque)
+    {
         herramientaSeleccionada.usarEn(bloque);
     }
 
+    public void golpear(Direccion direccion){
+
+        direccion.golpear(mapa, herramientaSeleccionada, this);
+    }
+
+    public double getDurabilidadHerramientaActual() {
+        return this.herramientaSeleccionada.getDurabilidad();
+    }
 }

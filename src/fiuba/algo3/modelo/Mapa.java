@@ -35,7 +35,12 @@ public class Mapa {
 
     public Casilla getCasilla(int fila, int columna){
 
-        return casillas[fila][columna];
+        try{
+            return casillas[fila][columna];
+        } catch(ArrayIndexOutOfBoundsException e) {
+            throw new PosicionFueraDelMapaException();
+        }
+
     }
 
     public void colocarBloque(Bloque bloque, int fila, int columna) {

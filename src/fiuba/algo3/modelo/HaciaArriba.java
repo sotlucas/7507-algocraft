@@ -14,9 +14,23 @@ public class HaciaArriba extends Direccion {
         int columnaSiguienteJugador = columnaActualJugador;
         int filaSiguienteJugador = filaActualJugador - 1;
 
-        //mapa.moverJugador(jugador, jugador.getPosicionColumna(), jugador.getPosicionFila(), jugador.getPosicionColumna() - 1, jugador.getPosicionFila());
         mapa.moverJugador(jugador, columnaActualJugador, filaActualJugador, columnaSiguienteJugador, filaSiguienteJugador);
-        //jugador.setPosicion(filaSiguienteJugador, columnaSiguienteJugador);
+
+    }
+
+    @Override
+    public void golpear(Mapa mapa, Herramienta herramienta, Jugador jugador){
+
+        int columnaJugador = jugador.getPosicionColumna();
+        int filaJugador = jugador.getPosicionFila();
+        Casilla casillaApuntada = mapa.getCasilla(filaJugador - 1, columnaJugador);
+        Posicionable bloque = casillaApuntada.getElementoContenido();
+
+        if(bloque != null)
+        {
+            herramienta.usarEn((Bloque)bloque);
+        }
+
 
     }
 }

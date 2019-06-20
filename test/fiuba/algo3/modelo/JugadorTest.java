@@ -82,4 +82,176 @@ public class JugadorTest {
         thrown.expect(RecetaNoExisteException.class);
         jugador.craftear();
     }
+
+    @Test
+    public void testJugadorGolpeaUnBloqueUbicadoPorEncimaSuyoYSeVerificaQueSeDaniaLaHerramienta(){
+
+        Mapa mapa = new Mapa(5, 5);
+        Jugador jugador = new Jugador(mapa);
+        mapa.colocarJugador(jugador, 2, 2);
+        BloqueMadera bloqueMadera = new BloqueMadera();
+
+        mapa.colocarBloque(bloqueMadera, 1, 2);
+
+        double durabilidadHerramienta = jugador.getDurabilidadHerramientaActual();
+
+        jugador.golpear(new HaciaArriba());
+        Assert.assertEquals(durabilidadHerramienta - 2, jugador.getDurabilidadHerramientaActual(), 0);
+    }
+
+    @Test
+    public void testJugadorGolpeaUnBloqueUbicadoPorDebajoSuyoYSeVerificaQueSeDaniaLaHerramienta(){
+
+        Mapa mapa = new Mapa(5, 5);
+        Jugador jugador = new Jugador(mapa);
+        mapa.colocarJugador(jugador, 2, 2);
+        BloqueMadera bloqueMadera = new BloqueMadera();
+
+        mapa.colocarBloque(bloqueMadera, 3, 2);
+
+        double durabilidadHerramienta = jugador.getDurabilidadHerramientaActual();
+
+        jugador.golpear(new HaciaAbajo());
+        Assert.assertEquals(durabilidadHerramienta - 2, jugador.getDurabilidadHerramientaActual(), 0);
+    }
+
+    @Test
+    public void testJugadorGolpeaUnBloqueUbicadoASuIzquierdaYSeVerificaQueSeDaniaLaHerramienta(){
+
+        Mapa mapa = new Mapa(5, 5);
+        Jugador jugador = new Jugador(mapa);
+        mapa.colocarJugador(jugador, 2, 2);
+        BloqueMadera bloqueMadera = new BloqueMadera();
+
+        mapa.colocarBloque(bloqueMadera, 2, 1);
+
+        double durabilidadHerramienta = jugador.getDurabilidadHerramientaActual();
+
+        jugador.golpear(new HaciaIzquierda());
+        Assert.assertEquals(durabilidadHerramienta - 2, jugador.getDurabilidadHerramientaActual(), 0);
+    }
+
+    @Test
+    public void testJugadorGolpeaUnBloqueUbicadoASuDerechaYSeVerificaQueSeDaniaLaHerramienta(){
+
+        Mapa mapa = new Mapa(5, 5);
+        Jugador jugador = new Jugador(mapa);
+        mapa.colocarJugador(jugador, 2, 2);
+        BloqueMadera bloqueMadera = new BloqueMadera();
+
+        mapa.colocarBloque(bloqueMadera, 2, 3);
+
+        double durabilidadHerramienta = jugador.getDurabilidadHerramientaActual();
+
+        jugador.golpear(new HaciaDerecha());
+        Assert.assertEquals(durabilidadHerramienta - 2, jugador.getDurabilidadHerramientaActual(), 0);
+    }
+
+    @Test
+    public void testJugadorGolpeaContraCasillaVaciaHaciaArribaYSeVerificaQueNoSeDaniaLaHerramienta(){
+
+        Mapa mapa = new Mapa(5, 5);
+        Jugador jugador = new Jugador(mapa);
+        mapa.colocarJugador(jugador, 2, 2);
+
+        double durabilidadHerramienta = jugador.getDurabilidadHerramientaActual();
+
+        jugador.golpear(new HaciaArriba());
+        Assert.assertEquals(durabilidadHerramienta, jugador.getDurabilidadHerramientaActual(), 0);
+    }
+
+    @Test
+    public void testJugadorGolpeaContraCasillaVaciaHaciaAbajoYSeVerificaQueNoSeDaniaLaHerramienta(){
+
+        Mapa mapa = new Mapa(5, 5);
+        Jugador jugador = new Jugador(mapa);
+        mapa.colocarJugador(jugador, 2, 2);
+
+        double durabilidadHerramienta = jugador.getDurabilidadHerramientaActual();
+
+        jugador.golpear(new HaciaAbajo());
+        Assert.assertEquals(durabilidadHerramienta, jugador.getDurabilidadHerramientaActual(), 0);
+    }
+
+    @Test
+    public void testJugadorGolpeaContraCasillaVaciaASuIzquierdaYSeVerificaQueNoSeDaniaLaHerramienta(){
+
+        Mapa mapa = new Mapa(5, 5);
+        Jugador jugador = new Jugador(mapa);
+        mapa.colocarJugador(jugador, 2, 2);
+
+        double durabilidadHerramienta = jugador.getDurabilidadHerramientaActual();
+
+        jugador.golpear(new HaciaIzquierda());
+        Assert.assertEquals(durabilidadHerramienta, jugador.getDurabilidadHerramientaActual(), 0);
+    }
+
+    @Test
+    public void testJugadorGolpeaContraCasillaVaciaASuDerechaYSeVerificaQueNoSeDaniaLaHerramienta(){
+
+        Mapa mapa = new Mapa(5, 5);
+        Jugador jugador = new Jugador(mapa);
+        mapa.colocarJugador(jugador, 2, 2);
+
+        double durabilidadHerramienta = jugador.getDurabilidadHerramientaActual();
+
+        jugador.golpear(new HaciaDerecha());
+        Assert.assertEquals(durabilidadHerramienta, jugador.getDurabilidadHerramientaActual(), 0);
+    }
+
+    @Test
+    public void testJugadorGolpeaContraHaciaArribaContraLimiteDelMapaYSeLanzaExcepcionPosicionFueraDelMapa(){
+
+        Mapa mapa = new Mapa(5, 5);
+        Jugador jugador = new Jugador(mapa);
+        mapa.colocarJugador(jugador, 0, 2);
+
+        double durabilidadHerramienta = jugador.getDurabilidadHerramientaActual();
+
+        thrown.expect(PosicionFueraDelMapaException.class);
+        jugador.golpear(new HaciaArriba());
+    }
+
+    @Test
+    public void testJugadorGolpeaContraHaciaAbajoContraLimiteDelMapaYSeLanzaExcepcionPosicionFueraDelMapa(){
+
+        Mapa mapa = new Mapa(5, 5);
+        Jugador jugador = new Jugador(mapa);
+        mapa.colocarJugador(jugador, 4, 2);
+
+        double durabilidadHerramienta = jugador.getDurabilidadHerramientaActual();
+
+        thrown.expect(PosicionFueraDelMapaException.class);
+        jugador.golpear(new HaciaAbajo());
+    }
+
+    @Test
+    public void testJugadorGolpeaContraHaciaLaIzquierdaContraLimiteDelMapaYSeLanzaExcepcionPosicionFueraDelMapa(){
+
+        Mapa mapa = new Mapa(5, 5);
+        Jugador jugador = new Jugador(mapa);
+        mapa.colocarJugador(jugador, 3, 0);
+
+        double durabilidadHerramienta = jugador.getDurabilidadHerramientaActual();
+
+        thrown.expect(PosicionFueraDelMapaException.class);
+        jugador.golpear(new HaciaIzquierda());
+    }
+
+    @Test
+    public void testJugadorGolpeaContraHaciaLaDerechaContraLimiteDelMapaYSeLanzaExcepcionPosicionFueraDelMapa(){
+
+        Mapa mapa = new Mapa(5, 5);
+        Jugador jugador = new Jugador(mapa);
+        mapa.colocarJugador(jugador, 3, 4);
+
+        double durabilidadHerramienta = jugador.getDurabilidadHerramientaActual();
+
+        thrown.expect(PosicionFueraDelMapaException.class);
+        jugador.golpear(new HaciaDerecha());
+    }
+
+
+
+
 }
