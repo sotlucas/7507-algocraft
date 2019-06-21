@@ -32,9 +32,9 @@ public class Pico extends Herramienta {
         this.identificador = "pico_metal";
     }
 
-    public void usarEn(Bloque bloqueMaterial){
+    public void usarEn(Posicionable posicionable){
 
-        bloqueMaterial.recibirDanio(this);
+        posicionable.recibirDanio(this);
         desgastar();
         if (durabilidad <= 0) {
             throw new HerramientaSeRompioException();

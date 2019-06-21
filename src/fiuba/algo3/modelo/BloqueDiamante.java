@@ -34,4 +34,6 @@ public class BloqueDiamante extends Bloque{
     public Material cederMaterial() {
         return new Diamante();
     }
+
+
 }

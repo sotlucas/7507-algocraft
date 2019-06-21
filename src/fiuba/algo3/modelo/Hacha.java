@@ -29,13 +29,16 @@ public class Hacha extends Herramienta{
         this.identificador = "hacha_metal";
     }
 
-    public void usarEn(Bloque bloqueMaterial){
+    @Override
+    public void usarEn(Posicionable posicionable){
 
-        bloqueMaterial.recibirDanio(this);
+        posicionable.recibirDanio(this);
         durabilidad = desgaste.desgastar();
         if (durabilidad <= 0){
             throw new HerramientaSeRompioException();
         }
     }
+
+
 
 }

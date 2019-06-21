@@ -11,9 +11,9 @@ public class PicoFino extends Herramienta {
         this.identificador = "pico_fino";
     }
 
-    public void usarEn(Bloque bloque){
+    public void usarEn(Posicionable posicionable){
 
-        bloque.recibirDanio(this);
+        posicionable.recibirDanio(this);
         if (durabilidad < 1) {
             throw new HerramientaSeRompioException();
         }

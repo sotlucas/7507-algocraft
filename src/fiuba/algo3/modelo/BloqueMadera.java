@@ -2,6 +2,8 @@ package fiuba.algo3.modelo;
 
 public class BloqueMadera extends Bloque {
 
+    private Herramienta herramientaAtacadora;
+
     public BloqueMadera() {
         this.durabilidad = 10;
         this.identificador = 'm';
@@ -32,4 +34,6 @@ public class BloqueMadera extends Bloque {
     public Madera cederMaterial() {
         return new Madera();
     }
+
+
 }

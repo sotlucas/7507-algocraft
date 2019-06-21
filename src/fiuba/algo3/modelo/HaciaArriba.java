@@ -24,15 +24,15 @@ public class HaciaArriba extends Direccion {
         int columnaJugador = jugador.getPosicionColumna();
         int filaJugador = jugador.getPosicionFila();
         Casilla casillaApuntada = mapa.getCasilla(filaJugador - 1, columnaJugador);
-        Bloque bloque = (Bloque) casillaApuntada.getElementoContenido();
+        Posicionable posicionable = casillaApuntada.getElementoContenido();
 
-        if(bloque != null)
+        if(posicionable != null)
         {
-            herramienta.usarEn(bloque);
-            if(bloque.getDurabilidad() <= 0){
+            herramienta.usarEn(posicionable);
+            if(posicionable.getDurabilidad() <= 0) {
 
                 casillaApuntada.vaciar();
-                jugador.agregarMaterialAInventario(bloque.cederMaterial());
+                jugador.agregarMaterialAInventario(posicionable.cederMaterial());
             }
         }
 

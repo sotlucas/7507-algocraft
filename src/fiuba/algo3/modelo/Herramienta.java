@@ -10,7 +10,9 @@ public abstract class Herramienta {
     protected String receta;
     protected String identificador;
 
-    public abstract void usarEn(Bloque bloque);
+    //public abstract void usarEn(Bloque bloque);
+
+    public abstract void usarEn(Posicionable posicionable);
 
     public int getFuerza(){
         return fuerza;

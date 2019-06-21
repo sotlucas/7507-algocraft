@@ -37,7 +37,7 @@ public class PicoFinoTest {
         assertEquals(20, picoFino.getFuerza());
 
     }
-
+/*
     @Test //obligatoria
     public void test03PicoFinoSeUsaContraBloqueDeDiamanteYSeReduceLaDurabilidadDelPico(){
 
@@ -48,7 +48,7 @@ public class PicoFinoTest {
 
         Assert.assertEquals(900, picoFino.getDurabilidad(), 0);
 
-    }
+    }*/
 
 
     @Test //obligatoria

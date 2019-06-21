@@ -111,4 +111,21 @@ public class Jugador implements Posicionable{
     public char getIdentificador(){
         return this.identificador;
     }
+
+
+    //METODOS ADAPTADORES
+    @Override
+    public void recibirDanio(Hacha hacha) {}
+
+    @Override
+    public void recibirDanio(Pico pico) {}
+
+    @Override
+    public void recibirDanio(PicoFino picoFino) {}
+
+    @Override
+    public Material cederMaterial() {return null;}
+
+    @Override
+    public int getDurabilidad(){return 0;}
 }

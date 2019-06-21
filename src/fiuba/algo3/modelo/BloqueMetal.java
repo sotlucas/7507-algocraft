@@ -23,6 +23,7 @@ public class BloqueMetal extends Bloque {
         return this.identificador;
     }
 
+
     public void recibirDanio(PicoFino picoFino){ this.durabilidad -= 0;}
 
     @Override

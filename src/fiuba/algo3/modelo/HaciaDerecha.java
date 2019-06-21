@@ -25,15 +25,15 @@ public class HaciaDerecha extends Direccion {
         int columnaJugador = jugador.getPosicionColumna();
         int filaJugador = jugador.getPosicionFila();
         Casilla casillaApuntada = mapa.getCasilla(filaJugador, columnaJugador + 1);
-        Bloque bloque = (Bloque) casillaApuntada.getElementoContenido();
+        Posicionable posicionable = casillaApuntada.getElementoContenido();
 
-        if(bloque != null)
+        if(posicionable != null)
         {
-            herramienta.usarEn(bloque);
-            if(bloque.getDurabilidad() <= 0){
+            herramienta.usarEn(posicionable);
+            if(posicionable.getDurabilidad() <= 0) {
 
                 casillaApuntada.vaciar();
-                jugador.agregarMaterialAInventario(bloque.cederMaterial());
+                jugador.agregarMaterialAInventario(posicionable.cederMaterial());
             }
         }
     }
