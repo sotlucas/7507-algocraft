@@ -4,60 +4,35 @@ import java.util.HashMap;
 
 public class Constructor {
     
-    //private HashMap<String, Item> recetas = new HashMap<String, Item>();
+    private HashMap<String, ConstructorHerramienta> recetas = new HashMap<String, ConstructorHerramienta>();
 
-    /*
     public Constructor() {
-        this.agregarReceta("mm-mm--m-", new Hacha(new Madera()));
-        this.agregarReceta("pp-pm--m-", new Hacha(new Piedra()));
-        this.agregarReceta("MM-Mm--m-", new Hacha(new Metal()));
-        this.agregarReceta("mmm-m--m-", new Pico(new Madera()));
-        this.agregarReceta("ppp-m--m-", new Pico(new Piedra()));
-        this.agregarReceta("MMM-m--m-", new Pico(new Metal()));
-        this.agregarReceta("MMMpm--m-", new PicoFino());
+        this.agregarReceta("mm-mm--m-", new ConstruirHachaMadera());
+        this.agregarReceta("pp-pm--m-", new ConstruirHachaPiedra());
+        this.agregarReceta("MM-Mm--m-", new ConstruirHachaMetal());
+        this.agregarReceta("mmm-m--m-", new ConstruirPicoMadera());
+        this.agregarReceta("ppp-m--m-", new ConstruirPicoPiedra());
+        this.agregarReceta("MMM-m--m-", new ConstruirPicoMetal());
+        this.agregarReceta("MMMpm--m-", new ConstruirPicoFino());
     }
 
     public boolean puedoCraftear(String receta) {
         return this.recetas.containsKey(receta);
     }
 
-    public void agregarReceta(String receta, Item resultado) {
-        this.recetas.put(receta, resultado);
+    public void agregarReceta(String receta, ConstructorHerramienta constructor) {
+        this.recetas.put(receta, constructor);
     }
-    */
+
 
     public Herramienta craftear(String receta) {
-        Herramienta herramienta;
 
-        switch (receta) {
-            case "mm-mm--m-":
-                herramienta = new Hacha(new Madera());
-                break;
-            case "pp-pm--m-":
-                herramienta = new Hacha(new Piedra());
-                break;
-            case "MM-Mm--m-":
-                herramienta = new Hacha(new Metal());
-                break;
-            case "mmm-m--m-":
-                herramienta = new Pico(new Madera());
-                break;
-            case "ppp-m--m-":
-                herramienta = new Pico(new Piedra());
-                break;
-            case "MMM-m--m-":
-                herramienta = new Pico(new Metal());
-                break;
-            case "MMMpm--m-":
-                herramienta = new PicoFino();
-                break;
-            default:
-                throw new RecetaNoExisteException();
+        if (this.puedoCraftear(receta)) {
+            return this.recetas.get(receta).construir();
         }
-
-        return herramienta;
-        //return this.construir(this.recetas.get(receta));
+        throw new RecetaNoExisteException();
     }
+}
 
     /*
     private Item construir(Hacha hacha) {
@@ -72,5 +47,4 @@ public class Constructor {
         return new PicoFino();
     }
     */
-}
  
