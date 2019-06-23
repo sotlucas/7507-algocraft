@@ -6,10 +6,12 @@ public class Inventario {
 
     private ArrayList<Herramienta> herramientas;
     private ArrayList<Material> materiales;
+    private int posicionHerramientaSeleccionada;
 
     public Inventario() {
         this.herramientas = new ArrayList<>();
         this.materiales = new ArrayList<>();
+        this.posicionHerramientaSeleccionada = 0;
     }
 
     public void agregarHerramienta(Herramienta herramienta) {
@@ -61,6 +63,7 @@ public class Inventario {
     }
 
     public Herramienta seleccionarHerramienta(int posicion) {
+        this.posicionHerramientaSeleccionada = posicion;
         return herramientas.get(posicion);
 
     }
@@ -72,5 +75,10 @@ public class Inventario {
 
     public ArrayList<Material> getMateriales() {
         return materiales;
+    }
+
+    public void desecharHerramientaRota() {
+
+        this.herramientas.remove(posicionHerramientaSeleccionada);
     }
 }

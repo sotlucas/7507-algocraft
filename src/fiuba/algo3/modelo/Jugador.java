@@ -92,6 +92,10 @@ public class Jugador implements Posicionable{
     public void golpear(Direccion direccion){
 
         direccion.golpear(mapa, herramientaSeleccionada, this);
+        if(herramientaSeleccionada.getDurabilidad() <= 0){
+
+            inventario.desecharHerramientaRota();
+        }
     }
 
     public double getDurabilidadHerramientaActual() {

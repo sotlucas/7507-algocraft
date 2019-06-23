@@ -14,4 +14,18 @@ public class InventarioTest {
 
         Assert.assertTrue(inventario.contieneHerramienta(pico));
     }
+
+    @Test
+    public void testAlDescartarseUnaHerramientaDelInventario(){
+
+        Hacha hachaMadera = new Hacha(new Madera());
+        Inventario inventario = new Inventario();
+        inventario.agregarHerramienta(hachaMadera);
+
+        Assert.assertTrue(inventario.contieneHerramienta(hachaMadera));
+
+        inventario.desecharHerramientaRota();
+
+        Assert.assertFalse(inventario.contieneHerramienta(hachaMadera));
+    }
 }

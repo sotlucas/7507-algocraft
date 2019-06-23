@@ -531,4 +531,25 @@ public class IntegracionTests {
         Material material = jugador.getMaterialSeleccionado();
 
     }
+
+    @Test
+    public void testAlDestruirseUnaHerramientaSeDescartaAutomaticamenteDelInventario(){
+
+        Mapa mapa = new Mapa(5, 5);
+
+        Jugador jugador = new Jugador(mapa);
+        BloquePiedra bloquePiedra = new BloquePiedra();
+        jugador.seleccionarHerramienta(0);
+
+        mapa.colocarBloque(bloquePiedra, 1, 2);
+        mapa.colocarJugador(jugador, 2, 2);
+
+        for(int i = 0; i < 49; i++) {
+            jugador.golpear(new HaciaArriba());
+        }
+
+        Assert.assertTrue(jugador.inventarioContieneHerramienta(new Hacha(new Madera())));
+        jugador.golpear(new HaciaArriba());
+        Assert.assertFalse(jugador.inventarioContieneHerramienta(new Hacha(new Madera())));
+    }
 }
