@@ -32,11 +32,12 @@ public class Hacha extends Herramienta{
     @Override
     public void usarEn(Posicionable posicionable){
 
-        posicionable.recibirDanio(this);
-        durabilidad = desgaste.desgastar();
         if (durabilidad <= 0){
             throw new HerramientaSeRompioException();
         }
+        posicionable.recibirDanio(this);
+        durabilidad = desgaste.desgastar();
+
     }
 
 

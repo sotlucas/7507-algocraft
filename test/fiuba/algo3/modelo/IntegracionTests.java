@@ -40,7 +40,84 @@ public class IntegracionTests {
 
 
 
+    @Test
+    public void testHachaDeMaderaAlDestruirDiezBloquesDeMaderaSeRompeLaHerramientaYtambienElBloqueAlMismoTiempo(){
 
+        Hacha hachaDeMadera = new Hacha(new Madera());
+
+        BloqueMadera bloqueMadera1 = new BloqueMadera();
+        BloqueMadera bloqueMadera2 = new BloqueMadera();
+        BloqueMadera bloqueMadera3 = new BloqueMadera();
+        BloqueMadera bloqueMadera4 = new BloqueMadera();
+        BloqueMadera bloqueMadera5 = new BloqueMadera();
+        BloqueMadera bloqueMadera6 = new BloqueMadera();
+        BloqueMadera bloqueMadera7 = new BloqueMadera();
+        BloqueMadera bloqueMadera8 = new BloqueMadera();
+        BloqueMadera bloqueMadera9 = new BloqueMadera();
+        BloqueMadera bloqueMadera10 = new BloqueMadera();
+
+        hachaDeMadera.usarEn(bloqueMadera1);
+        hachaDeMadera.usarEn(bloqueMadera1);
+        hachaDeMadera.usarEn(bloqueMadera1);
+        hachaDeMadera.usarEn(bloqueMadera1);
+        hachaDeMadera.usarEn(bloqueMadera1);
+
+        hachaDeMadera.usarEn(bloqueMadera2);
+        hachaDeMadera.usarEn(bloqueMadera2);
+        hachaDeMadera.usarEn(bloqueMadera2);
+        hachaDeMadera.usarEn(bloqueMadera2);
+        hachaDeMadera.usarEn(bloqueMadera2);
+
+        hachaDeMadera.usarEn(bloqueMadera3);
+        hachaDeMadera.usarEn(bloqueMadera3);
+        hachaDeMadera.usarEn(bloqueMadera3);
+        hachaDeMadera.usarEn(bloqueMadera3);
+        hachaDeMadera.usarEn(bloqueMadera3);
+
+        hachaDeMadera.usarEn(bloqueMadera4);
+        hachaDeMadera.usarEn(bloqueMadera4);
+        hachaDeMadera.usarEn(bloqueMadera4);
+        hachaDeMadera.usarEn(bloqueMadera4);
+        hachaDeMadera.usarEn(bloqueMadera4);
+
+        hachaDeMadera.usarEn(bloqueMadera5);
+        hachaDeMadera.usarEn(bloqueMadera5);
+        hachaDeMadera.usarEn(bloqueMadera5);
+        hachaDeMadera.usarEn(bloqueMadera5);
+        hachaDeMadera.usarEn(bloqueMadera5);
+
+        hachaDeMadera.usarEn(bloqueMadera6);
+        hachaDeMadera.usarEn(bloqueMadera6);
+        hachaDeMadera.usarEn(bloqueMadera6);
+        hachaDeMadera.usarEn(bloqueMadera6);
+        hachaDeMadera.usarEn(bloqueMadera6);
+
+        hachaDeMadera.usarEn(bloqueMadera7);
+        hachaDeMadera.usarEn(bloqueMadera7);
+        hachaDeMadera.usarEn(bloqueMadera7);
+        hachaDeMadera.usarEn(bloqueMadera7);
+        hachaDeMadera.usarEn(bloqueMadera7);
+
+        hachaDeMadera.usarEn(bloqueMadera8);
+        hachaDeMadera.usarEn(bloqueMadera8);
+        hachaDeMadera.usarEn(bloqueMadera8);
+        hachaDeMadera.usarEn(bloqueMadera8);
+        hachaDeMadera.usarEn(bloqueMadera8);
+
+        hachaDeMadera.usarEn(bloqueMadera9);
+        hachaDeMadera.usarEn(bloqueMadera9);
+        hachaDeMadera.usarEn(bloqueMadera9);
+        hachaDeMadera.usarEn(bloqueMadera9);
+        hachaDeMadera.usarEn(bloqueMadera9);
+
+        hachaDeMadera.usarEn(bloqueMadera10);
+        hachaDeMadera.usarEn(bloqueMadera10);
+        hachaDeMadera.usarEn(bloqueMadera10);
+        hachaDeMadera.usarEn(bloqueMadera10);
+
+        Assert.assertEquals(2, hachaDeMadera.getDurabilidad(), 0);
+        hachaDeMadera.usarEn(bloqueMadera10);
+    }
 
 
 

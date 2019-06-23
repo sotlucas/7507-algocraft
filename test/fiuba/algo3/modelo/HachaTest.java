@@ -146,14 +146,15 @@ public class HachaTest {
             BloquePiedra bloquePiedra = new BloquePiedra();
 
             //golpea 50 veces
-            for(int i = 0; i < 49; i++){
+            for(int i = 0; i < 50; i++){
 
                 hachaDeMadera.usarEn(bloquePiedra);
             }
 
+            Assert.assertEquals(0, hachaDeMadera.getDurabilidad(), 0);
+
             thrown.expect(HerramientaSeRompioException.class);
             hachaDeMadera.usarEn(bloquePiedra);
-            Assert.assertEquals(0, hachaDeMadera.getDurabilidad(), 0);
 
         }
 
