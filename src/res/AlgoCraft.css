@@ -5,8 +5,9 @@
     -fx-background-color: #95B6FF;
 }
 .label {
-    -fx-font-size: 12px;
+    -fx-font-size: 16;
     -fx-text-fill: #fff;
+    -fx-font-family: 'Minecraft';
 }
 .button {
     -fx-max-width: 400;

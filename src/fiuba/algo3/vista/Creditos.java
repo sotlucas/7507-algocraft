@@ -31,7 +31,7 @@ public class Creditos {
         // Center
         VBox contenedor = new VBox();
         contenedor.setAlignment(Pos.TOP_CENTER);
-        ImageView logo = new ImageView(new Image(getClass().getResourceAsStream("../../../res/logo_mc.png"), 400, 0, true, true));
+        ImageView logo = new ImageView(new Image(getClass().getResourceAsStream("../../../res/algocraft.png"), 400, 0, true, true));
         StackPane r = new StackPane();
         r.setId("logo-creditos");
         r.setMaxHeight(60);

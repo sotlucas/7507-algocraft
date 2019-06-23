@@ -21,6 +21,23 @@ public class Juego {
         mapa.colocarBloque(new BloqueMetal(),1,2);
         mapa.colocarBloque(new BloqueMetal(),2,1);
         mapa.colocarBloque(new BloqueMetal(),2,2);
+        mapa.colocarBloque(new BloqueMetal(),1,3);
+        mapa.colocarBloque(new BloqueMetal(),1,4);
+        mapa.colocarBloque(new BloqueMetal(),2,3);
+        mapa.colocarBloque(new BloqueMetal(),2,4);
+        mapa.colocarBloque(new BloqueMetal(),1,5);
+        mapa.colocarBloque(new BloqueMetal(),2,5);
+
+        mapa.colocarBloque(new BloquePiedra(),1,7);
+        mapa.colocarBloque(new BloquePiedra(),2,7);
+        mapa.colocarBloque(new BloquePiedra(),1,8);
+        mapa.colocarBloque(new BloquePiedra(),2,8);
+        mapa.colocarBloque(new BloquePiedra(),1,9);
+        mapa.colocarBloque(new BloquePiedra(),2,9);
+        mapa.colocarBloque(new BloquePiedra(),1,10);
+        mapa.colocarBloque(new BloquePiedra(),2,10);
+        mapa.colocarBloque(new BloquePiedra(),1,11);
+        mapa.colocarBloque(new BloquePiedra(),2,11);
 
         mapa.colocarBloque(new BloqueMadera(),4,1);
         mapa.colocarBloque(new BloqueMadera(),4,2);

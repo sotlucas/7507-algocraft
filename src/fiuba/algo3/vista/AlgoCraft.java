@@ -13,11 +13,13 @@ import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class AlgoCraft extends Application {
@@ -36,12 +38,10 @@ public class AlgoCraft extends Application {
 
         // Botones
         Boton btnJugar = new Boton("Jugar");
-        Boton btnOpciones = new Boton("Opciones");
         Boton btnCreditos = new Boton("Creditos");
         Boton btnSalir = new Boton("Salir del Juego");
 
         btnJugar.setMaxWidth(Double.MAX_VALUE);
-        btnOpciones.setMaxWidth(Double.MAX_VALUE);
         btnCreditos.setMaxWidth(Double.MAX_VALUE);
         btnSalir.setMaxWidth(Double.MAX_VALUE);
 
@@ -50,10 +50,15 @@ public class AlgoCraft extends Application {
         vbButtons.setAlignment(Pos.CENTER);
         vbButtons.setSpacing(10);
         vbButtons.setPadding(new Insets(0, 20, 10, 20));
-        vbButtons.getChildren().addAll(logo, btnJugar, btnOpciones, btnCreditos, btnSalir);
+        vbButtons.getChildren().addAll(logo, btnJugar, btnCreditos, btnSalir);
 
-        // Agrego VBox al BorderPane
+        // Copyright
+        Label copyright = new Label("TP2 Algoritmos 3 FIUBA. Do not distribute!");
+        copyright.setAlignment(Pos.BOTTOM_CENTER);
+
+        // Agrego lo anterior al BorderPane
         border.setCenter(vbButtons);
+        border.setBottom(copyright);
 
         Scene scene = new Scene(border, 832, 512);
         primaryStage.setTitle("Algocraft 0.0.1");
@@ -84,32 +89,6 @@ public class AlgoCraft extends Application {
         // PRUEBA
         Juego juego = new Juego();
         Jugador jugador = juego.getJugador();
-        jugador.agregarMaterialAInventario(new Piedra());
-        jugador.agregarMaterialAInventario(new Madera());
-        jugador.agregarMaterialAInventario(new Metal());
-        jugador.agregarMaterialAInventario(new Madera());
-        jugador.agregarMaterialAInventario(new Madera());
-        jugador.agregarMaterialAInventario(new Metal());
-        jugador.agregarMaterialAInventario(new Madera());
-        jugador.agregarMaterialAInventario(new Madera());
-        jugador.agregarMaterialAInventario(new Metal());
-        jugador.agregarMaterialAInventario(new Madera());
-        jugador.agregarMaterialAInventario(new Madera());
-        jugador.agregarMaterialAInventario(new Metal());
-        jugador.agregarMaterialAInventario(new Madera());
-        jugador.agregarMaterialAInventario(new Piedra());
-        jugador.agregarMaterialAInventario(new Madera());
-        jugador.agregarMaterialAInventario(new Metal());
-        jugador.agregarMaterialAInventario(new Madera());
-        jugador.agregarMaterialAInventario(new Madera());
-        jugador.agregarMaterialAInventario(new Metal());
-        jugador.agregarMaterialAInventario(new Madera());
-        jugador.agregarMaterialAInventario(new Madera());
-        jugador.agregarMaterialAInventario(new Metal());
-        jugador.agregarMaterialAInventario(new Madera());
-        jugador.agregarMaterialAInventario(new Madera());
-        jugador.agregarMaterialAInventario(new Metal());
-        jugador.agregarMaterialAInventario(new Madera());
         ControladorDeInventario controladorDeInventario = new ControladorDeInventario(jugador.getInventario(), inventarioVista);
         // Actualizar vistas
         controladorDeInventario.actualizarVista();
