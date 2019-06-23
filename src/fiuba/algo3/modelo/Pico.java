@@ -34,11 +34,12 @@ public class Pico extends Herramienta {
 
     public void usarEn(Posicionable posicionable){
 
-        posicionable.recibirDanio(this);
-        desgastar();
         if (durabilidad <= 0) {
             throw new HerramientaSeRompioException();
         }
+        posicionable.recibirDanio(this);
+        desgastar();
+
     }
 
     public int getFuerzaEspecialContraMetal(){

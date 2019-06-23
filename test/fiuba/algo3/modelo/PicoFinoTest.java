@@ -37,7 +37,7 @@ public class PicoFinoTest {
         assertEquals(20, picoFino.getFuerza());
 
     }
-/*
+
     @Test //obligatoria
     public void test03PicoFinoSeUsaContraBloqueDeDiamanteYSeReduceLaDurabilidadDelPico(){
 
@@ -48,7 +48,7 @@ public class PicoFinoTest {
 
         Assert.assertEquals(900, picoFino.getDurabilidad(), 0);
 
-    }*/
+    }
 
 
     @Test //obligatoria
@@ -81,7 +81,7 @@ public class PicoFinoTest {
         Assert.assertEquals(picoFino.getReceta(), recetaPicoFino);
     }
 
-/*    @Test
+    @Test
     public void test05CuandoLaDurabilidadDelPicoFinoLlegaACeroNoSeReduceMas(){
 
         PicoFino picoFino = new PicoFino();
@@ -103,77 +103,67 @@ public class PicoFinoTest {
         BloqueDiamante bloqueDiamante16 = new BloqueDiamante();
         BloqueDiamante bloqueDiamante17 = new BloqueDiamante();
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 5; i++) {
             picoFino.usarEn(bloqueDiamante1);
         }
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 5; i++) {
             picoFino.usarEn(bloqueDiamante2);
         }
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 5; i++) {
             picoFino.usarEn(bloqueDiamante3);
         }
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 5; i++) {
             picoFino.usarEn(bloqueDiamante4);
         }
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 5; i++) {
             picoFino.usarEn(bloqueDiamante5);
         }
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 5; i++) {
             picoFino.usarEn(bloqueDiamante6);
         }
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 5; i++) {
             picoFino.usarEn(bloqueDiamante7);
         }
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 5; i++) {
             picoFino.usarEn(bloqueDiamante8);
         }
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 5; i++) {
             picoFino.usarEn(bloqueDiamante9);
         }
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 5; i++) {
             picoFino.usarEn(bloqueDiamante10);
         }
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 5; i++) {
             picoFino.usarEn(bloqueDiamante11);
         }
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 5; i++) {
             picoFino.usarEn(bloqueDiamante12);
         }
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 5; i++) {
             picoFino.usarEn(bloqueDiamante13);
         }
 
-        for (int i = 0; i < 3; i++) {
-            picoFino.usarEn(bloqueDiamante14);
-        }
-
-        for (int i = 0; i < 3; i++) {
-            picoFino.usarEn(bloqueDiamante15);
-        }
-
-        for (int i = 0; i < 3; i++) {
-            picoFino.usarEn(bloqueDiamante16);
-        }
+        picoFino.usarEn(bloqueDiamante14);
 
         Assert.assertEquals(1, picoFino.getDurabilidad(), 0.1);
-        picoFino.usarEn(bloqueDiamante17);
+
         thrown.expect(HerramientaSeRompioException.class);
         picoFino.usarEn(bloqueDiamante17);
 
     }
 
- */
+
 
 }

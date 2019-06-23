@@ -39,6 +39,14 @@ public class IntegracionTests {
     }
 
 
+    @Test
+    public void testPicoFinoGolpea(){
+
+        PicoFino picoFino = new PicoFino();
+
+        BloqueDiamante bloqueDiamante1 = new BloqueDiamante();
+
+    }
 
     @Test
     public void testHachaDeMaderaAlDestruirDiezBloquesDeMaderaSeRompeLaHerramientaYtambienElBloqueAlMismoTiempo(){
@@ -117,6 +125,40 @@ public class IntegracionTests {
 
         Assert.assertEquals(2, hachaDeMadera.getDurabilidad(), 0);
         hachaDeMadera.usarEn(bloqueMadera10);
+    }
+
+    @Test
+    public void testPicoDePiedraAlAtacarMuchasVecesBloqueDeMetalElBloqueSeRompeAntesDeTirarExcepcion(){
+        //dur : 50
+        BloqueMetal bloqueMetal = new BloqueMetal();
+
+        //fuerza: 4
+        Pico picoPiedra = new Pico(new Piedra());
+
+        picoPiedra.usarEn(bloqueMetal);
+        picoPiedra.usarEn(bloqueMetal);
+        picoPiedra.usarEn(bloqueMetal);
+        picoPiedra.usarEn(bloqueMetal);
+        picoPiedra.usarEn(bloqueMetal);
+
+        picoPiedra.usarEn(bloqueMetal);
+        picoPiedra.usarEn(bloqueMetal);
+        picoPiedra.usarEn(bloqueMetal);
+        picoPiedra.usarEn(bloqueMetal);
+        picoPiedra.usarEn(bloqueMetal);
+
+        picoPiedra.usarEn(bloqueMetal);
+        picoPiedra.usarEn(bloqueMetal);
+        picoPiedra.usarEn(bloqueMetal);
+
+        Assert.assertEquals(-2, bloqueMetal.getDurabilidad(), 0);
+        Assert.assertEquals(165, picoPiedra.getDurabilidad(), 0.5);
+
+        //en este punto el bloque se tuvo que haber roto pues su durabilidad es menor que 0. Al intentar atacaro
+        //se tiene que lanzar excepcion
+        thrown.expect(BloqueSeRompioException.class);
+        picoPiedra.usarEn(bloqueMetal);
+
     }
 
 

@@ -121,12 +121,12 @@ public class BloqueMetalTest {
         BloqueMetal bloqueMetal = new BloqueMetal();
 
         //golpea 12 veces hasta casi el limite de durabilidad del bloque
-        for(int i = 0; i < 12; i++){
+        for(int i = 0; i < 13; i++){
 
             bloqueMetal.recibirDanio(picoDePiedra);
         }
 
-        Assert.assertEquals(2, bloqueMetal.getDurabilidad());
+        Assert.assertEquals(-2, bloqueMetal.getDurabilidad());
 
         thrown.expect(BloqueSeRompioException.class);
         bloqueMetal.recibirDanio(picoDePiedra);

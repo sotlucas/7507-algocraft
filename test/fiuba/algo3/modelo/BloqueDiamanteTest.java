@@ -123,6 +123,7 @@ public class BloqueDiamanteTest {
         bloqueDiamante.recibirDanio(picoFino);
         bloqueDiamante.recibirDanio(picoFino);
         bloqueDiamante.recibirDanio(picoFino);
+        bloqueDiamante.recibirDanio(picoFino);
 
         thrown.expect(BloqueSeRompioException.class);
         bloqueDiamante.recibirDanio(picoFino);

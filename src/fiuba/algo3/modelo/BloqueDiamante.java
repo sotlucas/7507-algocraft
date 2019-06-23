@@ -16,11 +16,13 @@ public class BloqueDiamante extends Bloque{
     }
 
     public void recibirDanio(PicoFino picoFino) {
-        durabilidad -= picoFino.getFuerza();
-        picoFino.desgastar();
+
         if(durabilidad <= 0) {
             throw new BloqueSeRompioException();
         }
+        durabilidad -= picoFino.getFuerza();
+        picoFino.desgastar();
+
     }
 
     @Override

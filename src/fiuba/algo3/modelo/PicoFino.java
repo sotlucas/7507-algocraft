@@ -12,11 +12,11 @@ public class PicoFino extends Herramienta {
     }
 
     public void usarEn(Posicionable posicionable){
-
-        posicionable.recibirDanio(this);
         if (durabilidad < 1) {
             throw new HerramientaSeRompioException();
         }
+        posicionable.recibirDanio(this);
+
     }
 
     public void desgastar(){

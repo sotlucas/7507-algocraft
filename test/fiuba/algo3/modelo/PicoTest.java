@@ -145,7 +145,7 @@ public class PicoTest {
         BloqueMetal bloqueMetal = new BloqueMetal();
 
         //golpea 50 veces
-        for(int i = 0; i < 9; i++){
+        for(int i = 0; i < 10; i++){
 
             picoMetal.usarEn(bloqueMetal);
         }
