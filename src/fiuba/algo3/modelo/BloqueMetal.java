@@ -9,10 +9,10 @@ public class BloqueMetal extends Bloque {
     }
 
     public void recibirDanio(Pico pico) {
+        durabilidad -= pico.getFuerzaEspecialContraMetal();
         if(durabilidad <= 0){
             throw new BloqueSeRompioException();
         }
-        durabilidad -= pico.getFuerzaEspecialContraMetal();
     }
 
     public void recibirDanio(Hacha hacha) {
