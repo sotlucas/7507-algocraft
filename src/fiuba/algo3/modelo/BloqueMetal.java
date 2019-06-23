@@ -9,20 +9,15 @@ public class BloqueMetal extends Bloque {
     }
 
     public void recibirDanio(Pico pico) {
-
-        durabilidad -= pico.getFuerzaEspecialContraMetal();
-
         if(durabilidad <= 0){
-
             throw new BloqueSeRompioException();
         }
-
+        durabilidad -= pico.getFuerzaEspecialContraMetal();
     }
 
-    public char getIdentificador(){
-        return this.identificador;
+    public void recibirDanio(Hacha hacha) {
+        this.durabilidad -= 0;
     }
-
 
     public void recibirDanio(PicoFino picoFino){ this.durabilidad -= 0;}
 
@@ -30,10 +25,5 @@ public class BloqueMetal extends Bloque {
     public Material cederMaterial() {
         return new Metal();
     }
-
-    public void recibirDanio(Hacha hacha) {
-        this.durabilidad -= 0;
-    }
-
 
 }

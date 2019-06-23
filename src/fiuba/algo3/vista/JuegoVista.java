@@ -10,8 +10,8 @@ import javafx.scene.layout.*;
 
 public class JuegoVista {
 
-    GridPane mapa;
-    ControladorJuego controlador;
+    private GridPane mapa;
+    private ControladorJuego controlador;
 
     private BorderPane main;
 
@@ -34,40 +34,62 @@ public class JuegoVista {
         });
         menu.getChildren().addAll(btnMenu, btnInventario);
 
-        //Botones para moverse
+        // Botones para moverse
+        VBox flechasMover = new VBox();
+        flechasMover.setAlignment(Pos.BOTTOM_CENTER);
+        HBox flechasMoverAbajo = new HBox();
+        Boton btnMoverIzquierda = new Boton("A");
+        Boton btnMoverDerecha = new Boton("D");
+        Boton btnMoverAbajo = new Boton("S");
+        flechasMoverAbajo.getChildren().addAll(btnMoverIzquierda,btnMoverAbajo,btnMoverDerecha);
+        Boton btnMoverArriba = new Boton("W");
+        flechasMover.getChildren().addAll(btnMoverArriba, flechasMoverAbajo);
 
-        VBox flechas = new VBox();
-        flechas.setAlignment(Pos.BOTTOM_CENTER);
-        HBox flechasAbajo = new HBox();
-        Boton btnIzquierda = new Boton("A");
-        Boton btnDerecha = new Boton("D");
-        Boton btnAbajo = new Boton("S");
-        flechasAbajo.getChildren().addAll(btnIzquierda,btnAbajo,btnDerecha);
-        Boton btnArriba = new Boton("W");
-        flechas.getChildren().addAll(btnArriba, flechasAbajo);
-
-        btnIzquierda.setOnAction( e -> {
-            controlador.moverIzquierda();
-        });
-        btnDerecha.setOnAction( e -> {
-            controlador.moverDerecha();
-        });
-        btnAbajo.setOnAction( e -> {
-            controlador.moverAbajo();
-        });
-        btnArriba.setOnAction( e -> {
-            controlador.moverArriba();
-        });
-        //Boton pegar
-        Boton pegar = new Boton("Pegar");
+        // Botones para golpear
+        VBox flechasGolpear = new VBox();
+        flechasGolpear.setAlignment(Pos.BOTTOM_CENTER);
+        HBox flechasGolpearAbajo = new HBox();
+        Boton btnGolpearIzquierda = new Boton("◄");
+        Boton btnGolpearDerecha = new Boton("►");
+        Boton btnGolpearAbajo = new Boton("▼");
+        flechasGolpearAbajo.getChildren().addAll(btnGolpearIzquierda,btnGolpearAbajo,btnGolpearDerecha);
+        Boton btnGolpearArriba = new Boton("▲");
+        flechasGolpear.getChildren().addAll(btnGolpearArriba, flechasGolpearAbajo);
 
         // Main game
         main.setTop(menu);
         main.setCenter(mapa);
-        main.setLeft(flechas);
-        main.setRight(pegar);
-        main.setAlignment(pegar, Pos.BOTTOM_CENTER);
+        main.setLeft(flechasMover);
+        main.setRight(flechasGolpear);
 
+        // Mouse
+        btnMoverIzquierda.setOnAction( e -> {
+            controlador.moverIzquierda();
+        });
+        btnMoverDerecha.setOnAction( e -> {
+            controlador.moverDerecha();
+        });
+        btnMoverAbajo.setOnAction( e -> {
+            controlador.moverAbajo();
+        });
+        btnMoverArriba.setOnAction( e -> {
+            controlador.moverArriba();
+        });
+
+        btnGolpearIzquierda.setOnAction( e -> {
+            controlador.golpearIzquierda();
+        });
+        btnGolpearDerecha.setOnAction( e -> {
+            controlador.golpearDerecha();
+        });
+        btnGolpearAbajo.setOnAction( e -> {
+            controlador.golpearAbajo();
+        });
+        btnGolpearArriba.setOnAction( e -> {
+            controlador.golpearArriba();
+        });
+
+        // Teclado
         main.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.E) {
                 controladorDeEscena.activate("inventario");
@@ -87,11 +109,19 @@ public class JuegoVista {
             if (event.getCode() == KeyCode.D) {
                 controlador.moverDerecha();
             }
+            if (event.getCode() == KeyCode.UP) {
+                controlador.golpearArriba();
+            }
+            if (event.getCode() == KeyCode.LEFT) {
+                controlador.golpearIzquierda();
+            }
+            if (event.getCode() == KeyCode.DOWN) {
+                controlador.golpearAbajo();
+            }
+            if (event.getCode() == KeyCode.RIGHT) {
+                controlador.golpearDerecha();
+            }
         });
-    }
-
-    private ImageView getImagen(String nombre, int tamanio) {
-        return new ImageView(new Image(getClass().getResourceAsStream("../../../res/"+nombre+".png"), tamanio, 0, true, true));
     }
 
     public Pane getPane() {

@@ -16,24 +16,16 @@ public class BloqueDiamante extends Bloque{
     }
 
     public void recibirDanio(PicoFino picoFino) {
-
-        durabilidad -= picoFino.getFuerza();
-        picoFino.desgastar();
-
-        if(durabilidad <= 0){
-
+        if(durabilidad <= 0) {
             throw new BloqueSeRompioException();
         }
-    }
-
-    public char getIdentificador(){
-        return this.identificador;
+        durabilidad -= picoFino.getFuerza();
+        picoFino.desgastar();
     }
 
     @Override
     public Material cederMaterial() {
         return new Diamante();
     }
-
 
 }

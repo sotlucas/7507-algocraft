@@ -10,22 +10,16 @@ public class BloquePiedra extends Bloque {
 
     public void recibirDanio(Pico pico) {
         if(durabilidad <= 0){
-
             throw new BloqueSeRompioException();
         }
         durabilidad -= pico.getFuerza();
-
-
     }
 
     public void recibirDanio(Hacha hacha) {
         this.durabilidad -= 0;
     }
-    public void recibirDanio(PicoFino picoFino){ this.durabilidad -= 0;}
 
-    public char getIdentificador(){
-        return this.identificador;
-    }
+    public void recibirDanio(PicoFino picoFino){ this.durabilidad -= 0;}
 
     @Override
     public Material cederMaterial() {

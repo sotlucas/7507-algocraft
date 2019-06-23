@@ -39,11 +39,16 @@ public class Juego {
         mapa.colocarBloque(new BloqueMadera(),7,3);
         mapa.colocarBloque(new BloqueMadera(),7,4);
 
-        mapa.colocarBloque(new BloquePiedra(),4,9);
-        mapa.colocarBloque(new BloquePiedra(),4,10);
-        mapa.colocarBloque(new BloquePiedra(),5,9);
-        mapa.colocarBloque(new BloquePiedra(),5,10);
-
+        mapa.colocarBloque(new BloqueDiamante(),4,9);
+        mapa.colocarBloque(new BloqueDiamante(),4,10);
+        mapa.colocarBloque(new BloqueDiamante(),5,9);
+        mapa.colocarBloque(new BloqueDiamante(),5,10);
+        mapa.colocarBloque(new BloqueDiamante(),6,9);
+        mapa.colocarBloque(new BloqueDiamante(),6,10);
+        mapa.colocarBloque(new BloqueDiamante(),7,9);
+        mapa.colocarBloque(new BloqueDiamante(),7,10);
+        mapa.colocarBloque(new BloqueDiamante(),8,9);
+        mapa.colocarBloque(new BloqueDiamante(),8,10);
     }
 
 

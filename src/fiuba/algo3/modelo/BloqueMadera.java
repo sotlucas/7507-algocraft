@@ -2,8 +2,6 @@ package fiuba.algo3.modelo;
 
 public class BloqueMadera extends Bloque {
 
-    private Herramienta herramientaAtacadora;
-
     public BloqueMadera() {
         this.durabilidad = 10;
         this.identificador = 'm';
@@ -13,27 +11,18 @@ public class BloqueMadera extends Bloque {
         this.durabilidad -= 0;
     }
 
-    public void recibirDanio(Hacha hacha)
-    {
+    public void recibirDanio(Hacha hacha) {
         if(durabilidad <= 0){
-
             throw new BloqueSeRompioException();
         }
         durabilidad -= hacha.getFuerza();
-
-
-
     }
+
     public void recibirDanio(PicoFino picoFino){ this.durabilidad -= 0;}
 
-    public char getIdentificador(){
-        return this.identificador;
-    }
-
     @Override
-    public Madera cederMaterial() {
+    public Material cederMaterial() {
         return new Madera();
     }
-
 
 }

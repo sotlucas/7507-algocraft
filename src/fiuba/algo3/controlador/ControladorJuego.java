@@ -61,6 +61,26 @@ public class ControladorJuego {
         juego.avanzarJugador(new HaciaAbajo());
         actualizarVista();
     }
+
+    public void golpearIzquierda() {
+        juego.getJugador().golpear(new HaciaIzquierda());
+        actualizarVista();
+    }
+
+    public void golpearDerecha() {
+        juego.getJugador().golpear(new HaciaDerecha());
+        actualizarVista();
+    }
+
+    public void golpearArriba() {
+        juego.getJugador().golpear(new HaciaArriba());
+        actualizarVista();
+    }
+
+    public void golpearAbajo() {
+        juego.getJugador().golpear(new HaciaAbajo());
+        actualizarVista();
+    }
 }
 
 
