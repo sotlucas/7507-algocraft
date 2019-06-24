@@ -10,8 +10,10 @@ public class ControladorJuego {
     private Juego juego;
     private JuegoVista juegoVista;
     private HashMap<Character, String> BloquesHash = new HashMap<>();
+    private ControladorDeInventario controladorDeInventario;
 
-    public ControladorJuego(Juego juego, JuegoVista juegoVista) {
+    public ControladorJuego(Juego juego, JuegoVista juegoVista, ControladorDeInventario controladorDeInventario) {
+        this.controladorDeInventario = controladorDeInventario;
         this.juego = juego;
         this.juegoVista = juegoVista;
         inicializarHash();
@@ -65,21 +67,25 @@ public class ControladorJuego {
     public void golpearIzquierda() {
         juego.getJugador().golpear(new HaciaIzquierda());
         actualizarVista();
+        controladorDeInventario.actualizarVista();
     }
 
     public void golpearDerecha() {
         juego.getJugador().golpear(new HaciaDerecha());
         actualizarVista();
+        controladorDeInventario.actualizarVista();
     }
 
     public void golpearArriba() {
         juego.getJugador().golpear(new HaciaArriba());
         actualizarVista();
+        controladorDeInventario.actualizarVista();
     }
 
     public void golpearAbajo() {
         juego.getJugador().golpear(new HaciaAbajo());
         actualizarVista();
+        controladorDeInventario.actualizarVista();
     }
 }
 

@@ -93,7 +93,7 @@ public class AlgoCraft extends Application {
         // Actualizar vistas
         controladorDeInventario.actualizarVista();
 
-        ControladorJuego controladorJuego = new ControladorJuego(juego, juegoVista);
+        ControladorJuego controladorJuego = new ControladorJuego(juego, juegoVista, controladorDeInventario);
         controladorJuego.actualizarVista();
     }
 }
