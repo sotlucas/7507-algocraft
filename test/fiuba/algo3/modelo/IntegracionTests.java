@@ -552,4 +552,9 @@ public class IntegracionTests {
         jugador.golpear(new HaciaArriba());
         Assert.assertFalse(jugador.inventarioContieneHerramienta(new Hacha(new Madera())));
     }
+
+    @Test
+    public void testAlRomperseUnaHerramientaSeDescartaY(){
+
+    }
 }

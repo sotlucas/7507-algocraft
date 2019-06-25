@@ -16,7 +16,7 @@ public class InventarioTest {
     }
 
     @Test
-    public void testAlDescartarseUnaHerramientaDelInventario(){
+    public void testAlInvocarElMetodoDesecharLaHerramientaSeleccionadaSeRemueveDelInventario(){
 
         Hacha hachaMadera = new Hacha(new Madera());
         Inventario inventario = new Inventario();
@@ -28,4 +28,22 @@ public class InventarioTest {
 
         Assert.assertFalse(inventario.contieneHerramienta(hachaMadera));
     }
+
+    @Test
+    public void testAlDescartarseUnaHerramientaSeRemueveSoloDichaHerramienta(){
+
+        Hacha hachaMadera = new Hacha(new Madera());
+        Pico picoPiedra = new Pico(new Piedra());
+        Inventario inventario = new Inventario();
+        inventario.agregarHerramienta(hachaMadera);
+        inventario.agregarHerramienta(picoPiedra);
+
+        Herramienta herramienta = inventario.seleccionarHerramienta(0);
+        inventario.desecharHerramientaRota();
+
+        Assert.assertTrue(inventario.contieneHerramienta(picoPiedra));
+    }
+
+
+
 }
