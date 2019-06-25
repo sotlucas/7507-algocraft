@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.com/sotlucas/7507-algocraft.svg?token=RSPtTJFfGTxg7AybN3X4&branch=master)](https://travis-ci.com/sotlucas/7507-algocraft)
 
-Trabajo Práctico de Algoritmos y Programación III (FIUBA)
+Trabajo Práctico de Algoritmos y Programación III (FIUBA) 
 
 Consigna: https://docs.google.com/document/d/1uT1NYcKcZytVY5hD31TXFGuXLqgSXLUc488Tv7DOxIw/edit
 
