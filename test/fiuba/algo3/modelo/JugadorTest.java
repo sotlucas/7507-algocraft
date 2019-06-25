@@ -251,7 +251,57 @@ public class JugadorTest {
         jugador.golpear(new HaciaDerecha());
     }
 
+    @Test
+    public void testJugadorAlDeseleccionarHerramientaEstaDejaDeEstarEnSusManosPeroSigueEnElInventario(){
 
+        Jugador jugador = new Jugador();
+
+        Assert.assertNotNull(jugador.getHerramientaSeleccionada());
+        jugador.deseleccionarHerramienta();
+        Assert.assertNull(jugador.getHerramientaSeleccionada());
+
+    }
+
+    @Test
+    public void testJugadorAlGolpearSinHaberSeleccionadoUnaHerramientaLanzaExcepcionHerramientaNoSeleccionada(){
+
+        Mapa mapa = new Mapa(5, 5);
+        Jugador jugador = new Jugador(mapa);
+        mapa.colocarJugador(jugador, 3, 2);
+
+        jugador.deseleccionarHerramienta();
+
+        thrown.expect(HerramientaNoSeleccionadaException.class);
+        jugador.golpear(new HaciaDerecha());
+    }
+
+    @Test
+    public void testJugadorSeleccionaHerramientaConPosicionInvalidaYSeLanzaExcepcionIndexOutOfBound(){
+
+        Jugador jugador = new Jugador();
+        Pico picoPiedra = new Pico(new Piedra());
+        Pico picoMetal = new Pico(new Metal());
+
+        jugador.agregarHerramientaAInventario(picoMetal);
+        jugador.agregarHerramientaAInventario(picoPiedra);
+
+        //selecciona el pico de piedra
+        jugador.seleccionarHerramienta(2);
+        Herramienta herramienta = jugador.getHerramientaSeleccionada();
+
+        //selecciona el pico de metal
+        jugador.seleccionarHerramienta(1);
+        herramienta = jugador.getHerramientaSeleccionada();
+
+        thrown.expect(IndexOutOfBoundsException.class);
+        jugador.seleccionarHerramienta(3);
+
+        jugador.seleccionarHerramienta(0);
+        herramienta = jugador.getHerramientaSeleccionada();
+
+        thrown.expect(IndexOutOfBoundsException.class);
+        jugador.seleccionarHerramienta(-1);
+    }
 
 
 

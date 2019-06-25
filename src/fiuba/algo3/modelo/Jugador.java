@@ -8,7 +8,6 @@ public class Jugador implements Posicionable{
     private Material materialSeleccionado = null;
     private boolean estaPosicionado;
     private Mapa mapa;
-    // El siguiente es un atributo que deberia tener:
     private Herramienta herramientaSeleccionada;
     private char identificador;
 
@@ -18,7 +17,6 @@ public class Jugador implements Posicionable{
         this.posicion = new Posicion();
         this.inventario.agregarHerramienta(new Hacha(new Madera()));
         this.estaPosicionado = false;
-        //Provisorio:
         this.herramientaSeleccionada = new Hacha(new Madera());
         this.identificador = 'j';
     }
@@ -65,16 +63,30 @@ public class Jugador implements Posicionable{
         this.materialSeleccionado = this.inventario.seleccionarMaterial(posicion);
     }
 
-    public void seleccionarHerramienta(int posicion) {
+    public void seleccionarHerramienta(int posicion)
+    {
+
         this.herramientaSeleccionada = this.inventario.seleccionarHerramienta(posicion);
+
+    }
+
+    public void deseleccionarHerramienta(){
+
+        this.herramientaSeleccionada = null;
     }
 
     public void colocarEnMesa(int posicion) {
         this.mesaDeCrafteo.colocar(this.materialSeleccionado, posicion);
     }
 
+<<<<<<< HEAD
     public void vaciarMesa() {
         this.mesaDeCrafteo.vaciar();
+=======
+    public void craftear() {
+
+        this.inventario.agregarHerramienta(this.mesaDeCrafteo.construir());
+>>>>>>> 9c291f38ec27878100008618fa7834373a313634
     }
 
     public void craftear() { this.inventario.agregarHerramienta(this.mesaDeCrafteo.construir()); }
@@ -87,16 +99,22 @@ public class Jugador implements Posicionable{
         this.inventario.agregarHerramienta(herramienta);
     }
 
-    public boolean estaPosicionado(){ return this.estaPosicionado;}
+    public boolean estaPosicionado(){
+        return this.estaPosicionado;
+    }
 
     // ---------- EL JUGADOR TENDRIA QUE TENER ESTOS METODOS:
 
     public void golpear(Direccion direccion){
 
+        if(this.herramientaSeleccionada == null){
+            throw new HerramientaNoSeleccionadaException();
+        }
         direccion.golpear(mapa, herramientaSeleccionada, this);
         if(herramientaSeleccionada.getDurabilidad() <= 0){
 
             inventario.desecharHerramientaRota();
+            this.herramientaSeleccionada = null;
         }
     }
 
@@ -111,6 +129,10 @@ public class Jugador implements Posicionable{
     //LO CREE SOLO PARA PRUEBAS:
     public Material getMaterialSeleccionado() {
         return this.materialSeleccionado;
+    }
+
+    public Herramienta getHerramientaSeleccionada(){
+        return this.herramientaSeleccionada;
     }
 
     public Inventario getInventario() {

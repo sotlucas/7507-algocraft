@@ -10,8 +10,6 @@ public abstract class Herramienta {
     protected String receta;
     protected String identificador;
 
-    //public abstract void usarEn(Bloque bloque);
-
     public abstract void usarEn(Posicionable posicionable);
 
     public int getFuerza(){
@@ -26,7 +24,11 @@ public abstract class Herramienta {
         return material;
     }
 
-    public String getReceta() { return receta;}
+    public String getReceta() {
+        return receta;
+    }
 
-    public String getIdentificador() { return this.identificador; }
+    public String getIdentificador() {
+        return this.identificador;
+    }
 }
