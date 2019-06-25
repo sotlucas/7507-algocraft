@@ -1,5 +1,7 @@
 package fiuba.algo3.modelo;
 
+import java.util.ArrayList;
+
 public class Jugador implements Posicionable{
 
     private MesaCrafteo mesaDeCrafteo;
@@ -79,17 +81,14 @@ public class Jugador implements Posicionable{
         this.mesaDeCrafteo.colocar(this.materialSeleccionado, posicion);
     }
 
-<<<<<<< HEAD
     public void vaciarMesa() {
         this.mesaDeCrafteo.vaciar();
-=======
+    }
+
     public void craftear() {
 
         this.inventario.agregarHerramienta(this.mesaDeCrafteo.construir());
->>>>>>> 9c291f38ec27878100008618fa7834373a313634
     }
-
-    public void craftear() { this.inventario.agregarHerramienta(this.mesaDeCrafteo.construir()); }
 
     public void agregarMaterialAInventario(Material material) {
         this.inventario.agregarMaterial(material);
@@ -115,6 +114,14 @@ public class Jugador implements Posicionable{
 
             inventario.desecharHerramientaRota();
             this.herramientaSeleccionada = null;
+        }
+    }
+
+    public void quitarDelInventarioLoQueHayEnLaMesa() {
+        Material[] tablero = this.mesaDeCrafteo.getTablero();
+        ArrayList<Material> inventario = this.inventario.getMateriales();
+        for(Material material : tablero) {
+            if (material != null) { inventario.remove(material); }
         }
     }
 

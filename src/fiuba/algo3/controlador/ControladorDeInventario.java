@@ -75,4 +75,8 @@ public class ControladorDeInventario {
     public void vaciarMesa(){
         this.jugador.vaciarMesa();
     }
+
+    public void quitarDelInventario() {
+        this.jugador.quitarDelInventarioLoQueHayEnLaMesa();
+    }
 }

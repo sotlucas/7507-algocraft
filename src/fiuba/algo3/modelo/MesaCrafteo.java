@@ -68,4 +68,6 @@ public class MesaCrafteo {
             tablero[i] = null;
         }
     }
+
+    public Material[] getTablero(){ return this.tablero; }
 }

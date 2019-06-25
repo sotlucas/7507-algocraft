@@ -81,4 +81,8 @@ public class Inventario {
 
         this.herramientas.remove(posicionHerramientaSeleccionada);
     }
+
+    public void sacarDelInventarioLoUsadoParaCraftear() {
+
+    }
 }
