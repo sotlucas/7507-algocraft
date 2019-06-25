@@ -75,6 +75,7 @@ public class JuegoVista {
         main.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.E) {
                 controladorDeEscena.activate("inventario");
+
             }
             if (event.getCode() == KeyCode.ESCAPE) {
                 controladorDeEscena.activate("main");

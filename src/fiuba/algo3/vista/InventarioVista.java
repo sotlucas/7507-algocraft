@@ -4,8 +4,9 @@ import fiuba.algo3.controlador.ControladorDeEscena;
 import fiuba.algo3.controlador.ControladorDeInventario;
 import fiuba.algo3.modelo.Herramienta;
 import fiuba.algo3.modelo.RecetaNoExisteException;
+import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
-import javafx.scene.Scene;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -17,6 +18,9 @@ public class InventarioVista {
     private ImageView seleccionado = null;
     private GridPane inventario;
     private ControladorDeInventario controlador;
+    private HBox vistaMesaCrafteo;
+    private int x_seleccionado;
+    private int y_seleccionado;
 
     public InventarioVista(ControladorDeEscena controladorDeEscena) {
         root = new BorderPane();
@@ -32,6 +36,7 @@ public class InventarioVista {
         Label titulo2 = new Label("Inventario");
         titulo2.setId("titulo-inventario");
         HBox mesaDeCrafteo = crearMesa();
+        this.vistaMesaCrafteo = mesaDeCrafteo;
 
         contenedor.getChildren().addAll(titulo1, mesaDeCrafteo, titulo2, inventario);
 
@@ -40,6 +45,10 @@ public class InventarioVista {
         Boton cerrar = new Boton("Cerrar - [E]");
         cerrar.setOnAction(e -> {
             controladorDeEscena.activate("juego");
+            vaciar(mesaDeCrafteo);
+            controlador.actualizarVista();
+            controlador.vaciarMesa();
+            this.seleccionado = null;
         });
         menu.getChildren().addAll(cerrar);
 
@@ -82,9 +91,9 @@ public class InventarioVista {
         Boton crear = new Boton("Crear");
         crear.setOnAction(e -> {
             try {
-                Herramienta nuevaHerramienta = controlador.crearHerramienta();
-                ImageView herramienta = getImagen(nuevaHerramienta.getIdentificador(), 40);
-                contenedor.getChildren().add(herramienta);
+                controlador.crearHerramienta();
+                /*ImageView herramienta = getImagen(nuevaHerramienta.getIdentificador(), 40);
+                contenedor.getChildren().add(herramienta);*/
             } catch (RecetaNoExisteException ex) {
             }
         });
@@ -105,12 +114,14 @@ public class InventarioVista {
         stack.setId("casilla");
         imageView.setOnMouseClicked(e -> {
             System.out.println("IMAGEN");
-            stack.getChildren().clear();
             this.seleccionado = imageView;
+            this.x_seleccionado = fila;
+            this.y_seleccionado = columna;
         });
         stack.setOnMouseReleased(e -> {
             if (this.seleccionado != null) {
                 System.out.println("PONGO");
+                stack.getChildren().clear();
                 stack.getChildren().add(this.seleccionado);
                 this.seleccionado = null;
             }
@@ -127,9 +138,13 @@ public class InventarioVista {
         stackBack.setOnMouseReleased(e -> {
             if (this.seleccionado != null) {
                 System.out.println("BACK");
-                stackBack.getChildren().add(this.seleccionado);
+                stackBack.getChildren().clear();
+                stackBack.getChildren().addAll(imageView, this.seleccionado);
                 int pos = (fila * 3) + col;
-                this.controlador.agregarAMesaCrafteo(this.seleccionado.getId().charAt(0),pos);
+                int pos_seleccionado = this.x_seleccionado + this.y_seleccionado * 3;
+                System.out.print(pos);
+                System.out.print(pos_seleccionado);
+                this.controlador.agregarAMesaCrafteo(this.seleccionado.getId().charAt(0),pos, pos_seleccionado);
                 this.seleccionado = null;
             }
         });
@@ -155,4 +170,27 @@ public class InventarioVista {
     public void setControlador(ControladorDeInventario controladorDeInventario) {
         this.controlador = controladorDeInventario;
     }
+
+    public void vaciar(HBox mesa) {
+        mesa.getChildren().clear();
+        GridPane mesaCrafteo = crearInventario(3, 3);
+
+        ImageView flecha = getImagen("flecha", 48);
+        ImageView resultado = getImagen("casilla", 64);
+        resultado.setId("casilla");
+
+        Boton crear = new Boton("Crear");
+        crear.setOnAction(e -> {
+            try {
+                /*Herramienta nuevaHerramienta = */controlador.crearHerramienta();
+                /*ImageView herramienta = getImagen(nuevaHerramienta.getIdentificador(), 40);
+                mesa.getChildren().add(herramienta);*/
+            } catch (RecetaNoExisteException ex) {
+            }
+        });
+
+        mesa.getChildren().addAll(mesaCrafteo, flecha,crear , resultado);
+    }
+
+
 }

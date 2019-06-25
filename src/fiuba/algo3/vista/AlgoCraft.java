@@ -87,7 +87,7 @@ public class AlgoCraft extends Application {
         Juego juego = new Juego();
         Jugador jugador = juego.getJugador();
         jugador.agregarHerramientaAInventario(new Pico(new Piedra()));
-        ControladorDeInventario controladorDeInventario = new ControladorDeInventario(jugador.getInventario(), inventarioVista, selectorHerramientas);
+        ControladorDeInventario controladorDeInventario = new ControladorDeInventario(jugador.getInventario(), inventarioVista, selectorHerramientas,juego.getJugador());
         controladorDeInventario.actualizarVista();
 
         ControladorJuego controladorJuego = new ControladorJuego(juego, juegoVista, controladorDeInventario);

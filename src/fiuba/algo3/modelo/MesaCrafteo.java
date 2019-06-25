@@ -62,4 +62,10 @@ public class MesaCrafteo {
 
         return constructor.craftear(receta);
     }
+
+    public void vaciar() {
+        for(int i = 0; i < 9; i++){
+            tablero[i] = null;
+        }
+    }
 }

@@ -70,12 +70,14 @@ public class Jugador implements Posicionable{
     }
 
     public void colocarEnMesa(int posicion) {
-        this.mesaDeCrafteo.colocar(this.materialSeleccionado, posicion); 
+        this.mesaDeCrafteo.colocar(this.materialSeleccionado, posicion);
     }
 
-    public void craftear() {
-        this.inventario.agregarHerramienta(this.mesaDeCrafteo.construir());
+    public void vaciarMesa() {
+        this.mesaDeCrafteo.vaciar();
     }
+
+    public void craftear() { this.inventario.agregarHerramienta(this.mesaDeCrafteo.construir()); }
 
     public void agregarMaterialAInventario(Material material) {
         this.inventario.agregarMaterial(material);
@@ -96,6 +98,10 @@ public class Jugador implements Posicionable{
 
             inventario.desecharHerramientaRota();
         }
+    }
+
+    public String getReceta(){
+        return this.mesaDeCrafteo.getRecetaParaConstruir();
     }
 
     public double getDurabilidadHerramientaActual() {

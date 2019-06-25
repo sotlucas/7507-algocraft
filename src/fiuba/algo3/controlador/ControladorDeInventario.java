@@ -15,12 +15,14 @@ public class ControladorDeInventario {
     private InventarioVista inventarioVista;
     private HashMap<Character, String> materialesHash = new HashMap<>();
     private MesaCrafteo mesaCrafteo = new MesaCrafteo();
+    private Jugador jugador;
 
-    public ControladorDeInventario(Inventario inventario, InventarioVista inventarioVista, SelectorHerramientas selectorHerramientas) {
+    public ControladorDeInventario(Inventario inventario, InventarioVista inventarioVista, SelectorHerramientas selectorHerramientas, Jugador jugador) {
         this.materiales = inventario.getMateriales();
         this.herramientas = inventario.getHerramientas();
         this.selectorHerramientas = selectorHerramientas;
         this.inventarioVista = inventarioVista;
+        this.jugador = jugador;
         inicializarHash();
         inventarioVista.setControlador(this);
     }
@@ -48,7 +50,7 @@ public class ControladorDeInventario {
         this.materialesHash.put('d', "diamante");
     }
 
-    public void agregarAMesaCrafteo(char identificador, int pos){
+    public void agregarAMesaCrafteo(char identificador, int pos, int pos_material){
         Material[] materiales = new Material[4];
         materiales[0] = new Madera();
         materiales[1] = new Metal();
@@ -58,14 +60,19 @@ public class ControladorDeInventario {
         int index = 0;
         while (material == null || index < 4){
             if (identificador == materiales[index].getIdentificador()){
-                material = materiales[index];
+                jugador.seleccionarMaterial(pos_material);
+                break;
             }
             index++;
         }
-        mesaCrafteo.colocar(material, pos);
+        jugador.colocarEnMesa(pos);
     }
 
-    public Herramienta crearHerramienta() {
-        return mesaCrafteo.construir();
+    public void crearHerramienta() {
+        jugador.craftear();
+    }
+
+    public void vaciarMesa(){
+        this.jugador.vaciarMesa();
     }
 }
