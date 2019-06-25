@@ -3,11 +3,7 @@ package fiuba.algo3.vista;
 import fiuba.algo3.controlador.ControladorDeEscena;
 import fiuba.algo3.controlador.ControladorDeInventario;
 import fiuba.algo3.controlador.ControladorJuego;
-import fiuba.algo3.modelo.Juego;
-import fiuba.algo3.modelo.Jugador;
-import fiuba.algo3.modelo.Madera;
-import fiuba.algo3.modelo.Metal;
-import fiuba.algo3.modelo.Piedra;
+import fiuba.algo3.modelo.*;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.geometry.Insets;
@@ -69,18 +65,19 @@ public class AlgoCraft extends Application {
 
         // Inicialiazo controlador de escena y vistas
         ControladorDeEscena controladorDeEscena = new ControladorDeEscena(scene);
-        InventarioVista inventarioVista = new InventarioVista(scene, controladorDeEscena);
-        JuegoVista juegoVista = new JuegoVista(controladorDeEscena);
-        Creditos creditosVista = new Creditos(scene, controladorDeEscena);
+        SelectorHerramientas selectorHerramientas = new SelectorHerramientas();
+        InventarioVista inventarioVista = new InventarioVista(controladorDeEscena);
+        JuegoVista juegoVista = new JuegoVista(controladorDeEscena, selectorHerramientas);
+        Creditos creditosVista = new Creditos(controladorDeEscena);
         controladorDeEscena.agregarEscena("main", border);
         controladorDeEscena.agregarEscena("inventario", inventarioVista.getPane());
         controladorDeEscena.agregarEscena("juego", juegoVista.getPane());
         controladorDeEscena.agregarEscena("creditos", creditosVista.getPane());
         btnJugar.setOnAction(e -> {
-                controladorDeEscena.activate("juego");
+            controladorDeEscena.activate("juego");
         });
         btnCreditos.setOnAction(e -> {
-                controladorDeEscena.activate("creditos");
+            controladorDeEscena.activate("creditos");
         });
         btnSalir.setOnAction(e -> {
             Platform.exit();
@@ -89,11 +86,19 @@ public class AlgoCraft extends Application {
         // PRUEBA
         Juego juego = new Juego();
         Jugador jugador = juego.getJugador();
-        ControladorDeInventario controladorDeInventario = new ControladorDeInventario(jugador.getInventario(), inventarioVista);
-        // Actualizar vistas
+        jugador.agregarHerramientaAInventario(new Pico(new Piedra()));
+        ControladorDeInventario controladorDeInventario = new ControladorDeInventario(jugador.getInventario(), inventarioVista, selectorHerramientas);
         controladorDeInventario.actualizarVista();
 
         ControladorJuego controladorJuego = new ControladorJuego(juego, juegoVista, controladorDeInventario);
         controladorJuego.actualizarVista();
+
+        selectorHerramientas.setOnMouseClicked(e -> {
+            Integer posicion = selectorHerramientas.getPosicion(e);
+            if (posicion != null) {
+                System.out.println(posicion);
+                jugador.seleccionarHerramienta(posicion);
+            }
+        });
     }
 }

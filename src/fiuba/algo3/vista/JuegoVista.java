@@ -15,23 +15,20 @@ public class JuegoVista {
 
     private BorderPane main;
 
-    public JuegoVista(ControladorDeEscena controladorDeEscena) {
+    public JuegoVista(ControladorDeEscena controladorDeEscena, SelectorHerramientas selectorHerramientas) {
         main = new BorderPane();
         main.setId("juego-escena");
 
         this.mapa = new GridPane();
         mapa.setAlignment(Pos.CENTER);
+
         // Top menu
         HBox menu = new HBox();
         menu.setAlignment(Pos.CENTER);
         Boton btnInventario = new Boton("Inventario - [E]");
         Boton btnMenu = new Boton("Menu - [ESC]");
-        btnInventario.setOnAction(e -> {
-            controladorDeEscena.activate("inventario");
-        });
-        btnMenu.setOnAction(e -> {
-            controladorDeEscena.activate("main");
-        });
+        btnInventario.setOnAction(e -> controladorDeEscena.activate("inventario"));
+        btnMenu.setOnAction(e -> controladorDeEscena.activate("main"));
         menu.getChildren().addAll(btnMenu, btnInventario);
 
         // Botones para moverse
@@ -61,33 +58,18 @@ public class JuegoVista {
         main.setCenter(mapa);
         main.setLeft(flechasMover);
         main.setRight(flechasGolpear);
+        main.setBottom(selectorHerramientas);
 
         // Mouse
-        btnMoverIzquierda.setOnAction( e -> {
-            controlador.moverIzquierda();
-        });
-        btnMoverDerecha.setOnAction( e -> {
-            controlador.moverDerecha();
-        });
-        btnMoverAbajo.setOnAction( e -> {
-            controlador.moverAbajo();
-        });
-        btnMoverArriba.setOnAction( e -> {
-            controlador.moverArriba();
-        });
+        btnMoverIzquierda.setOnAction( e -> controlador.moverIzquierda());
+        btnMoverDerecha.setOnAction( e -> controlador.moverDerecha());
+        btnMoverAbajo.setOnAction( e -> controlador.moverAbajo());
+        btnMoverArriba.setOnAction( e -> controlador.moverArriba());
 
-        btnGolpearIzquierda.setOnAction( e -> {
-            controlador.golpearIzquierda();
-        });
-        btnGolpearDerecha.setOnAction( e -> {
-            controlador.golpearDerecha();
-        });
-        btnGolpearAbajo.setOnAction( e -> {
-            controlador.golpearAbajo();
-        });
-        btnGolpearArriba.setOnAction( e -> {
-            controlador.golpearArriba();
-        });
+        btnGolpearIzquierda.setOnAction( e -> controlador.golpearIzquierda());
+        btnGolpearDerecha.setOnAction( e -> controlador.golpearDerecha());
+        btnGolpearAbajo.setOnAction( e -> controlador.golpearAbajo());
+        btnGolpearArriba.setOnAction( e -> controlador.golpearArriba());
 
         // Teclado
         main.setOnKeyPressed(event -> {

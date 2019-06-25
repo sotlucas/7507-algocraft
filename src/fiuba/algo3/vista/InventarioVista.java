@@ -12,11 +12,9 @@ import javafx.scene.layout.*;
 public class InventarioVista {
     private BorderPane root;
     private ImageView seleccionado = null;
-    private Scene scene;
     private GridPane inventario;
 
-    public InventarioVista(Scene scene, ControladorDeEscena controladorDeEscena) {
-        this.scene = scene;
+    public InventarioVista(ControladorDeEscena controladorDeEscena) {
         root = new BorderPane();
         root.setId("background");
 
@@ -126,5 +124,14 @@ public class InventarioVista {
 
     public void agregar(String elemento, int fila, int columna) {
         this.agregarElemento(this.inventario, elemento, fila, columna);
+    }
+
+    public void limpiar() {
+        this.inventario.getChildren().clear();
+        for(int fila = 0; fila < 3; fila++) {
+            for(int col = 0; col < 9; col++) {
+                agregarCasilla(this.inventario, col, fila);
+            }
+        }
     }
 }
