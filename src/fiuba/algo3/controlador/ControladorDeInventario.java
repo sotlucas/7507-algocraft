@@ -1,8 +1,6 @@
 package fiuba.algo3.controlador;
 
-import fiuba.algo3.modelo.Herramienta;
-import fiuba.algo3.modelo.Inventario;
-import fiuba.algo3.modelo.Material;
+import fiuba.algo3.modelo.*;
 import fiuba.algo3.vista.InventarioVista;
 import fiuba.algo3.vista.SelectorHerramientas;
 
@@ -16,6 +14,7 @@ public class ControladorDeInventario {
     private ArrayList<Herramienta> herramientas;
     private InventarioVista inventarioVista;
     private HashMap<Character, String> materialesHash = new HashMap<>();
+    private MesaCrafteo mesaCrafteo = new MesaCrafteo();
 
     public ControladorDeInventario(Inventario inventario, InventarioVista inventarioVista, SelectorHerramientas selectorHerramientas) {
         this.materiales = inventario.getMateriales();
@@ -23,6 +22,7 @@ public class ControladorDeInventario {
         this.selectorHerramientas = selectorHerramientas;
         this.inventarioVista = inventarioVista;
         inicializarHash();
+        inventarioVista.setControlador(this);
     }
 
     public void actualizarVista() {
@@ -48,4 +48,24 @@ public class ControladorDeInventario {
         this.materialesHash.put('d', "diamante");
     }
 
+    public void agregarAMesaCrafteo(char identificador, int pos){
+        Material[] materiales = new Material[4];
+        materiales[0] = new Madera();
+        materiales[1] = new Metal();
+        materiales[2] = new Piedra();
+        materiales[3] = new Diamante();
+        Material material = null;
+        int index = 0;
+        while (material == null || index < 4){
+            if (identificador == materiales[index].getIdentificador()){
+                material = materiales[index];
+            }
+            index++;
+        }
+        mesaCrafteo.colocar(material, pos);
+    }
+
+    public Herramienta crearHerramienta() {
+        return mesaCrafteo.construir();
+    }
 }

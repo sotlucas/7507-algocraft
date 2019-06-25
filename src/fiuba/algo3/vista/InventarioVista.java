@@ -1,6 +1,9 @@
 package fiuba.algo3.vista;
 
 import fiuba.algo3.controlador.ControladorDeEscena;
+import fiuba.algo3.controlador.ControladorDeInventario;
+import fiuba.algo3.modelo.Herramienta;
+import fiuba.algo3.modelo.RecetaNoExisteException;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -13,6 +16,7 @@ public class InventarioVista {
     private BorderPane root;
     private ImageView seleccionado = null;
     private GridPane inventario;
+    private ControladorDeInventario controlador;
 
     public InventarioVista(ControladorDeEscena controladorDeEscena) {
         root = new BorderPane();
@@ -75,7 +79,17 @@ public class InventarioVista {
         ImageView resultado = getImagen("casilla", 64);
         resultado.setId("casilla");
 
-        contenedor.getChildren().addAll(mesa, flecha, resultado);
+        Boton crear = new Boton("Crear");
+        crear.setOnAction(e -> {
+            try {
+                Herramienta nuevaHerramienta = controlador.crearHerramienta();
+                ImageView herramienta = getImagen(nuevaHerramienta.getIdentificador(), 40);
+                contenedor.getChildren().add(herramienta);
+            } catch (RecetaNoExisteException ex) {
+            }
+        });
+
+        contenedor.getChildren().addAll(mesa, flecha,crear , resultado);
 
         return contenedor;
     }
@@ -85,6 +99,7 @@ public class InventarioVista {
         StackPane stack = new StackPane();
         Image itemImage = new Image(getClass().getResourceAsStream("../../../res/"+elemento+".png"), 38, 0, true, true);
         ImageView imageView = new ImageView(itemImage);
+        imageView.setId(String.valueOf(elemento.charAt(0)));
         stack.getChildren().add(imageView);
         inventario.add(stack, fila, columna);
         stack.setId("casilla");
@@ -113,6 +128,8 @@ public class InventarioVista {
             if (this.seleccionado != null) {
                 System.out.println("BACK");
                 stackBack.getChildren().add(this.seleccionado);
+                int pos = (fila * 3) + col;
+                this.controlador.agregarAMesaCrafteo(this.seleccionado.getId().charAt(0),pos);
                 this.seleccionado = null;
             }
         });
@@ -133,5 +150,9 @@ public class InventarioVista {
                 agregarCasilla(this.inventario, col, fila);
             }
         }
+    }
+
+    public void setControlador(ControladorDeInventario controladorDeInventario) {
+        this.controlador = controladorDeInventario;
     }
 }
