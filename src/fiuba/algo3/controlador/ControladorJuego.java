@@ -68,6 +68,7 @@ public class ControladorJuego {
         try {
             juego.getJugador().golpear(new HaciaIzquierda());
         } catch (HerramientaNoSeleccionadaException e) {
+        }catch (PosicionFueraDelMapaException ex){
         }
         actualizarVista();
         controladorDeInventario.actualizarVista();
@@ -77,6 +78,7 @@ public class ControladorJuego {
         try {
             juego.getJugador().golpear(new HaciaDerecha());
         } catch (HerramientaNoSeleccionadaException e) {
+        }catch (PosicionFueraDelMapaException ex){
         }
         actualizarVista();
         controladorDeInventario.actualizarVista();
@@ -86,6 +88,7 @@ public class ControladorJuego {
         try {
             juego.getJugador().golpear(new HaciaArriba());
         } catch (HerramientaNoSeleccionadaException e) {
+        } catch (PosicionFueraDelMapaException ex){
         }
         actualizarVista();
         controladorDeInventario.actualizarVista();
@@ -95,6 +98,7 @@ public class ControladorJuego {
         try {
             juego.getJugador().golpear(new HaciaAbajo());
         } catch (HerramientaNoSeleccionadaException e) {
+        }catch (PosicionFueraDelMapaException ex){
         }
         actualizarVista();
         controladorDeInventario.actualizarVista();
