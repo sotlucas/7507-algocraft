@@ -11,8 +11,11 @@ public class ControladorJuego {
     private JuegoVista juegoVista;
     private HashMap<Character, String> BloquesHash = new HashMap<>();
     private ControladorDeInventario controladorDeInventario;
+    private ReproductorSonidos reproductor;
 
     public ControladorJuego(Juego juego, JuegoVista juegoVista, ControladorDeInventario controladorDeInventario) {
+        this.reproductor = new ReproductorSonidos();
+        this.reproductor.reproducirMusica();
         this.controladorDeInventario = controladorDeInventario;
         this.juego = juego;
         this.juegoVista = juegoVista;
@@ -44,65 +47,31 @@ public class ControladorJuego {
         }
     }
 
-    public void moverIzquierda(){
-        juego.avanzarJugador(new HaciaIzquierda());
+    public void mover(Direccion direccion) {
+        juego.avanzarJugador(direccion);
         actualizarVista();
     }
 
-    public void moverDerecha() {
-        juego.avanzarJugador(new HaciaDerecha());
-        actualizarVista();
-    }
-
-    public void moverArriba() {
-        juego.avanzarJugador(new HaciaArriba());
-        actualizarVista();
-    }
-
-    public void moverAbajo() {
-        juego.avanzarJugador(new HaciaAbajo());
-        actualizarVista();
-    }
-
-    public void golpearIzquierda() {
+    public void golpear(Direccion direccion) {
         try {
-            juego.getJugador().golpear(new HaciaIzquierda());
+            juego.getJugador().golpear(direccion);
+            this.reproductor.reproducirGolpear();
         } catch (HerramientaNoSeleccionadaException e) {
-        }catch (PosicionFueraDelMapaException ex){
+        } catch (PosicionFueraDelMapaException ex) {
         }
         actualizarVista();
         controladorDeInventario.actualizarVista();
     }
 
-    public void golpearDerecha() {
-        try {
-            juego.getJugador().golpear(new HaciaDerecha());
-        } catch (HerramientaNoSeleccionadaException e) {
-        }catch (PosicionFueraDelMapaException ex){
-        }
-        actualizarVista();
-        controladorDeInventario.actualizarVista();
+    public void reproducirMusica() {
+        this.reproductor.reproducirMusica();
     }
 
-    public void golpearArriba() {
-        try {
-            juego.getJugador().golpear(new HaciaArriba());
-        } catch (HerramientaNoSeleccionadaException e) {
-        } catch (PosicionFueraDelMapaException ex){
-        }
-        actualizarVista();
-        controladorDeInventario.actualizarVista();
+    public void pausarMusica() {
+        this.reproductor.pausarMusica();
     }
 
-    public void golpearAbajo() {
-        try {
-            juego.getJugador().golpear(new HaciaAbajo());
-        } catch (HerramientaNoSeleccionadaException e) {
-        }catch (PosicionFueraDelMapaException ex){
-        }
-        actualizarVista();
-        controladorDeInventario.actualizarVista();
+    public boolean musicaPausada() {
+        return this.reproductor.musicaPausada();
     }
 }
-
-

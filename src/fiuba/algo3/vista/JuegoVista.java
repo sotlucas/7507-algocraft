@@ -2,6 +2,10 @@ package fiuba.algo3.vista;
 
 import fiuba.algo3.controlador.ControladorDeEscena;
 import fiuba.algo3.controlador.ControladorJuego;
+import fiuba.algo3.modelo.HaciaAbajo;
+import fiuba.algo3.modelo.HaciaArriba;
+import fiuba.algo3.modelo.HaciaDerecha;
+import fiuba.algo3.modelo.HaciaIzquierda;
 import javafx.geometry.Pos;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -12,7 +16,6 @@ public class JuegoVista {
 
     private GridPane mapa;
     private ControladorJuego controlador;
-
     private BorderPane main;
 
     public JuegoVista(ControladorDeEscena controladorDeEscena, SelectorHerramientas selectorHerramientas) {
@@ -22,14 +25,29 @@ public class JuegoVista {
         this.mapa = new GridPane();
         mapa.setAlignment(Pos.CENTER);
 
+        // Boton mute
+        Image sonido = new Image(getClass().getResourceAsStream("../../../res/sonido.png"), 34, 0, true, true);
+        Image mute = new Image(getClass().getResourceAsStream("../../../res/mute.png"), 34, 0, true, true);
+        Boton btnMute = new Boton(sonido);
+        btnMute.setAlignment(Pos.TOP_LEFT);
+        btnMute.setOnAction(e -> {
+            if (controlador.musicaPausada()) {
+                controlador.reproducirMusica();
+                btnMute.cambiarImagen(sonido);
+            }else {
+                controlador.pausarMusica();
+                btnMute.cambiarImagen(mute);
+            }
+        });
+
         // Top menu
-        HBox menu = new HBox();
+        HBox menu = new HBox(10);
         menu.setAlignment(Pos.CENTER);
         Boton btnInventario = new Boton("Inventario - [E]");
         Boton btnMenu = new Boton("Menu - [ESC]");
         btnInventario.setOnAction(e -> controladorDeEscena.activate("inventario"));
         btnMenu.setOnAction(e -> controladorDeEscena.activate("main"));
-        menu.getChildren().addAll(btnMenu, btnInventario);
+        menu.getChildren().addAll(btnMute, btnMenu, btnInventario);
 
         // Botones para moverse
         VBox flechasMover = new VBox();
@@ -61,15 +79,15 @@ public class JuegoVista {
         main.setBottom(selectorHerramientas);
 
         // Mouse
-        btnMoverIzquierda.setOnAction( e -> controlador.moverIzquierda());
-        btnMoverDerecha.setOnAction( e -> controlador.moverDerecha());
-        btnMoverAbajo.setOnAction( e -> controlador.moverAbajo());
-        btnMoverArriba.setOnAction( e -> controlador.moverArriba());
+        btnMoverIzquierda.setOnAction( e -> controlador.mover(new HaciaIzquierda()));
+        btnMoverDerecha.setOnAction( e -> controlador.mover(new HaciaDerecha()));
+        btnMoverAbajo.setOnAction( e -> controlador.mover(new HaciaAbajo()));
+        btnMoverArriba.setOnAction( e -> controlador.mover(new HaciaDerecha()));
 
-        btnGolpearIzquierda.setOnAction( e -> controlador.golpearIzquierda());
-        btnGolpearDerecha.setOnAction( e -> controlador.golpearDerecha());
-        btnGolpearAbajo.setOnAction( e -> controlador.golpearAbajo());
-        btnGolpearArriba.setOnAction( e -> controlador.golpearArriba());
+        btnGolpearIzquierda.setOnAction( e -> controlador.golpear(new HaciaIzquierda()));
+        btnGolpearDerecha.setOnAction( e -> controlador.golpear(new HaciaDerecha()));
+        btnGolpearAbajo.setOnAction( e -> controlador.golpear(new HaciaAbajo()));
+        btnGolpearArriba.setOnAction( e -> controlador.golpear(new HaciaArriba()));
 
         // Teclado
         main.setOnKeyPressed(event -> {
@@ -81,28 +99,28 @@ public class JuegoVista {
                 controladorDeEscena.activate("main");
             }
             if (event.getCode() == KeyCode.W) {
-                controlador.moverArriba();
+                controlador.mover(new HaciaArriba());
             }
             if (event.getCode() == KeyCode.A) {
-                controlador.moverIzquierda();
+                controlador.mover(new HaciaIzquierda());
             }
             if (event.getCode() == KeyCode.S) {
-                controlador.moverAbajo();
+                controlador.mover(new HaciaAbajo());
             }
             if (event.getCode() == KeyCode.D) {
-                controlador.moverDerecha();
+                controlador.mover(new HaciaDerecha());
             }
             if (event.getCode() == KeyCode.UP) {
-                controlador.golpearArriba();
+                controlador.golpear(new HaciaArriba());
             }
             if (event.getCode() == KeyCode.LEFT) {
-                controlador.golpearIzquierda();
+                controlador.golpear(new HaciaIzquierda());
             }
             if (event.getCode() == KeyCode.DOWN) {
-                controlador.golpearAbajo();
+                controlador.golpear(new HaciaAbajo());
             }
             if (event.getCode() == KeyCode.RIGHT) {
-                controlador.golpearDerecha();
+                controlador.golpear(new HaciaDerecha());
             }
         });
     }
