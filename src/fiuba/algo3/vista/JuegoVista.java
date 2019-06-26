@@ -39,6 +39,8 @@ public class JuegoVista {
                 controlador.pausarMusica();
                 btnMute.cambiarImagen(mute);
             }
+            ShakeTransition animacion = new ShakeTransition(btnMute);
+            animacion.play();
         });
 
         // Top menu

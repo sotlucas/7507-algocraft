@@ -4,6 +4,7 @@ import fiuba.algo3.controlador.ControladorDeEscena;
 import fiuba.algo3.controlador.ControladorDeInventario;
 import fiuba.algo3.controlador.ControladorJuego;
 import fiuba.algo3.modelo.*;
+import fiuba.algo3.vista.animacion.VaivenTransition;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.geometry.Insets;
@@ -15,7 +16,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class AlgoCraft extends Application {
@@ -31,6 +31,8 @@ public class AlgoCraft extends Application {
         // Logo
         ImageView logo = new ImageView(new Image(getClass().getResourceAsStream("../../../res/algocraft.png"), 600, 0, true, true));
         logo.setId("logo");
+        VaivenTransition animacion = new VaivenTransition(logo);
+        animacion.play();
 
         // Botones
         Boton btnJugar = new Boton("Jugar");
@@ -83,13 +85,11 @@ public class AlgoCraft extends Application {
             Platform.exit();
         });
 
-        // PRUEBA
+        // Inicio del juego
         Juego juego = new Juego();
         Jugador jugador = juego.getJugador();
-        jugador.agregarHerramientaAInventario(new Pico(new Piedra()));
         ControladorDeInventario controladorDeInventario = new ControladorDeInventario(jugador.getInventario(), inventarioVista, selectorHerramientas,juego.getJugador());
         controladorDeInventario.actualizarVista();
-
         ControladorJuego controladorJuego = new ControladorJuego(juego, juegoVista, controladorDeInventario);
         controladorJuego.actualizarVista();
     }
