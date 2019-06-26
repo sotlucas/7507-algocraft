@@ -103,7 +103,10 @@ public class Jugador implements Posicionable{
         if(this.herramientaSeleccionada == null){
             throw new HerramientaNoSeleccionadaException();
         }
-        direccion.golpear(mapa, herramientaSeleccionada, this);
+        try {
+            direccion.golpear(mapa, herramientaSeleccionada, this);
+        } catch (PosicionFueraDelMapaException e) {
+        }
         if(herramientaSeleccionada.getDurabilidad() <= 0){
 
             inventario.desecharHerramientaRota();
