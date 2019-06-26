@@ -65,25 +65,37 @@ public class ControladorJuego {
     }
 
     public void golpearIzquierda() {
-        juego.getJugador().golpear(new HaciaIzquierda());
+        try {
+            juego.getJugador().golpear(new HaciaIzquierda());
+        } catch (HerramientaNoSeleccionadaException e) {
+        }
         actualizarVista();
         controladorDeInventario.actualizarVista();
     }
 
     public void golpearDerecha() {
-        juego.getJugador().golpear(new HaciaDerecha());
+        try {
+            juego.getJugador().golpear(new HaciaDerecha());
+        } catch (HerramientaNoSeleccionadaException e) {
+        }
         actualizarVista();
         controladorDeInventario.actualizarVista();
     }
 
     public void golpearArriba() {
-        juego.getJugador().golpear(new HaciaArriba());
+        try {
+            juego.getJugador().golpear(new HaciaArriba());
+        } catch (HerramientaNoSeleccionadaException e) {
+        }
         actualizarVista();
         controladorDeInventario.actualizarVista();
     }
 
     public void golpearAbajo() {
-        juego.getJugador().golpear(new HaciaAbajo());
+        try {
+            juego.getJugador().golpear(new HaciaAbajo());
+        } catch (HerramientaNoSeleccionadaException e) {
+        }
         actualizarVista();
         controladorDeInventario.actualizarVista();
     }
