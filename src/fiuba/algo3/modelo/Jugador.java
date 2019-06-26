@@ -19,19 +19,13 @@ public class Jugador implements Posicionable{
         this.posicion = new Posicion();
         this.inventario.agregarHerramienta(new Hacha(new Madera()));
         this.estaPosicionado = false;
-        this.herramientaSeleccionada = new Hacha(new Madera());
+        this.seleccionarHerramienta(0);
         this.identificador = 'j';
     }
 
     public Jugador(Mapa mapa) {
-        this.mesaDeCrafteo = new MesaCrafteo();
-        this.inventario = new Inventario();
-        this.posicion = new Posicion();
-        this.inventario.agregarHerramienta(new Hacha(new Madera()));
-        this.estaPosicionado = false;
+        this();
         this.mapa = mapa;
-        this.herramientaSeleccionada = new Hacha(new Madera());
-        this.identificador = 'j';
     }
 
     public boolean inventarioContieneHerramienta(Herramienta herramienta) {

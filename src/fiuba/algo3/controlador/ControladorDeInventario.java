@@ -14,7 +14,6 @@ public class ControladorDeInventario {
     private ArrayList<Herramienta> herramientas;
     private InventarioVista inventarioVista;
     private HashMap<Character, String> materialesHash = new HashMap<>();
-    private MesaCrafteo mesaCrafteo = new MesaCrafteo();
     private Jugador jugador;
 
     public ControladorDeInventario(Inventario inventario, InventarioVista inventarioVista, SelectorHerramientas selectorHerramientas, Jugador jugador) {
@@ -25,9 +24,23 @@ public class ControladorDeInventario {
         this.jugador = jugador;
         inicializarHash();
         inventarioVista.setControlador(this);
+
+        this.selectorHerramientas.setOnMouseClicked(e -> {
+            Integer posicion = selectorHerramientas.getPosicion(e);
+            if (posicion != null) {
+                System.out.println(posicion);
+                jugador.seleccionarHerramienta(posicion);
+                this.actualizarSelectorHerramientas();
+            }
+        });
     }
 
     public void actualizarVista() {
+        this.actualizarInventario();
+        this.actualizarSelectorHerramientas();
+    }
+
+    private void actualizarInventario() {
         this.inventarioVista.limpiar();
         int j = -1;
         for (int i = 0; i < this.materiales.size(); i++) {
@@ -36,10 +49,17 @@ public class ControladorDeInventario {
             }
             inventarioVista.agregar(materialesHash.get(this.materiales.get(i).getIdentificador()), i % 9, j);
         }
+    }
 
+    private void actualizarSelectorHerramientas() {
         this.selectorHerramientas.limpiar();
         for (int i = 0; i < herramientas.size(); i++) {
-            this.selectorHerramientas.agregar(herramientas.get(i).getIdentificador(), i);
+            Herramienta herramientaActual = jugador.getHerramientaSeleccionada();
+            if (herramientaActual != null && herramientaActual.equals(herramientas.get(i))) {
+                this.selectorHerramientas.agregarSeleccionado(herramientas.get(i).getIdentificador(), i);
+            } else {
+                this.selectorHerramientas.agregar(herramientas.get(i).getIdentificador(), i);
+            }
         }
     }
 

@@ -92,13 +92,5 @@ public class AlgoCraft extends Application {
 
         ControladorJuego controladorJuego = new ControladorJuego(juego, juegoVista, controladorDeInventario);
         controladorJuego.actualizarVista();
-
-        selectorHerramientas.setOnMouseClicked(e -> {
-            Integer posicion = selectorHerramientas.getPosicion(e);
-            if (posicion != null) {
-                System.out.println(posicion);
-                jugador.seleccionarHerramienta(posicion);
-            }
-        });
     }
 }
