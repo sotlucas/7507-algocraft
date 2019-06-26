@@ -56,9 +56,9 @@ public class ControladorDeInventario {
         for (int i = 0; i < herramientas.size(); i++) {
             Herramienta herramientaActual = jugador.getHerramientaSeleccionada();
             if (herramientaActual != null && herramientaActual.equals(herramientas.get(i))) {
-                this.selectorHerramientas.agregarSeleccionado(herramientas.get(i).getIdentificador(), i);
+                this.selectorHerramientas.agregarSeleccionado(herramientas.get(i).getIdentificador(), i, herramientas.get(i).getDurabilidad());
             } else {
-                this.selectorHerramientas.agregar(herramientas.get(i).getIdentificador(), i);
+                this.selectorHerramientas.agregar(herramientas.get(i).getIdentificador(), i, herramientas.get(i).getDurabilidad());
             }
         }
     }

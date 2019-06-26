@@ -79,3 +79,13 @@
 #bloque:hover {
     -fx-opacity: 0.7;
 }
+
+/*Durabilidad herramientas*/
+.progress-bar .bar {
+    -fx-accent: green;
+    -fx-padding: 2px;
+    -fx-background-insets: 0;
+}
+#durabilidad-herramienta {
+    -fx-padding: 0 0 10 0;
+}
