@@ -1,6 +1,5 @@
 package fiuba.algo3.vista;
 
-import javafx.beans.binding.DoubleBinding;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.geometry.Pos;
@@ -11,8 +10,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 
 public class SelectorHerramientas extends GridPane {
 
@@ -31,10 +28,10 @@ public class SelectorHerramientas extends GridPane {
         stackBack.setId("casilla");
     }
 
-    private void agregarCasillaSeleccionada(int pos, int tamanio) {
+    private void agregarCasillaSeleccionada(int pos) {
         StackPane stackBack = new StackPane();
         ImageView imageView = new ImageView(
-                new Image(getClass().getResourceAsStream("../../../res/seleccionado.png"), tamanio, 0, true, true));
+                new Image(getClass().getResourceAsStream("../../../res/seleccionado.png"), 54, 0, true, true));
         stackBack.getChildren().add(imageView);
         this.add(stackBack, pos, 0);
         stackBack.setId("casilla");
@@ -62,7 +59,7 @@ public class SelectorHerramientas extends GridPane {
     }
 
     public void agregarSeleccionado(String elemento, int pos, double durabilidad) {
-        this.agregarCasillaSeleccionada(pos, 54);
+        this.agregarCasillaSeleccionada(pos);
         this.agregar(elemento, pos, durabilidad);
     }
 
