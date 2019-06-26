@@ -6,6 +6,7 @@ import fiuba.algo3.modelo.HaciaAbajo;
 import fiuba.algo3.modelo.HaciaArriba;
 import fiuba.algo3.modelo.HaciaDerecha;
 import fiuba.algo3.modelo.HaciaIzquierda;
+import fiuba.algo3.vista.animacion.ShakeTransition;
 import javafx.geometry.Pos;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -82,7 +83,7 @@ public class JuegoVista {
         btnMoverIzquierda.setOnAction( e -> controlador.mover(new HaciaIzquierda()));
         btnMoverDerecha.setOnAction( e -> controlador.mover(new HaciaDerecha()));
         btnMoverAbajo.setOnAction( e -> controlador.mover(new HaciaAbajo()));
-        btnMoverArriba.setOnAction( e -> controlador.mover(new HaciaDerecha()));
+        btnMoverArriba.setOnAction( e -> controlador.mover(new HaciaArriba()));
 
         btnGolpearIzquierda.setOnAction( e -> controlador.golpear(new HaciaIzquierda()));
         btnGolpearDerecha.setOnAction( e -> controlador.golpear(new HaciaDerecha()));
