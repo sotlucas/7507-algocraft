@@ -38,7 +38,7 @@ public class Pico extends Herramienta {
             throw new HerramientaSeRompioException();
         }
         posicionable.recibirDanio(this);
-        desgastar();
+
 
     }
 

@@ -14,11 +14,14 @@ public class BloqueMetal extends Bloque {
             throw new BloqueSeRompioException();
         }
         durabilidad -= pico.getFuerzaEspecialContraMetal();
+        pico.desgastar();
 
     }
 
     public void recibirDanio(Hacha hacha) {
+
         this.durabilidad -= 0;
+        hacha.desgastar();
     }
 
     public void recibirDanio(PicoFino picoFino){ this.durabilidad -= 0;}

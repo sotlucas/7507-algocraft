@@ -28,15 +28,14 @@ public class HaciaIzquierda extends Direccion {
         Casilla casillaApuntada = mapa.getCasilla(filaJugador, columnaJugador - 1);
         Posicionable posicionable = casillaApuntada.getElementoContenido();
 
-        if(posicionable != null)
-        {
-            herramienta.usarEn(posicionable);
-            if(posicionable.getDurabilidad() <= 0) {
 
-                casillaApuntada.vaciar();
-                jugador.agregarMaterialAInventario(posicionable.cederMaterial());
-            }
+        herramienta.usarEn(posicionable);
+        if(posicionable.estaRoto()) {
+
+            casillaApuntada.vaciar();
+            jugador.agregarMaterialAInventario(posicionable.cederMaterial());
         }
+
 
 
     }

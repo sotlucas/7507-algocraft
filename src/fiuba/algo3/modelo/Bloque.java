@@ -16,4 +16,9 @@ public abstract class Bloque implements Posicionable{
     public abstract void recibirDanio(PicoFino picoFino);
     public abstract Material cederMaterial();
 
+    @Override
+    public boolean estaRoto(){
+        return this.durabilidad <= 0;
+    }
+
 }

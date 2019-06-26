@@ -13,13 +13,17 @@ public class BloquePiedra extends Bloque {
             throw new BloqueSeRompioException();
         }
         durabilidad -= pico.getFuerza();
+        pico.desgastar();
     }
 
     public void recibirDanio(Hacha hacha) {
+
         this.durabilidad -= 0;
+        hacha.desgastar();
     }
 
-    public void recibirDanio(PicoFino picoFino){ this.durabilidad -= 0;}
+    public void recibirDanio(PicoFino picoFino){
+        this.durabilidad -= 0;}
 
     @Override
     public Material cederMaterial() {

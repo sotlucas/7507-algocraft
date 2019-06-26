@@ -303,7 +303,4 @@ public class JugadorTest {
         jugador.seleccionarHerramienta(-1);
     }
 
-
-
-
 }

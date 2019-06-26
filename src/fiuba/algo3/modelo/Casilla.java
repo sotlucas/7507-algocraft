@@ -8,12 +8,13 @@ public class Casilla {
     public Casilla(){
 
         estado = new Vacio();
-        elementoContenido = null;
+        elementoContenido = new EspacioVacio();
     }
 
     public Casilla(Posicionable elemento){
 
         estado = new Ocupado();
+        elementoContenido = elemento;
     }
 
 
@@ -36,7 +37,7 @@ public class Casilla {
 
     public void vaciar() {
 
-        this.elementoContenido = null;
+        this.elementoContenido = new EspacioVacio();
         this.estado = new Vacio();
     }
 

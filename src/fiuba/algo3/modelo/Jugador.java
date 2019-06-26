@@ -161,4 +161,10 @@ public class Jugador implements Posicionable{
 
     @Override
     public int getDurabilidad(){return 0;}
+
+    @Override
+    public boolean estaRoto(){
+
+        return false;
+    }
 }

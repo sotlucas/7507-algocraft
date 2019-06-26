@@ -36,8 +36,12 @@ public class Hacha extends Herramienta{
             throw new HerramientaSeRompioException();
         }
         posicionable.recibirDanio(this);
-        durabilidad = desgaste.desgastar();
 
+    }
+
+    public void desgastar(){
+
+        durabilidad = this.desgaste.desgastar();
     }
 
 

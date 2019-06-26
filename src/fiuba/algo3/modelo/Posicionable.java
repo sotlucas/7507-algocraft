@@ -8,5 +8,6 @@ public interface Posicionable {
    public void recibirDanio(PicoFino picoFino);
    public Material cederMaterial();
    public int getDurabilidad();
+   public boolean estaRoto();
 
 }
