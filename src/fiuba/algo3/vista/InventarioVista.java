@@ -95,6 +95,7 @@ public class InventarioVista {
                 controlador.crearHerramienta();
                 controlador.quitarDelInventario();
                 vaciar(contenedor);
+                controlador.vaciarMesa();
                 controlador.actualizarVista();
             } catch (RecetaNoExisteException ex) {
             }
