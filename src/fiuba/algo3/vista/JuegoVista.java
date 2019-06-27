@@ -11,6 +11,7 @@ import javafx.geometry.Pos;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.*;
 
 public class JuegoVista {
@@ -93,10 +94,9 @@ public class JuegoVista {
         btnGolpearArriba.setOnAction( e -> controlador.golpear(new HaciaArriba()));
 
         // Teclado
-        main.setOnKeyPressed(event -> {
+        main.addEventFilter(KeyEvent.KEY_PRESSED,event -> {
             if (event.getCode() == KeyCode.E) {
                 controladorDeEscena.activate("inventario");
-
             }
             if (event.getCode() == KeyCode.ESCAPE) {
                 controladorDeEscena.activate("main");
