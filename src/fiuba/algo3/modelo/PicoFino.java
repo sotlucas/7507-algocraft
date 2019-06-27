@@ -2,7 +2,8 @@ package fiuba.algo3.modelo;
 
 public class PicoFino extends Herramienta {
 
-    public PicoFino() {
+    public PicoFino()
+    {
         this.durabilidad = 1000;
         this.fuerza = 20;
         this.material = null; // ver si creamos nuevo material
@@ -11,17 +12,16 @@ public class PicoFino extends Herramienta {
         this.identificador = "pico_fino";
     }
 
-    public void usarEn(Posicionable posicionable){
+    public void usarEn(Posicionable posicionable)
+    {
         if (durabilidad < 1) {
             throw new HerramientaSeRompioException();
         }
         posicionable.recibirDanio(this);
-
     }
 
-    public void desgastar(){
-
+    public void desgastar()
+    {
         durabilidad = this.desgaste.desgastar();
     }
-
 }

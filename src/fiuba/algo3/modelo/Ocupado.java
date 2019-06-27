@@ -3,7 +3,8 @@ package fiuba.algo3.modelo;
 public class Ocupado extends Estado {
 
     @Override
-    public boolean estaVacio() {
+    public boolean estaVacio()
+    {
         return false;
     }
 }

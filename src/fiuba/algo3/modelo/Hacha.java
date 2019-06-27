@@ -2,7 +2,8 @@ package fiuba.algo3.modelo;
 
 public class Hacha extends Herramienta{
 
-    public Hacha(Madera madera) {
+    public Hacha(Madera madera)
+    {
         this.durabilidad = 100;
         this.fuerza = 2;
         this.material = madera;
@@ -11,7 +12,8 @@ public class Hacha extends Herramienta{
         this.identificador = "hacha_madera";
     }
 
-    public Hacha(Piedra piedra){
+    public Hacha(Piedra piedra)
+    {
         this.durabilidad = 200;
         this.fuerza = 5;
         this.material = piedra;
@@ -20,7 +22,8 @@ public class Hacha extends Herramienta{
         this.identificador = "hacha_piedra";
     }
 
-    public Hacha(Metal metal){
+    public Hacha(Metal metal)
+    {
         this.durabilidad = 400;
         this.fuerza = 10;
         this.material = metal;
@@ -30,20 +33,16 @@ public class Hacha extends Herramienta{
     }
 
     @Override
-    public void usarEn(Posicionable posicionable){
-
+    public void usarEn(Posicionable posicionable)
+    {
         if (durabilidad <= 0){
             throw new HerramientaSeRompioException();
         }
         posicionable.recibirDanio(this);
-
     }
 
-    public void desgastar(){
-
+    public void desgastar()
+    {
         durabilidad = this.desgaste.desgastar();
     }
-
-
-
 }

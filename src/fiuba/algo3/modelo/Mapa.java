@@ -6,12 +6,8 @@ public class Mapa {
     private int cantidadFilas;
     private Casilla[][] casillas;
 
-    public Mapa(){
-
-    }
-
-    public Mapa(int cantidadFilas, int cantidadColumnas){
-
+    public Mapa(int cantidadFilas, int cantidadColumnas)
+    {
         this.cantidadFilas = cantidadFilas;
         this.cantidadColumnas = cantidadColumnas;
         casillas = new Casilla[cantidadFilas][cantidadColumnas];
@@ -24,26 +20,27 @@ public class Mapa {
         }
     }
 
-    public int getCantidadFilas() {
-
+    public int getCantidadFilas()
+    {
         return cantidadFilas;
     }
 
-    public int getCantidadColumnas() {
+    public int getCantidadColumnas()
+    {
         return cantidadColumnas;
     }
 
-    public Casilla getCasilla(int fila, int columna){
-
+    public Casilla getCasilla(int fila, int columna)
+    {
         try{
             return casillas[fila][columna];
         } catch(ArrayIndexOutOfBoundsException e) {
             throw new PosicionFueraDelMapaException();
         }
-
     }
 
-    public void colocarBloque(Bloque bloque, int fila, int columna) {
+    public void colocarBloque(Bloque bloque, int fila, int columna)
+    {
         try {
             Casilla casillaIndicada = casillas[fila][columna];
             casillaIndicada.colocar(bloque);
@@ -52,30 +49,33 @@ public class Mapa {
         }
     }
 
-    public void colocarJugador(Jugador jugador, int fila, int columna) {
+    public void colocarJugador(Jugador jugador, int fila, int columna)
+    {
         try {
             Casilla casillaIndicada = casillas[fila][columna];
             casillaIndicada.colocar(jugador);
             jugador.setPosicion(fila, columna);
+
         } catch(ArrayIndexOutOfBoundsException e) {
             throw new PosicionFueraDelMapaException();
         }
     }
 
-    public boolean casillaEstaVacia(int fila, int columna){
-
+    public boolean casillaEstaVacia(int fila, int columna)
+    {
         return casillas[fila][columna].estaVacia();
     }
 
-    public void moverJugador(Jugador jugador, int columnaAnterior, int filaAnterior, int columnaSiguiente, int filaSiguiente) {
-
+    public void moverJugador(Jugador jugador, int columnaAnterior, int filaAnterior, int columnaSiguiente, int filaSiguiente)
+    {
         this.colocarJugador(jugador, filaSiguiente, columnaSiguiente);
         // Tengo que borrar el elemento de la casilla anterior
         Casilla casillaAnterior = casillas[filaAnterior][columnaAnterior];
         casillaAnterior.vaciar();
     }
 
-    public char getIdentificadorEnPosicion(int fila, int columna) {
+    public char getIdentificadorEnPosicion(int fila, int columna)
+    {
         Casilla casilla = casillas [fila][columna];
         return casilla.getIdentificador();
     }

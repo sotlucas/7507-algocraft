@@ -5,49 +5,47 @@ public class Casilla {
     private Estado estado;
     private Posicionable elementoContenido;
 
-    public Casilla(){
-
+    public Casilla()
+    {
         estado = new Vacio();
         elementoContenido = new EspacioVacio();
     }
 
-    public Casilla(Posicionable elemento){
-
+    public Casilla(Posicionable elemento)
+    {
         estado = new Ocupado();
         elementoContenido = elemento;
     }
 
 
-    public boolean estaVacia(){
-
+    public boolean estaVacia()
+    {
         return estado.estaVacio();
     }
 
-    public void colocar(Posicionable elemento){
-
+    public void colocar(Posicionable elemento)
+    {
         if(!estado.estaVacio()){
 
             throw new CasilleroEstaOcupadoException();
         }
-
         elementoContenido = elemento;
         estado = new Ocupado();
-
     }
 
-    public void vaciar() {
-
+    public void vaciar()
+    {
         this.elementoContenido = new EspacioVacio();
         this.estado = new Vacio();
     }
 
-    //METODO NO APROPIADO:
-    public Posicionable getElementoContenido(){
-
+    public Posicionable getElementoContenido()
+    {
         return elementoContenido;
     }
 
-    public char getIdentificador() {
+    public char getIdentificador()
+    {
         if(estado.estaVacio()){
             return 'v';
         }

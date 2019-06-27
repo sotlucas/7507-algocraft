@@ -11,13 +11,6 @@ public class MapaTest {
     public ExpectedException thrown = ExpectedException.none();
 
     @Test
-    public void test01AlCrearseMapaDevuelveAlgoDistintoDeNull(){
-
-        Mapa mapa = new Mapa();
-        Assert.assertNotNull(mapa);
-    }
-
-    @Test
     public void testAlCrearseMapaQuedanEstablecidasCorrectamenteLaCantidadDeFilas(){
 
         int cantidadFilas = 5;

@@ -15,7 +15,8 @@ public class MesaCrafteo {
     private Material[] tablero;
     protected Constructor constructor;
 
-    public MesaCrafteo(){
+    public MesaCrafteo()
+    {
         constructor = new Constructor();
         tablero = new Material[9];
         for(int i = 0; i < 9; i++){
@@ -24,8 +25,8 @@ public class MesaCrafteo {
         }
     }
 
-    public String getRecetaParaConstruir(){
-
+    public String getRecetaParaConstruir()
+    {
         StringBuilder clave = new StringBuilder();
 
         for(Material material: tablero){
@@ -36,38 +37,30 @@ public class MesaCrafteo {
                 clave.append('-');
             }
         }
-
         return clave.toString();
     }
 
-    public void disponerMaterialesParaPicoDeMadera() {
-        tablero[0] = new Madera();
-        tablero[1] = new Madera();
-        tablero[2] = new Madera();
-        tablero[3] = null;
-        tablero[4] = new Madera();
-        tablero[5] = null;
-        tablero[6] = null;
-        tablero[7] = new Madera();
-        tablero[8] = null;
-    }
-
-    public void colocar(Material material, int pos) {
-
+    public void colocar(Material material, int pos)
+    {
         tablero[pos] = material;
     }
 
-    public Herramienta construir(){
+    public Herramienta construir()
+    {
         String receta = this.getRecetaParaConstruir();
 
         return constructor.craftear(receta);
     }
 
-    public void vaciar() {
+    public void vaciar()
+    {
         for(int i = 0; i < 9; i++){
             tablero[i] = null;
         }
     }
 
-    public Material[] getTablero(){ return this.tablero; }
+    public Material[] getTablero()
+    {
+        return this.tablero;
+    }
 }

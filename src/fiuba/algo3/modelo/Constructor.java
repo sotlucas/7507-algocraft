@@ -6,7 +6,8 @@ public class Constructor {
     
     private HashMap<String, ConstructorHerramienta> recetas = new HashMap<String, ConstructorHerramienta>();
 
-    public Constructor() {
+    public Constructor()
+    {
         this.agregarReceta("mm-mm--m-", new ConstruirHachaMadera());
         this.agregarReceta("pp-pm--m-", new ConstruirHachaPiedra());
         this.agregarReceta("MM-Mm--m-", new ConstruirHachaMetal());
@@ -16,35 +17,22 @@ public class Constructor {
         this.agregarReceta("MMMpm--m-", new ConstruirPicoFino());
     }
 
-    public boolean puedoCraftear(String receta) {
+    public boolean puedoCraftear(String receta)
+    {
         return this.recetas.containsKey(receta);
     }
 
-    public void agregarReceta(String receta, ConstructorHerramienta constructor) {
+    public void agregarReceta(String receta, ConstructorHerramienta constructor)
+    {
         this.recetas.put(receta, constructor);
     }
 
 
-    public Herramienta craftear(String receta) {
-
+    public Herramienta craftear(String receta)
+    {
         if (this.puedoCraftear(receta)) {
             return this.recetas.get(receta).construir();
         }
         throw new RecetaNoExisteException();
     }
 }
-
-    /*
-    private Item construir(Hacha hacha) {
-        return new Hacha(hacha.getMaterial().getClass());
-    }
-
-    private Item construir(Pico pico) {
-        return new Pico(pico.getMaterial());
-    }
-
-    private Item construir(PicoFino picoFino) {
-        return new PicoFino();
-    }
-    */
- 

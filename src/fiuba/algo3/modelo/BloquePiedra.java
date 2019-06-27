@@ -2,13 +2,14 @@ package fiuba.algo3.modelo;
 
 public class BloquePiedra extends Bloque {
 
-    public BloquePiedra() {
-
+    public BloquePiedra()
+    {
         this.durabilidad = 30;
         this.identificador = 'p';
     }
 
-    public void recibirDanio(Pico pico) {
+    public void recibirDanio(Pico pico)
+    {
         if(durabilidad <= 0){
             throw new BloqueSeRompioException();
         }
@@ -16,18 +17,20 @@ public class BloquePiedra extends Bloque {
         pico.desgastar();
     }
 
-    public void recibirDanio(Hacha hacha) {
-
+    public void recibirDanio(Hacha hacha)
+    {
         this.durabilidad -= 0;
         hacha.desgastar();
     }
 
-    public void recibirDanio(PicoFino picoFino){
-        this.durabilidad -= 0;}
-
-    @Override
-    public Material cederMaterial() {
-        return new Piedra();
+    public void recibirDanio(PicoFino picoFino)
+    {
+        this.durabilidad -= 0;
     }
 
+    @Override
+    public Material cederMaterial()
+    {
+        return new Piedra();
+    }
 }

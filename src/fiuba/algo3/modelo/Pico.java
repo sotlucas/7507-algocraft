@@ -2,7 +2,8 @@ package fiuba.algo3.modelo;
 
 public class Pico extends Herramienta {
 
-    public Pico(Madera madera) {
+    public Pico(Madera madera)
+    {
         this.durabilidad = 100;
         this.fuerza = 2;
         this.material = madera;
@@ -12,7 +13,8 @@ public class Pico extends Herramienta {
         this.identificador = "pico_madera";
     }
 
-    public Pico(Piedra piedra) {
+    public Pico(Piedra piedra)
+    {
         this.durabilidad = 200;
         this.fuerza = 4;
         this.material = piedra;
@@ -22,7 +24,8 @@ public class Pico extends Herramienta {
         this.identificador = "pico_piedra";
     }
 
-    public Pico(Metal metal) {
+    public Pico(Metal metal)
+    {
         this.durabilidad = 400;
         this.fuerza = 12;
         this.material = metal;
@@ -32,22 +35,21 @@ public class Pico extends Herramienta {
         this.identificador = "pico_metal";
     }
 
-    public void usarEn(Posicionable posicionable){
-
+    public void usarEn(Posicionable posicionable)
+    {
         if (durabilidad <= 0) {
             throw new HerramientaSeRompioException();
         }
         posicionable.recibirDanio(this);
-
-
     }
 
-    public int getFuerzaEspecialContraMetal(){
+    public int getFuerzaEspecialContraMetal()
+    {
         return this.fuerzaEspecialContraMetal;
     }
 
-    public void desgastar(){
-
+    public void desgastar()
+    {
         durabilidad = this.desgaste.desgastar();
     }
 }

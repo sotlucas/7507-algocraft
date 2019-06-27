@@ -8,22 +8,25 @@ public class Inventario {
     private ArrayList<Material> materiales;
     private int posicionHerramientaSeleccionada;
 
-    public Inventario() {
+    public Inventario()
+    {
         this.herramientas = new ArrayList<>();
         this.materiales = new ArrayList<>();
         this.posicionHerramientaSeleccionada = 0;
     }
 
-    public void agregarHerramienta(Herramienta herramienta) {
+    public void agregarHerramienta(Herramienta herramienta)
+    {
         this.herramientas.add(herramienta);
     }
 
-    public void agregarMaterial(Material material) {
+    public void agregarMaterial(Material material)
+    {
         this.materiales.add(material);
     }
 
-    public boolean contieneHerramienta(Herramienta herramienta) {
-
+    public boolean contieneHerramienta(Herramienta herramienta)
+    {
         int indice = 0;
         boolean herramientaEncontrada = false;
 
@@ -34,14 +37,12 @@ public class Inventario {
             }
 
             indice++;
-
         }
-
         return herramientaEncontrada;
     }
 
-    public boolean contieneMaterial(Material material) {
-
+    public boolean contieneMaterial(Material material)
+    {
         int indice = 0;
         boolean materialEncontrado = false;
 
@@ -52,33 +53,33 @@ public class Inventario {
             }
 
             indice++;
-
         }
-
         return materialEncontrado;
     }
 
-    public Material seleccionarMaterial(int posicion) {
+    public Material seleccionarMaterial(int posicion)
+    {
         return materiales.get(posicion);
     }
 
-    public Herramienta seleccionarHerramienta(int posicion) {
+    public Herramienta seleccionarHerramienta(int posicion)
+    {
         this.posicionHerramientaSeleccionada = posicion;
         return herramientas.get(posicion);
-
     }
-    public ArrayList<Herramienta> getHerramientas(){
 
+    public ArrayList<Herramienta> getHerramientas()
+    {
         return this.herramientas;
-
     }
 
-    public ArrayList<Material> getMateriales() {
+    public ArrayList<Material> getMateriales()
+    {
         return materiales;
     }
 
-    public void desecharHerramientaRota() {
-
+    public void desecharHerramientaRota()
+    {
         this.herramientas.remove(posicionHerramientaSeleccionada);
     }
 

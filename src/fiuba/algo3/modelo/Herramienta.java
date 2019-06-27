@@ -12,23 +12,52 @@ public abstract class Herramienta {
 
     public abstract void usarEn(Posicionable posicionable);
 
-    public int getFuerza(){
+    public int getFuerza()
+    {
         return fuerza;
     }
 
-    public double getDurabilidad(){
+    public double getDurabilidad()
+    {
         return durabilidad;
     }
 
-    public Material getMaterial(){
+    public Material getMaterial()
+    {
         return material;
     }
 
-    public String getReceta() {
+    public String getReceta()
+    {
         return receta;
     }
 
-    public String getIdentificador() {
+    public String getIdentificador()
+    {
         return this.identificador;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

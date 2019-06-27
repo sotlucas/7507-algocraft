@@ -13,7 +13,8 @@ public class Jugador implements Posicionable{
     private Herramienta herramientaSeleccionada;
     private char identificador;
 
-    public Jugador(){
+    public Jugador()
+    {
         this.mesaDeCrafteo = new MesaCrafteo();
         this.inventario = new Inventario();
         this.posicion = new Posicion();
@@ -23,87 +24,97 @@ public class Jugador implements Posicionable{
         this.identificador = 'j';
     }
 
-    public Jugador(Mapa mapa) {
+    public Jugador(Mapa mapa)
+    {
         this();
         this.mapa = mapa;
     }
 
-    public boolean inventarioContieneHerramienta(Herramienta herramienta) {
+    public boolean inventarioContieneHerramienta(Herramienta herramienta)
+    {
         return this.inventario.contieneHerramienta(herramienta);
     }
 
-    public boolean inventarioContieneMaterial(Material material) {
+    public boolean inventarioContieneMaterial(Material material)
+    {
         return this.inventario.contieneMaterial(material);
     }
 
-    public void avanzar(Direccion direccion) {
+    public void avanzar(Direccion direccion)
+    {
         direccion.avanzar(mapa, this);
     }
 
-    public void setPosicion(int fila, int columna) {
-
+    public void setPosicion(int fila, int columna)
+    {
         this.posicion.setColumna(columna);
         this.posicion.setFila(fila);
         this.estaPosicionado = true;
     }
 
-    public int getPosicionColumna() {
+    public int getPosicionColumna()
+    {
         return this.posicion.getColumna();
     }
 
-    public int getPosicionFila() {
+    public int getPosicionFila()
+    {
         return this.posicion.getFila();
     }
 
-    public void seleccionarMaterial(int posicion) {
+    public void seleccionarMaterial(int posicion)
+    {
         this.materialSeleccionado = this.inventario.seleccionarMaterial(posicion);
     }
 
     public void seleccionarHerramienta(int posicion)
     {
-
         this.herramientaSeleccionada = this.inventario.seleccionarHerramienta(posicion);
-
     }
 
-    public void deseleccionarHerramienta(){
-
+    public void deseleccionarHerramienta()
+    {
         this.herramientaSeleccionada = null;
     }
 
-    public void colocarEnMesa(int posicion) {
+    public void colocarEnMesa(int posicion)
+    {
         this.mesaDeCrafteo.colocar(this.materialSeleccionado, posicion);
     }
 
-    public void vaciarMesa() {
+    public void vaciarMesa()
+    {
         this.mesaDeCrafteo.vaciar();
     }
 
-    public void craftear() {
-
+    public void craftear()
+    {
         this.inventario.agregarHerramienta(this.mesaDeCrafteo.construir());
     }
 
-    public void agregarMaterialAInventario(Material material) {
+    public void agregarMaterialAInventario(Material material)
+    {
         this.inventario.agregarMaterial(material);
     }
 
-    public void agregarHerramientaAInventario(Herramienta herramienta) {
+    public void agregarHerramientaAInventario(Herramienta herramienta)
+    {
         this.inventario.agregarHerramienta(herramienta);
     }
 
-    public boolean estaPosicionado(){
+    public boolean estaPosicionado()
+    {
         return this.estaPosicionado;
     }
 
-    // ---------- EL JUGADOR TENDRIA QUE TENER ESTOS METODOS:
-
-    public void golpear(Direccion direccion){
-
+    public void golpear(Direccion direccion)
+    {
         if(this.herramientaSeleccionada == null){
             throw new HerramientaNoSeleccionadaException();
         }
+
         direccion.golpear(mapa, herramientaSeleccionada, this);
+
         if(herramientaSeleccionada.getDurabilidad() <= 0){
 
             inventario.desecharHerramientaRota();
@@ -111,37 +122,44 @@ public class Jugador implements Posicionable{
         }
     }
 
-    public void quitarDelInventarioLoQueHayEnLaMesa() {
+    public void quitarDelInventarioLoQueHayEnLaMesa()
+    {
         Material[] tablero = this.mesaDeCrafteo.getTablero();
         ArrayList<Material> inventario = this.inventario.getMateriales();
+
         for(Material material : tablero) {
             if (material != null) { inventario.remove(material); }
         }
     }
 
-    public String getReceta(){
+    public String getReceta()
+    {
         return this.mesaDeCrafteo.getRecetaParaConstruir();
     }
 
-    public double getDurabilidadHerramientaActual() {
+    public double getDurabilidadHerramientaActual()
+    {
         return this.herramientaSeleccionada.getDurabilidad();
     }
 
-    //LO CREE SOLO PARA PRUEBAS:
-    public Material getMaterialSeleccionado() {
+    public Material getMaterialSeleccionado()
+    {
         return this.materialSeleccionado;
     }
 
-    public Herramienta getHerramientaSeleccionada(){
+    public Herramienta getHerramientaSeleccionada()
+    {
         return this.herramientaSeleccionada;
     }
 
-    public Inventario getInventario() {
+    public Inventario getInventario()
+    {
         return this.inventario;
     }
 
     @Override
-    public char getIdentificador(){
+    public char getIdentificador()
+    {
         return this.identificador;
     }
 
@@ -157,14 +175,19 @@ public class Jugador implements Posicionable{
     public void recibirDanio(PicoFino picoFino) {}
 
     @Override
-    public Material cederMaterial() {return null;}
+    public Material cederMaterial()
+    {
+        return null;
+    }
 
     @Override
-    public int getDurabilidad(){return 0;}
+    public int getDurabilidad()
+    {
+        return 0;
+    }
 
     @Override
     public boolean estaRoto(){
-
         return false;
     }
 }

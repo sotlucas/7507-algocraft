@@ -39,7 +39,16 @@ public class MesaCrafteoTest {
 
         MesaCrafteo mesaCrafteo = new MesaCrafteo();
 
-        mesaCrafteo.disponerMaterialesParaPicoDeMadera();
+        mesaCrafteo.colocar(new Madera(), 0);
+        mesaCrafteo.colocar(new Madera(), 1);
+        mesaCrafteo.colocar(new Madera(), 2);
+        mesaCrafteo.colocar(null, 3);
+        mesaCrafteo.colocar(new Madera(), 4);
+        mesaCrafteo.colocar(null, 5);
+        mesaCrafteo.colocar(null, 6);
+        mesaCrafteo.colocar(new Madera(), 7);
+        mesaCrafteo.colocar(null, 8);
+
         String receta = mesaCrafteo.getRecetaParaConstruir();
 
         Assert.assertEquals("mmm-m--m-", receta);

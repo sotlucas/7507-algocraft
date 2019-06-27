@@ -7,32 +7,29 @@ public class EspacioVacio implements Posicionable {
     }
 
     @Override
-    public void recibirDanio(Hacha hacha) {
-
-    }
+    public void recibirDanio(Hacha hacha) {}
 
     @Override
-    public void recibirDanio(Pico pico) {
-
-    }
+    public void recibirDanio(Pico pico) {}
 
     @Override
-    public void recibirDanio(PicoFino picoFino) {
-
-    }
+    public void recibirDanio(PicoFino picoFino) {}
 
     @Override
-    public Material cederMaterial() {
+    public Material cederMaterial()
+    {
         return null;
     }
 
     @Override
-    public int getDurabilidad() {
+    public int getDurabilidad()
+    {
         return 0;
     }
 
     @Override
-    public boolean estaRoto(){
+    public boolean estaRoto()
+    {
         return false;
     }
 }

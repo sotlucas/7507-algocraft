@@ -5,19 +5,23 @@ public class Posicion {
     private int columna;
     private int fila;
 
-    public void setColumna(int columna) {
+    public void setColumna(int columna)
+    {
         this.columna = columna;
     }
 
-    public void setFila(int fila) {
+    public void setFila(int fila)
+    {
         this.fila = fila;
     }
 
-    public int getColumna() {
+    public int getColumna()
+    {
         return this.columna;
     }
 
-    public int getFila() {
+    public int getFila()
+    {
         return this.fila;
     }
 }

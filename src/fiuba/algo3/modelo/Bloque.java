@@ -5,20 +5,34 @@ public abstract class Bloque implements Posicionable{
     protected int durabilidad;
     protected char identificador;
 
+    public abstract Material cederMaterial();
+
     public int getDurabilidad() {
         return this.durabilidad;
     }
-    public char getIdentificador(){
+
+    public char getIdentificador()
+    {
         return this.identificador;
     }
-    public abstract void recibirDanio(Pico pico);
-    public abstract void recibirDanio(Hacha hacha);
-    public abstract void recibirDanio(PicoFino picoFino);
-    public abstract Material cederMaterial();
 
     @Override
-    public boolean estaRoto(){
+    public boolean estaRoto()
+    {
         return this.durabilidad <= 0;
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -3,8 +3,8 @@ package fiuba.algo3.modelo;
 public class HaciaArriba extends Direccion {
 
     @Override
-    public void avanzar(Mapa mapa, Jugador jugador) {
-
+    public void avanzar(Mapa mapa, Jugador jugador)
+    {
         if(!jugador.estaPosicionado()){
             throw new JugadorNoPosicionadoException();
         }
@@ -19,8 +19,8 @@ public class HaciaArriba extends Direccion {
     }
 
     @Override
-    public void golpear(Mapa mapa, Herramienta herramienta, Jugador jugador){
-
+    public void golpear(Mapa mapa, Herramienta herramienta, Jugador jugador)
+    {
         int columnaJugador = jugador.getPosicionColumna();
         int filaJugador = jugador.getPosicionFila();
         Casilla casillaApuntada = mapa.getCasilla(filaJugador - 1, columnaJugador);
@@ -32,9 +32,5 @@ public class HaciaArriba extends Direccion {
             casillaApuntada.vaciar();
             jugador.agregarMaterialAInventario(posicionable.cederMaterial());
         }
-
-
-
-
     }
 }
