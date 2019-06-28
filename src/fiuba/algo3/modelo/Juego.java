@@ -7,7 +7,7 @@ public class Juego {
 
     public Juego()
     {
-        mapa = new Mapa(9, 15);
+        mapa = new Mapa(9, 13);
         jugador = new Jugador(mapa);
         disponerElementosEnElMapa();
     }
