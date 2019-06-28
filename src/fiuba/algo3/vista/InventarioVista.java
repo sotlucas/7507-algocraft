@@ -86,8 +86,6 @@ public class InventarioVista {
         GridPane mesa = crearInventario(3, 3, true);
 
         ImageView flecha = getImagen("flecha", 48);
-        ImageView resultado = getImagen("casilla", 64);
-        resultado.setId("casilla");
 
         Boton crear = new Boton("Crear");
         crear.setOnAction(e -> {
@@ -101,7 +99,7 @@ public class InventarioVista {
             }
         });
 
-        contenedor.getChildren().addAll(mesa, flecha,crear , resultado);
+        contenedor.getChildren().addAll(mesa, flecha,crear);
 
         return contenedor;
     }
@@ -181,8 +179,6 @@ public class InventarioVista {
         GridPane mesaCrafteo = crearInventario(3, 3, true);
 
         ImageView flecha = getImagen("flecha", 48);
-        ImageView resultado = getImagen("casilla", 64);
-        resultado.setId("casilla");
 
         Boton crear = new Boton("Crear");
         crear.setOnAction(e -> {
@@ -195,6 +191,6 @@ public class InventarioVista {
             }
         });
 
-        mesa.getChildren().addAll(mesaCrafteo, flecha,crear , resultado);
+        mesa.getChildren().addAll(mesaCrafteo, flecha,crear);
     }
 }
